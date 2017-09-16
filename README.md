@@ -9,7 +9,11 @@ We are going to use some of the Extreme Programming (XP) and scrum practices whi
 The project is going to developed over a period of 2 months divided into 4 sprints of 2 weeks each. During every sprint each individual is responsible for implementing 2 user-stories.
 
 Authors (In alphabetical order):
+
 Dhavala Manjunatha
+
 Shivani Devoor
+
 Sneha Nagmoti
+
 Vasudha Nagaraju
