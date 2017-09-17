@@ -31,3 +31,4 @@ class Individual(object):
 	def setSpouseFamily(self, spouseFamily):
 		self.spouseFamily = spouseFamily
 
+		
