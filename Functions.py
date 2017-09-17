@@ -9,3 +9,4 @@ def formatDate(date):
 	year = date[2]
 
 	return (year + '-' + month + '-' + day)
+
