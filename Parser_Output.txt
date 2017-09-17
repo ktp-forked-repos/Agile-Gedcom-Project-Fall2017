@@ -1,0 +1,29 @@
++-----+----------------------+--------+------------+------------+-------+--------+
+|  ID |         Name         | Gender |  Birthday  |   Death    | Child | Spouse |
++-----+----------------------+--------+------------+------------+-------+--------+
+|  I1 |  John /Winchester/   |   M    | 1945-01-05 |     NA     |   NA  |   F1   |
+|  I2 |  Mary /Winchester/   |   F    | 1948-08-19 |     NA     |   NA  |   F1   |
+|  I3 |  Dean /Winchester/   |   M    | 1970-04-15 |     NA     |   F1  |   F2   |
+|  I4 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F1  |   F3   |
+|  I5 | Christine /Campbell/ |   F    | 1977-12-18 |     NA     |   F1  |   F5   |
+|  I6 |  Lisa /Winchester/   |   F    | 1972-06-10 |     NA     |   NA  |   F2   |
+|  I7 |   Jessica /Carver/   |   F    | 1977-10-31 |     NA     |   NA  |   F3   |
+|  I8 |    Shane /Moore/     |   M    | 1968-04-24 | 2004-07-06 |   NA  |   F5   |
+|  I9 |   Mark /Campbell/    |   M    | 1976-11-20 |     NA     |   NA  |   F4   |
+| I10 | Justice /Winchester/ |   F    | 1993-05-01 |     NA     |   F2  |   NA   |
+| I11 |  Zack /Winchester/   |   M    | 1995-09-15 |     NA     |   F2  |   NA   |
+| I12 |   Ben /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |
+| I13 |  Mike /Winchester/   |   M    | 1998-01-25 |     NA     |   F3  |   NA   |
+| I14 |    Kevin /Moore/     |   M    | 1998-06-12 |     NA     |   F5  |   NA   |
+| I15 |    Sydney /Moore/    |   F    | 2000-03-28 |     NA     |   F5  |   NA   |
+| I16 |  Hannah /Campbell/   |   F    | 2006-11-16 |     NA     |   F4  |   NA   |
++-----+----------------------+--------+------------+------------+-------+--------+
++----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
+| ID |  Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |      Children      |
++----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
+| F1 | 1968-05-02 |     NA     |     I1     | John /Winchester/ |    I2   |  Mary /Winchester/   | ['I3', 'I4', 'I5'] |
+| F2 | 1991-01-31 |     NA     |     I3     | Dean /Winchester/ |    I6   |  Lisa /Winchester/   |   ['I10', 'I11']   |
+| F3 | 1994-08-08 | 2002-12-27 |     I4     |  Sam /Winchester/ |    I7   |   Jessica /Carver/   |   ['I12', 'I13']   |
+| F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
+| F5 | 1997-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
++----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
