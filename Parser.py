@@ -7,9 +7,6 @@ individual = OrderedDict()
 family = OrderedDict()
 
 with open("GEDCOM_File.ged") as inputFile:
-	# List of valid tags
-	validTags = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
-	
 	for line in inputFile:
 		# Split each line into individual elements
 		values = line.split()		
@@ -29,62 +26,58 @@ with open("GEDCOM_File.ged") as inputFile:
 				tag = values[2]
 				args = values[1]
 
-		# Exception 2
-		# Check if the tag is valid or not and write the output line with a corresponding 'Y' or 'N'	
-		if tag in validTags:
-			# Level 1 Date and Level 2 Name are invalid
-			if (level == '1' and tag == 'DATE') or (level == '2' and tag == 'NAME'):
-				pass
-			else:
-				# Create individual and family class
-				if (level == '0'):
-					args = args.strip('@')
-					label = args
-					if (tag == 'INDI'):
-						individual[label] = Individual(args) 
-					elif (tag == 'FAM'):
-						family[label] = Family(args)
-				elif (level == '1'):
-					if (tag == 'NAME'):
-						individual[label].setName(args)
-					elif (tag == 'SEX'):
-						individual[label].setSex(args)
-					elif (tag == 'BIRT'):
-						date = 'birthday'
-					elif (tag == 'DEAT'):
-						date = 'death'
-					elif (tag == 'FAMC'):
-						args = args.strip('@')
-						individual[label].setChildFamily(args)
-					elif (tag == 'FAMS'):
-						args = args.strip('@')
-						individual[label].setSpouseFamily(args)
-					elif (tag == 'HUSB'):
-						args = args.strip('@')
-						family[label].setHusband(args)
-					elif (tag == 'WIFE'):
-						args = args.strip('@')
-						family[label].setWife(args)
-					elif (tag == 'CHIL'):
-						args = args.strip('@')
-						family[label].setChildren(args)
-					elif (tag == 'MARR'):
-						date = 'marriage'
-					elif (tag == 'DIV'):
-						date = 'divorce'
+		#Check if the tags are valid by checking with basic syntax
+		#Add to Individual and Family OrderedDict
+		if (level == '0'):
+			args = args.strip('@')
+			label = args
+			if (tag == 'INDI'):
+				individual[label] = Individual(args) 
+			elif (tag == 'FAM'):
+				family[label] = Family(args)
+		elif (level == '1'):
+			if (tag == 'NAME'):
+				individual[label].setName(args)
+			elif (tag == 'SEX'):
+				individual[label].setSex(args)
+			elif (tag == 'BIRT'):
+				date = 'birthday'
+			elif (tag == 'DEAT'):
+				date = 'death'
+			elif (tag == 'FAMC'):
+				args = args.strip('@')
+				individual[label].setChildFamily(args)
+			elif (tag == 'FAMS'):
+				args = args.strip('@')
+				individual[label].setSpouseFamily(args)
+			elif (tag == 'HUSB'):
+				args = args.strip('@')
+				family[label].setHusband(args)
+			elif (tag == 'WIFE'):
+				args = args.strip('@')
+				family[label].setWife(args)
+			elif (tag == 'CHIL'):
+				args = args.strip('@')
+				family[label].setChildren(args)
+			elif (tag == 'MARR'):
+				date = 'marriage'
+			elif (tag == 'DIV'):
+				date = 'divorce'
 
-				elif (level == '2') and (tag == 'DATE'):
-					if (date == 'birthday'):
-						individual[label].setBirthday(args)
-					elif (date == 'death'):
-						individual[label].setDeath(args)
-					elif (date == 'marriage'):
-						family[label].setMarriage(args)
-					elif (date == 'divorce'):
-						family[label].setDivorce(args)
+		elif (level == '2') and (tag == 'DATE'):
+			if (date == 'birthday'):
+				individual[label].setBirthday(args)
+			elif (date == 'death'):
+				individual[label].setDeath(args)
+			elif (date == 'marriage'):
+				family[label].setMarriage(args)
+			elif (date == 'divorce'):
+				family[label].setDivorce(args)
 
+#Output file
 outputFile = open('Parser_Output.txt', 'w')
 
+#Create table with the values
 individualTable = PrettyTable()
 individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse']
 for indi in individual:
