@@ -9,70 +9,73 @@ family = OrderedDict()
 with open("GEDCOM_File.ged") as inputFile:
 	for line in inputFile:
 		# Split each line into individual elements
-		values = line.split()		
-		level = values[0]	# LEVEL
-		tag = values[1]		# TAG
+		values = line.split()
 
-		spaceSeparator = ['DATE', 'NAME', 'NOTE']
-		sep = ''
-		if tag in spaceSeparator:
-			sep = ' '
-		# ARGS is the remaining part 
-		args = sep.join(values[2:])
+		#Check if the line is not blank
+		if(values):		
+			level = values[0]	# LEVEL
+			tag = values[1]		# TAG
 
-		# Exception 1
-		# For INDI and FAM tag is the 3rd element while ARG is the 2nd element 
-		if (tag[0] == '@'):
-				tag = values[2]
-				args = values[1]
+			spaceSeparator = ['DATE', 'NAME', 'NOTE']
+			sep = ''
+			if tag in spaceSeparator:
+				sep = ' '
+			# ARGS is the remaining part 
+			args = sep.join(values[2:])
 
-		#Check if the tags are valid by checking with basic syntax
-		#Add to Individual and Family OrderedDict
-		if (level == '0'):
-			args = args.strip('@')
-			label = args
-			if (tag == 'INDI'):
-				individual[label] = Individual(args) 
-			elif (tag == 'FAM'):
-				family[label] = Family(args)
-		elif (level == '1'):
-			if (tag == 'NAME'):
-				individual[label].setName(args)
-			elif (tag == 'SEX'):
-				individual[label].setSex(args)
-			elif (tag == 'BIRT'):
-				date = 'birthday'
-			elif (tag == 'DEAT'):
-				date = 'death'
-			elif (tag == 'FAMC'):
-				args = args.strip('@')
-				individual[label].setChildFamily(args)
-			elif (tag == 'FAMS'):
-				args = args.strip('@')
-				individual[label].setSpouseFamily(args)
-			elif (tag == 'HUSB'):
-				args = args.strip('@')
-				family[label].setHusband(args)
-			elif (tag == 'WIFE'):
-				args = args.strip('@')
-				family[label].setWife(args)
-			elif (tag == 'CHIL'):
-				args = args.strip('@')
-				family[label].setChildren(args)
-			elif (tag == 'MARR'):
-				date = 'marriage'
-			elif (tag == 'DIV'):
-				date = 'divorce'
+			# Exception 1
+			# For INDI and FAM tag is the 3rd element while ARG is the 2nd element 
+			if (tag[0] == '@'):
+					tag = values[2]
+					args = values[1]
 
-		elif (level == '2') and (tag == 'DATE'):
-			if (date == 'birthday'):
-				individual[label].setBirthday(args)
-			elif (date == 'death'):
-				individual[label].setDeath(args)
-			elif (date == 'marriage'):
-				family[label].setMarriage(args)
-			elif (date == 'divorce'):
-				family[label].setDivorce(args)
+			#Check if the tags are valid by checking with basic syntax
+			#Add to Individual and Family OrderedDict
+			if (level == '0'):
+				args = args.strip('@')
+				label = args
+				if (tag == 'INDI'):
+					individual[label] = Individual(args) 
+				elif (tag == 'FAM'):
+					family[label] = Family(args)
+			elif (level == '1'):
+				if (tag == 'NAME'):
+					individual[label].setName(args)
+				elif (tag == 'SEX'):
+					individual[label].setSex(args)
+				elif (tag == 'BIRT'):
+					date = 'birthday'
+				elif (tag == 'DEAT'):
+					date = 'death'
+				elif (tag == 'FAMC'):
+					args = args.strip('@')
+					individual[label].setChildFamily(args)
+				elif (tag == 'FAMS'):
+					args = args.strip('@')
+					individual[label].setSpouseFamily(args)
+				elif (tag == 'HUSB'):
+					args = args.strip('@')
+					family[label].setHusband(args)
+				elif (tag == 'WIFE'):
+					args = args.strip('@')
+					family[label].setWife(args)
+				elif (tag == 'CHIL'):
+					args = args.strip('@')
+					family[label].setChildren(args)
+				elif (tag == 'MARR'):
+					date = 'marriage'
+				elif (tag == 'DIV'):
+					date = 'divorce'
+
+			elif (level == '2') and (tag == 'DATE'):
+				if (date == 'birthday'):
+					individual[label].setBirthday(args)
+				elif (date == 'death'):
+					individual[label].setDeath(args)
+				elif (date == 'marriage'):
+					family[label].setMarriage(args)
+				elif (date == 'divorce'):
+					family[label].setDivorce(args)
 
 #Output file
 outputFile = open('Parser_Output.txt', 'w')
