@@ -3,13 +3,14 @@ from Functions import checkDate
 
 class Individual(object):
 
-	def __init__(self, ID, name = '', sex = '', birthday = '', death = 'NA', childFamily = 'NA', spouseFamily = 'NA'
+	def __init__(self, ID, name = '', sex = '', birthday = '', death = 'NA', age = '-', childFamily = 'NA', spouseFamily = 'NA'
 				,marriage ='NA'):
 		self.ID = ID
 		self.name = name
 		self.sex = sex
 		self.birthday = birthday
 		self.death = death
+		self.age = age
 		self.childFamily = childFamily
 		self.spouseFamily = spouseFamily
 		self.marriage = marriage
@@ -28,6 +29,9 @@ class Individual(object):
 		death = formatDate(death)
 		self.death = death
 
+	def setAge(self, age):
+		self.age = age
+
 	def setChildFamily(self, childFamily):
 		self.childFamily = childFamily
 
@@ -36,6 +40,9 @@ class Individual(object):
 
 	def setMarriage(self, marriage):
 		self.marriage = marriage
+
+	def getBirthday(self):
+		return self.birthday
 
 
 	
