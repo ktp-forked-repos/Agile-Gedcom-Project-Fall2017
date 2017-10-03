@@ -27,11 +27,6 @@
 | F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
 | F5 | 1967-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
 +----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
-
-                                                                     Error Report                                                                     
-
-	Tag		Concerned		User Story			Description						Location
-
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I1 - 72
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I2 - 69
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I3 - 47
@@ -48,6 +43,15 @@ INFORMATION		INDIVIDUAL		US27			List each individual's age				I13 - 19
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I14 - 19
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I15 - 17
 INFORMATION		INDIVIDUAL		US27			List each individual's age				I16 - 10
-ERROR		INDIVIDUAL		US02			marriage 1967-03-18 is before dirthdate 1977-12-18				I5
-ERROR		INDIVIDUAL		US02			marriage 1967-03-18 is before dirthdate 1968-04-24				I8
-ERROR		INDIVIDUAL		US03			death 1967-07-06 is before dirthdate 1968-04-24				I8
+
+
+ Error Report 
+---------------------------------------------------------------------------------
+
++-------+------------+------------+----------------------------------------------------+----------+
+|  Tag  | Concerned  | User Story |                    Description                     | Location |
++-------+------------+------------+----------------------------------------------------+----------+
+| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |    I5    |
+| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |    I8    |
+| ERROR | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |    I8    |
++-------+------------+------------+----------------------------------------------------+----------+
