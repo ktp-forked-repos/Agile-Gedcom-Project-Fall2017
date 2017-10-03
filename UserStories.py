@@ -4,7 +4,7 @@ from Functions import checkDate
 from prettytable import PrettyTable
 
 errorTable = PrettyTable()
-errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location']
+errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
 
 def userStories(individualList, familyList):
 
@@ -27,25 +27,28 @@ def individualAge_us27(individualList):
     description = "List each individual's age"
 
     for indi in individualList:
-	if (individualList[indi].birthday != 'NA'):
-		birth = individualList[indi].birthday.split("-")
-        	birthyear = int(birth[0])
-        	birthmonth = int(birth[1])
-        	birthdate = int(birth[2])
+        birth = individualList[indi].birthday.split("-")
+        if (individualList[indi].birthday != 'NA'):           
+            birthyear = int(birth[0])
+            birthmonth = int(birth[1])
+            birthdate = int(birth[2])
 
-		today = datetime.date.today()
+            today = datetime.date.today()
 
-		age = today.year - birthyear
-		if (today.month < birthmonth):
-		    age -= 1;
-		elif (today.month == birthmonth):
-		    if (today.day < birthdate):
-			age -= 1;
+            age = today.year - birthyear
+            if (today.month < birthmonth):
+                age -= 1;
+            elif (today.month == birthmonth):
+                if (today.day < birthdate):
+                    age -= 1;
+            individualList[indi].setAge(age)
+            #errorMessage(tag, concerned, name, description, indi + " - " + str(age))
+            errorTable.add_row([tag,concerned,name,description,indi + " - " + str(age)])
+        else:
+            #errorMessage("ERROR" , concerned, name, "Birthday not specified")
+            errorTable.add_row(["ERROR",concerned,name,"Birthday not specified","-"])
 
-		individualList[indi].setAge(age)
-		errorMessage(tag, concerned, name, description, indi + " - " + str(age))
-	else:
-		errorMessage("ERROR" , concerned, name, "Birthday not specified")
+            
 
 #########################################################################################################################################################################
 
@@ -78,18 +81,22 @@ def checkBigamy_us11(individualList, familyList):
                         if (individualList[indi].ID == firstMarriage.husband):
                             if (isAlive(individualList[firstMarriage.wife])):
                                 #bigamy = True       
-                                errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                                #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                                errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
+
                         elif (individualList[indi].ID == firstMarriage.wife):
                             if (isAlive(individualList[firstMarriage.husband])):
                                 #bigamy = True    
-                                errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
-                        
+                                #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                                errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
+
                     # Otherwise check if the person was once invloved in bigamy
                     else:
                         # If the person got divorced from 1st marriage after marrying the 2nd time
                         if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
                             #bigamy = True
-                            errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                            #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                            errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
 
 ###########################################################################################################################################################################
 
@@ -253,4 +260,4 @@ def writeTableToFile():
     outputFile.write('\n\n' + " Error Report \n")
     outputFile.write('---------------------------------------------------------------------------------'+ '\n' + '\n')
     outputFile.write(str(errorTable)+"\n")
-    outputFile.close()
+    outputFile.close()           
