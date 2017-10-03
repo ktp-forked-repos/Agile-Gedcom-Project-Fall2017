@@ -13,15 +13,15 @@ def userStories(individualList, familyList):
 
  
     # Sprint 1 stories:
-    individualAge(individualList)
-    checkBigamy(individualList, familyList)
+    individualAge_us27(individualList)
+    checkBigamy_us11(individualList, familyList)
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
 
 ########################################################################################################################################################################
 
 
-def individualAge(individualList):
+def individualAge_us27(individualList):
     """ US27 : Include individual ages """ 
     tag = "INFORMATION"
     concerned = "INDIVIDUAL"
@@ -29,29 +29,30 @@ def individualAge(individualList):
     description = "List each individual's age"
 
     for indi in individualList:
-        birth = individualList[indi].getBirthday().split("-")
+	if (individualList[indi].birthday != 'NA'):
+		birth = individualList[indi].birthday.split("-")
+        	birthyear = int(birth[0])
+        	birthmonth = int(birth[1])
+        	birthdate = int(birth[2])
 
-        birthyear = int(birth[0])
-        birthmonth = int(birth[1])
-        birthdate = int(birth[2])
+		today = datetime.date.today()
 
-        today = datetime.date.today()
+		age = today.year - birthyear
+		if (today.month < birthmonth):
+		    age -= 1;
+		elif (today.month == birthmonth):
+		    if (today.day < birthdate):
+			age -= 1;
 
-        age = today.year - birthyear
-        if (today.month < birthmonth):
-            age -= 1;
-        elif (today.month == birthmonth):
-            if (today.day < birthdate):
-                age -= 1;
-
-
-        individualList[indi].setAge(age)
-        errorMessage(tag, concerned, name, description, indi + " - " + str(age))
+		individualList[indi].setAge(age)
+		errorMessage(tag, concerned, name, description, indi + " - " + str(age))
+	else:
+		errorMessage("ERROR" , concerned, name, "Birthday not specified")
 
 #########################################################################################################################################################################
 
 
-def checkBigamy(individualList, familyList):
+def checkBigamy_us11(individualList, familyList):
     """ US11 : No bigamy """
 
     tag = "ERROR"
@@ -230,7 +231,6 @@ def US15_fewer_than_fifteen_siblings(familyList):
 			return False
 	return True
 
-
 #######################################################################################################################################################################
                 
 def US09_birthBeforeDeath(individualList, familyList):
@@ -238,13 +238,7 @@ def US09_birthBeforeDeath(individualList, familyList):
         father_id = familyList[i][husband]
         mother_id = familyList[i[wife]]
     
-#########################################################################################################################################################################
-
-def US09_birthBeforeDeath(individualList, familyList):
-    for i in range(len(familyList)):
-        father_id = familyList[i][husband]
-        mother_id = familyList[i[wife]]
-    
+   
 #########################################################################################################################################################################
 
 def errorMessage(tag, concerned, name, description, location = '-'):
