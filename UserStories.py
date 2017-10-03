@@ -14,6 +14,8 @@ def userStories(individualList, familyList):
     checkBigamy_us11(individualList, familyList)
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
+    birth_Before_Death_of_Parents_US09(individualList, familyList)
+    fewer_than_fifteen_siblings_US15(familyList)
     writeTableToFile()
 
 ########################################################################################################################################################################
