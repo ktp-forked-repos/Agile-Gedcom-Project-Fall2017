@@ -3,14 +3,13 @@ from Parser import individualTable, familyTable
 from Functions import checkDate
 
 def userStories(individualList, familyList):
-<<<<<<< HEAD
-=======
+
 
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write('\n' + "{0:^150}".format(" Error Report ") + '\n' + '\n')
     outputFile.write('\t' + 'Tag' + '\t' + '\t' + 'Concerned' + '\t' + '\t' + 'User Story' + '\t' + '\t' + '\t' + 'Description' + '\t' + '\t' + '\t' + '\t' + '\t' +  '\t' + 'Location' + '\n' +'\n')
     outputFile.close()
->>>>>>> 8bf1f2cf236fab60219dfa6bc1d20368a7e6adf8
+
  
     # Sprint 1 stories:
     individualAge(individualList)
@@ -19,9 +18,9 @@ def userStories(individualList, familyList):
 ########################################################################################################################################################################
 def individualAge(individualList):
     """ US27 : Include individual ages """ 
-<<<<<<< HEAD
+
     ages = []     
-=======
+
 
     tag = "INFORMATION"
     concerned = "INDIVIDUAL"
@@ -29,7 +28,7 @@ def individualAge(individualList):
     description = "List each individual's age"
 
     #ssages = []     
->>>>>>> 8bf1f2cf236fab60219dfa6bc1d20368a7e6adf8
+
     for indi in individualList:
         birth = individualList[indi].getBirthday().split("-")
 
@@ -46,28 +45,27 @@ def individualAge(individualList):
             if (today.day < birthdate):
                 age -= 1;
 
-<<<<<<< HEAD
+
         ages.append(age)
         individualList[indi].setAge(age)
-=======
+
         #ages.append(age)
         individualList[indi].setAge(age)
         errorMessage(tag, concerned, name, description, indi + " - " + str(age))
->>>>>>> 8bf1f2cf236fab60219dfa6bc1d20368a7e6adf8
+
         """name = individualList[indi].name.split("/")
         firstName = name[0]
         lastName = name[1]
         print  firstName + lastName + ": " + str(age) + " years" """
 
     # Each individual's current age when listing
-<<<<<<< HEAD
+
     #outputFile = open('Parser_Output.txt', 'w')
     #individualTable.add_column(["Age",ages])
-=======
+
     # outputFile = open('Parser_Output.txt', 'a')
     # individualTable.add_column('Age', ages)
     # outputFile.write("{0:^150}".format(str(individualTable.get_string(fields=['ID','Name','Age']))) + '\n')
->>>>>>> 8bf1f2cf236fab60219dfa6bc1d20368a7e6adf8
 
 #########################################################################################################################################################################
 def checkBigamy(individualList, familyList):
@@ -120,17 +118,16 @@ def isAlive(person):
     else:
         return True
 
-<<<<<<< HEAD
+
 ########################################################################################################################################################################
 def US09_birthBeforeDeath(individualList, familyList)
     for i in range(len(familyList)):
         father_id = familyList[i][husband]
         mother_id = familyList[i[wife]
     
-=======
+
 ###########################################################################################################################################################################
 def errorMessage(tag, concerned, name, description, location = '-'):
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
     outputFile.close()
->>>>>>> 8bf1f2cf236fab60219dfa6bc1d20368a7e6adf8
