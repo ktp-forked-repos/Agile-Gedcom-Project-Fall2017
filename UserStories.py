@@ -97,8 +97,6 @@ def isAlive(person):
 
 
 ########################################################################################################################################################################
-<<<<<<< HEAD
-<<<<<<< HEAD
 def US09_birth_Before_Death_of_Parents(individualList, familyList):
     for x in range(len(familyList)):
         father_id = familyList[x]['husband']
@@ -167,22 +165,20 @@ def US15_fewer_than_fifteen_siblings(familyList):
 
 #######################################################################################################################################################################
                 
-=======
 def US09_birthBeforeDeath(individualList, familyList):
     for i in range(len(familyList)):
         father_id = familyList[i][husband]
         mother_id = familyList[i[wife]]
     
 #########################################################################################################################################################################
->>>>>>> 04be7195ba1fc55f0e66698028f9e35a40654f34
-=======
+
 def US09_birthBeforeDeath(individualList, familyList):
     for i in range(len(familyList)):
         father_id = familyList[i][husband]
         mother_id = familyList[i[wife]]
     
 #########################################################################################################################################################################
->>>>>>> 04be7195ba1fc55f0e66698028f9e35a40654f34
+
 def errorMessage(tag, concerned, name, description, location = '-'):
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
