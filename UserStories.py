@@ -116,7 +116,6 @@ def birthBeforeMarriage_us02(individualList):
         #print(" INDI "+indi+ "  marriage: "+marriage +" birth: "+birth)
         birthday= individualList[indi].getBirthday()
         marriage= individualList[indi].getMarriage()
-        #print(" INDI "+indi+ "  marriage: "+marriage +" birth: "+birthday)
         if marriage == 'NA' and birthday !='':
             #pass this as it is ok
             continue
@@ -124,17 +123,14 @@ def birthBeforeMarriage_us02(individualList):
             #log this as error
             description="birthdate not specified"
             errorTable.add_row([tag,concerned,US,description,indi])
-            #errorMessage(tag, concerned, US, description, indi)
             continue
         else:
             res=checkDate(birthday,marriage)
             if res!= True:
                 #log this as error
                 description="marriage "+ marriage+" is before dirthdate "+birthday
-                #errorMessage(tag, concerned, US, description, indi)
                 errorTable.add_row([tag,concerned,US,description,indi])
-                #print("INDI "+indi+" NOT ok for marriage")
-	
+                
 	
 def birthBeforeDeath_us03(individualList):
     tag="ERROR"
@@ -148,22 +144,17 @@ def birthBeforeDeath_us03(individualList):
         #print(" INDI "+indi+ "  death: "+death +" birth: "+birthday)
         if death == 'NA' and birthday != '':
             #pass this as it is okay
-            #print ("INDI "+indi +" ok for death")
             continue
         if birthday == '':
             #log this as error
-            #print ("INDI "+indi+" NOT ok for death")
             description="birthdate not specified"
-            #errorMessage(tag, concerned, US, description, indi)
             errorTable.add_row([tag,concerned,US,description,indi])
             continue
         else:
             res=checkDate(birthday,death)
             if res!= True:
                 #log this as error
-                #print ("INDI "+ indi+" NOT ok for death")
                 description="death "+ death+" is before dirthdate "+birthday
-                #errorMessage(tag, concerned, US, description, indi)
                 errorTable.add_row([tag,concerned,US,description,indi])
 	
 
