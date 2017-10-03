@@ -250,13 +250,27 @@ def US09_birthBeforeDeath(individualList, familyList):
    
 #########################################################################################################################################################################
 
-def errorMessage(tag, concerned, name, description, location = '-'):
-    outputFile = open('Parser_Output.txt', 'a')
-    outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
-    outputFile.close()
-
 def writeTableToFile():
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write('\n\n'  + "{0:^150}".format(" Error Report") + "\n\n")
     outputFile.write(str(errorTable)+"\n")
     outputFile.close()           
+######################################################################################################################################################################
+
+
+def US12_parents_not_too_old(all_persons, all_families):
+	for i in range(len(all_families)):
+		if all_families[i]['Children'] != None:
+			father_id = all_families[i]['Husband ID']
+			mother_id = all_families[i]['Wife ID']
+			child_id = all_families[i]['Children']
+			for x in range(len(all_persons)):
+				if all_persons[x]['ID'] == child_id:
+					child_age = all_persons[x]['age']
+				if all_persons[x]['ID'] == father_id:
+					father_age = all_persons[x]['age']
+				if all_persons[x]['ID'] == mother_id:
+					mother_age = all_persons[x]['age']
+					
+					if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
+						print "ERROR: FAMILIES: US12: Parents too old violated. "  + child_id

@@ -1,7 +1,7 @@
 +-----+----------------------+--------+------------+------------+-------+--------+
 |  ID |         Name         | Gender |  Birthday  |   Death    | Child | Spouse |
 +-----+----------------------+--------+------------+------------+-------+--------+
-|  I1 |  John /Winchester/   |   M    | 1945-01-05 |     NA     |   NA  |   F1   |
+|  I1 |  John /Winchester/   |   M    | 1930-01-05 |     NA     |   NA  |   F1   |
 |  I2 |  Mary /Winchester/   |   F    | 1948-08-19 |     NA     |   NA  |   F1   |
 |  I3 |  Dean /Winchester/   |   M    | 1970-04-15 |     NA     |   F1  |   F2   |
 |  I4 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F1  |   F3   |
@@ -22,36 +22,36 @@
 | ID |  Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |      Children      |
 +----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
 | F1 | 1968-05-02 |     NA     |     I1     | John /Winchester/ |    I2   |  Mary /Winchester/   | ['I3', 'I4', 'I5'] |
-| F2 | 1991-01-31 |     NA     |     I3     | Dean /Winchester/ |    I6   |  Lisa /Winchester/   |   ['I10', 'I11']   |
+| F2 | 1991-01-31 |     NA     |     I1     | John /Winchester/ |    I6   |  Lisa /Winchester/   |   ['I10', 'I11']   |
 | F3 | 1994-08-08 | 2002-12-27 |     I4     |  Sam /Winchester/ |    I7   |   Jessica /Carver/   |   ['I12', 'I13']   |
 | F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
 | F5 | 1967-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
 +----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
 
 
- Error Report 
----------------------------------------------------------------------------------
+                                                                     Error Report                                                                     
 
-+-------------+------------+------------+----------------------------------------------------+--------------+
-|     Tag     | Concerned  | User Story |                    Description                     | Location/ ID |
-+-------------+------------+------------+----------------------------------------------------+--------------+
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I1 - 72    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I2 - 69    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I3 - 47    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I4 - 44    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I5 - 39    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I6 - 45    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I7 - 39    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I8 - 49    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I9 - 40    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I10 - 24   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I11 - 22   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I12 - 20   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I13 - 19   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I14 - 19   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I15 - 17   |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I16 - 10   |
-|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |      I5      |
-|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I8      |
-|    ERROR    | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |      I8      |
-+-------------+------------+------------+----------------------------------------------------+--------------+
++-------------+------------+------------+----------------------------------------------------+-----------------+
+|     Tag     | Concerned  | User Story |                    Description                     |   Location/ ID  |
++-------------+------------+------------+----------------------------------------------------+-----------------+
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I1 - 87     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I2 - 69     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I3 - 47     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I4 - 44     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I5 - 39     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I6 - 45     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I7 - 39     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I8 - 49     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I9 - 40     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I10 - 24    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I11 - 22    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I12 - 20    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I13 - 19    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I14 - 19    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I15 - 17    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I16 - 10    |
+|    ERROR    | INDIVIDUAL |    US11    |              Bigamy has been detected              | F1 and F2 by I1 |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I5       |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I8       |
+|    ERROR    | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |        I8       |
++-------------+------------+------------+----------------------------------------------------+-----------------+
