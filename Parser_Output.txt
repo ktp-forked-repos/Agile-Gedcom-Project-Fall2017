@@ -1,32 +1,46 @@
 +-----+----------------------+--------+------------+------------+-------+--------+
 |  ID |         Name         | Gender |  Birthday  |   Death    | Child | Spouse |
 +-----+----------------------+--------+------------+------------+-------+--------+
-|  I1 |  John /Winchester/   |   M    | 1930-01-05 |     NA     |   NA  |   F1   |
-|  I2 |  Mary /Winchester/   |   F    | 1948-08-19 |     NA     |   NA  |   F1   |
-|  I3 |  Dean /Winchester/   |   M    | 1970-04-15 |     NA     |   F1  |   F2   |
-|  I4 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F1  |   F3   |
-|  I5 | Christine /Campbell/ |   F    | 1977-12-18 |     NA     |   F1  |   F5   |
-|  I6 |  Lisa /Winchester/   |   F    | 1972-06-10 |     NA     |   NA  |   F2   |
-|  I7 |   Jessica /Carver/   |   F    | 1977-10-31 |     NA     |   NA  |   F3   |
-|  I8 |    Shane /Moore/     |   M    | 1968-04-24 | 1967-07-06 |   NA  |   F5   |
-|  I9 |   Mark /Campbell/    |   M    | 1976-11-20 |     NA     |   NA  |   F4   |
-| I10 | Justice /Winchester/ |   F    | 1993-05-01 |     NA     |   F2  |   NA   |
-| I11 |  Zack /Winchester/   |   M    | 1995-09-15 |     NA     |   F2  |   NA   |
+|  I1 |  John /Winchester/   |   M    | 1930-01-05 |     NA     |   NA  |   F2   |
+|  I2 |  Lisa /Winchester/   |   F    | 1972-06-10 |     NA     |   NA  |   F1   |
+|  I3 |  Mary /Winchester/   |   F    | 1948-08-19 | 1970-04-10 |   NA  |   F2   |
+|  I4 |  Dean /Winchester/   |   M    | 1969-04-15 |     NA     |   F2  |   NA   |
+|  I5 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F2  |   F3   |
+|  I6 | Christine /Campbell/ |   F    | 1977-12-18 |     NA     |   F2  |   F5   |
+|  I7 |   Mark /Campbell/    |   M    | 1976-11-20 |     NA     |   NA  |   F4   |
+|  I8 |   Jessica /Carver/   |   F    | 1977-10-31 |     NA     |   NA  |   F3   |
+|  I9 |    Shane /Moore/     |   M    | 1968-04-24 | 2000-07-06 |   NA  |   F5   |
+| I10 | Justice /Winchester/ |   F    | 1993-05-01 |     NA     |   F1  |   NA   |
+| I11 |  Zack /Winchester/   |   M    | 1995-09-15 |     NA     |   F1  |   NA   |
 | I12 |   Ben /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |
 | I13 |  Mike /Winchester/   |   M    | 1998-01-25 |     NA     |   F3  |   NA   |
-| I14 |    Kevin /Moore/     |   M    | 1998-06-12 |     NA     |   F5  |   NA   |
+| I14 |    Kevin /Moore/     |   M    | 2002-06-12 |     NA     |   F5  |   NA   |
 | I15 |    Sydney /Moore/    |   F    | 2000-03-28 |     NA     |   F5  |   NA   |
 | I16 |  Hannah /Campbell/   |   F    | 2006-11-16 |     NA     |   F4  |   NA   |
+| I17 |  Peter /Winchester/  |   M    | 1998-01-25 |     NA     |   F3  |   NA   |
+| I18 |  June /Winchester/   |   F    | 1995-08-11 |     NA     |   F3  |   NA   |
+| I19 |   Ten /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |
+| I20 |  Priya /Winchester/  |   F    | 1995-10-05 |     NA     |   F3  |   NA   |
+| I21 |  Shina /Winchester/  |   F    | 1997-02-15 |     NA     |   F3  |   NA   |
+| I22 |  Joshu /Winchester/  |   F    | 1997-02-15 |     NA     |   F3  |   NA   |
+| I23 |  David /Winchester/  |   M    | 1993-12-10 |     NA     |   F3  |   NA   |
+| I24 |  Maggi /Winchester/  |   F    | 2000-09-19 |     NA     |   F3  |   NA   |
+| I25 |  Blue /Winchester/   |   M    | 2000-09-19 |     NA     |   F3  |   NA   |
+| I26 |  Sugar /Winchester/  |   F    | 2001-06-21 |     NA     |   F3  |   NA   |
+| I27 |  Bunny /Winchester/  |   M    | 2001-06-21 |     NA     |   F3  |   NA   |
+| I28 |  Honey /Winchester/  |   F    | 2001-06-21 |     NA     |   F3  |   NA   |
+| I29 | Robert /Winchester/  |   M    | 2002-12-03 |     NA     |   F3  |   NA   |
+| I30 |  Super /Winchester/  |   M    | 1993-12-10 | 1992-07-06 |   F3  |   NA   |
 +-----+----------------------+--------+------------+------------+-------+--------+
-+----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
-| ID |  Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |      Children      |
-+----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
-| F1 | 1968-05-02 |     NA     |     I1     | John /Winchester/ |    I2   |  Mary /Winchester/   | ['I3', 'I4', 'I5'] |
-| F2 | 1991-01-31 |     NA     |     I1     | John /Winchester/ |    I6   |  Lisa /Winchester/   |   ['I10', 'I11']   |
-| F3 | 1994-08-08 | 2002-12-27 |     I4     |  Sam /Winchester/ |    I7   |   Jessica /Carver/   |   ['I12', 'I13']   |
-| F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
-| F5 | 1967-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
-+----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
++----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
+| ID |  Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |                                                     Children                                                     |
++----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
+| F1 | 1969-01-31 |     NA     |     I1     | John /Winchester/ |    I2   |  Lisa /Winchester/   |                                                  ['I10', 'I11']                                                  |
+| F2 | 1968-05-02 |     NA     |     I1     | John /Winchester/ |    I3   |  Mary /Winchester/   |                                                ['I4', 'I5', 'I6']                                                |
+| F3 | 1994-08-08 | 2002-12-27 |     I5     |  Sam /Winchester/ |    I8   |   Jessica /Carver/   | ['I12', 'I13', 'I17', 'I18', 'I19', 'I20', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I27', 'I28', 'I29', 'I30'] |
+| F4 | 2005-10-04 |     NA     |     I7     |  Mark /Campbell/  |    I6   | Christine /Campbell/ |                                                     ['I16']                                                      |
+| F5 | 1967-03-18 |     NA     |     I9     |   Shane /Moore/   |    I6   | Christine /Campbell/ |                                                  ['I14', 'I15']                                                  |
++----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
 
 
                                                                      Error Report                                                                     
@@ -35,24 +49,50 @@
 |     Tag     | Concerned  | User Story |                    Description                     |   Location/ ID  |
 +-------------+------------+------------+----------------------------------------------------+-----------------+
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I1 - 87     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I2 - 69     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I3 - 47     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I4 - 44     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I5 - 39     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I6 - 45     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I7 - 39     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I8 - 49     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I9 - 40     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I2 - 45     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I3 - 69     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I4 - 48     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I5 - 44     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I6 - 39     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I7 - 40     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I8 - 39     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I9 - 49     |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I10 - 24    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I11 - 22    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I12 - 20    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I13 - 19    |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I14 - 19    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I14 - 15    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I15 - 17    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I16 - 10    |
+<<<<<<< HEAD
 |    ERROR    | INDIVIDUAL |    US11    |              Bigamy has been detected              | F1 and F2 by I1 |
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I5       |
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I8       |
 |    ERROR    | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |        I8       |
 |   ANAMOLY   | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I8-I5      |
+=======
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I17 - 19    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I18 - 22    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I19 - 20    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I20 - 21    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I21 - 20    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I22 - 20    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I23 - 23    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I24 - 17    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I25 - 17    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I26 - 16    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I27 - 16    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I28 - 16    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I29 - 14    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I30 - 23    |
+|    ERROR    | INDIVIDUAL |    US11    |              Bigamy has been detected              | F2 and F1 by I1 |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |        I2       |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I6       |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I9       |
+|    ERROR    | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |       I30       |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I5      |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I6      |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I9-I14     |
+|    ERROR    |   FAMILY   |    US15    |               Fewer than 15 siblings               |        F3       |
+>>>>>>> 90612fc29e7e04421c678cf1139b3a772ca2a81e
 +-------------+------------+------------+----------------------------------------------------+-----------------+
