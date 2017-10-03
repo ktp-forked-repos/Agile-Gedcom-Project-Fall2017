@@ -203,7 +203,7 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                                                     if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
                                                             if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
                                                                     pass
-##                                                            else:
+                                                            else:
                                                                 errorTable.add_row([tag,concerned,US,description,father_id + '-'+ current_child_id])
 ##                                                                    print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
 ##                                                                    print "Father death Date: " + str(father_death_date)
