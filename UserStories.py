@@ -175,7 +175,12 @@ def birthBeforeDeath_us03(individualList):
 	
 
 ########################################################################################################################################################################
-    def birth_Before_Death_of_Parents_US09(individualList, familyList):
+def birth_Before_Death_of_Parents_US09(individualList, familyList):
+        tag="ERROR"
+        concerned="FAMILY"
+        US="US09"
+        description="Death date can't be before Child's"
+        location=""
         for x in familyList:
             father_id = familyList[x].husband
             mother_id = familyList[x].wife
@@ -198,16 +203,18 @@ def birthBeforeDeath_us03(individualList):
                                                     if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
                                                             if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
                                                                     pass
-                                                            else:
-                                                                    print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
-                                                                    print "Father death Date: " + str(father_death_date)
-                                                                    print "Child Birth Date: " + str(child_birth_date)
+##                                                            else:
+                                                                errorTable.add_row([tag,concerned,US,description,father_id + '-'+ current_child_id])
+##                                                                    print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
+##                                                                    print "Father death Date: " + str(father_death_date)
+##                                                                    print "Child Birth Date: " + str(child_birth_date)
                                                             if(mother_death_date is not None and mother_death_date > child_birth_date):   # If mother has a deathdate and its after the childBirth Date
                                                                     pass  
                                                             else:
-                                                                    print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
-                                                                    print "Mother death Date: " + str(mother_death_date)
-                                                                    print "Child Birth Date: " + str(child_birth_date)
+                                                                errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +current_child_id])
+##                                                                    print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
+##                                                                    print "Mother death Date: " + str(mother_death_date)
+##                                                                    print "Child Birth Date: " + str(child_birth_date)
             else:                                                                                               # If there is only one child, take child_type_check as ID 
                             for i in range(len(individualList)):
                                     if(individualList[i].id == father_id):                                    # Getting dates
@@ -221,17 +228,19 @@ def birthBeforeDeath_us03(individualList):
                                                     if(father_death_date is not None and father_death_date > child_birth_date):
                                                             pass
                                                     else:
-                                                            print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
-                                                            print("Father death Date: " + str(father_death_date))
-                                                            print("Child Birth Date: " + str(child_birth_date))
+                                                        errorTable.add_row([tag,concerned,US,description,father_id + '-'+ current_child_id])
+##                                                            print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
+##                                                            print("Father death Date: " + str(father_death_date))
+##                                                            print("Child Birth Date: " + str(child_birth_date))
                                                     if(mother_death_date is not None and mother_death_date > child_birth_date):
                                                             pass  
                                                     else:
-                                                            print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
-                                                            print("Mother death Date: " + str(mother_death_date))
-                                                            print("Child Birth Date: " + str(child_birth_date))
+                                                        errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +current_child_id])
+##                                                            print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
+##                                                            print("Mother death Date: " + str(mother_death_date))
+##                                                            print("Child Birth Date: " + str(child_birth_date))
         
-
+    
 ###########################################################################################################################################################################
 def fewer_than_fifteen_siblings_US15(familyList):
 	for family in familyList:
