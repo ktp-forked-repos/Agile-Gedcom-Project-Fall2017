@@ -27,3 +27,24 @@
 | F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
 | F5 | 1997-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
 +----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
+
+                                                                     Error Report                                                                     
+
+	Tag		Concerned		User Story			Description						Location
+
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I1 - 72
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I2 - 69
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I3 - 47
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I4 - 44
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I5 - 39
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I6 - 45
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I7 - 39
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I8 - 49
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I9 - 40
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I10 - 24
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I11 - 22
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I12 - 20
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I13 - 19
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I14 - 19
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I15 - 17
+INFORMATION		INDIVIDUAL		US27			List each individual's age				I16 - 10

@@ -4,14 +4,24 @@ from Functions import checkDate
 
 def userStories(individualList, familyList):
  
+    outputFile = open('Parser_Output.txt', 'a')
+    outputFile.write('\n' + "{0:^150}".format(" Error Report ") + '\n' + '\n')
+    outputFile.write('\t' + 'Tag' + '\t' + '\t' + 'Concerned' + '\t' + '\t' + 'User Story' + '\t' + '\t' + '\t' + 'Description' + '\t' + '\t' + '\t' + '\t' + '\t' +  '\t' + 'Location' + '\n' +'\n')
+    outputFile.close()
+
     # Sprint 1 stories:
     individualAge(individualList)
     checkBigamy(individualList, familyList)
 
 ########################################################################################################################################################################
 def individualAge(individualList):
-    """ US27 : Include individual ages """ 
-    ages = []     
+    """ US27 : Include individual ages """
+
+    tag = "INFORMATION"
+    concerned = "INDIVIDUAL"
+    name = "US27"
+    description = "List each individual's age"
+   
     for indi in individualList:
         birth = individualList[indi].getBirthday().split("-")
 
@@ -28,16 +38,9 @@ def individualAge(individualList):
             if (today.day < birthdate):
                 age -= 1;
 
-        ages.append(age)
         individualList[indi].setAge(age)
-        """name = individualList[indi].name.split("/")
-        firstName = name[0]
-        lastName = name[1]
-        print  firstName + lastName + ": " + str(age) + " years" """
-
-    # Each individual's current age when listing
-    #outputFile = open('Parser_Output.txt', 'w')
-    #individualTable.add_column(["Age",ages])
+        # Each individual's current age when listing
+        errorMessage(tag, concerned, name, description, indi + " - " + str(age))
 
 #########################################################################################################################################################################
 def checkBigamy(individualList, familyList):
@@ -88,7 +91,13 @@ def isAlive(person):
         return True
 
 ########################################################################################################################################################################
-def US09_birthBeforeDeath(individualList, familyList)
+def US09_birthBeforeDeath(individualList, familyList):
     father_death=23
     mother_death=34
     child_birth=23
+
+###########################################################################################################################################################################
+def errorMessage(tag, concerned, name, description, location = '-'):
+    outputFile = open('Parser_Output.txt', 'a')
+    outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
+    outputFile.close()

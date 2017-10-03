@@ -98,4 +98,4 @@ def parser():
 	familyTable.field_names = ['ID', 'Married', 'Divorced', 'Husband ID', 'Husband Name', 'Wife ID', 'Wife Name', 'Children']
 	for fam in family:
 		familyTable.add_row([family[fam].ID, family[fam].marriage, family[fam].divorce, family[fam].husband, individual[family[fam].husband].name, family[fam].wife, individual[family[fam].wife].name, family[fam].children])
-	outputFile.write(str(familyTable))
+	outputFile.write(str(familyTable) + '\n')
