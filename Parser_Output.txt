@@ -3,7 +3,7 @@
 +-----+----------------------+--------+------------+------------+-------+--------+
 |  I1 |  John /Winchester/   |   M    | 1930-01-05 |     NA     |   NA  |   F1   |
 |  I2 |  Mary /Winchester/   |   F    | 1948-08-19 | 1970-04-10 |   NA  |   F1   |
-|  I3 |  Dean /Winchester/   |   M    | 1970-04-15 |     NA     |   F1  |   F2   |
+|  I3 |  Dean /Winchester/   |   M    | 1969-04-15 |     NA     |   F1  |   F2   |
 |  I4 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F1  |   F3   |
 |  I5 | Christine /Campbell/ |   F    | 1977-12-18 |     NA     |   F1  |   F5   |
 |  I6 |  Lisa /Winchester/   |   F    | 1972-06-10 |     NA     |   NA  |   F2   |
@@ -14,7 +14,7 @@
 | I11 |  Zack /Winchester/   |   M    | 1995-09-15 |     NA     |   F2  |   NA   |
 | I12 |   Ben /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |
 | I13 |  Mike /Winchester/   |   M    | 1998-01-25 |     NA     |   F3  |   NA   |
-| I14 |    Kevin /Moore/     |   M    | 1998-06-12 |     NA     |   F5  |   NA   |
+| I14 |    Kevin /Moore/     |   M    | 2002-06-12 |     NA     |   F5  |   NA   |
 | I15 |    Sydney /Moore/    |   F    | 2000-03-28 |     NA     |   F5  |   NA   |
 | I16 |  Hannah /Campbell/   |   F    | 2006-11-16 |     NA     |   F4  |   NA   |
 +-----+----------------------+--------+------------+------------+-------+--------+
@@ -27,3 +27,32 @@
 | F4 | 2005-10-04 |     NA     |     I9     |  Mark /Campbell/  |    I5   | Christine /Campbell/ |      ['I16']       |
 | F5 | 1967-03-18 |     NA     |     I8     |   Shane /Moore/   |    I5   | Christine /Campbell/ |   ['I14', 'I15']   |
 +----+------------+------------+------------+-------------------+---------+----------------------+--------------------+
+
+
+                                                                     Error Report                                                                     
+
++-------------+------------+------------+----------------------------------------------------+--------------+
+|     Tag     | Concerned  | User Story |                    Description                     | Location/ ID |
++-------------+------------+------------+----------------------------------------------------+--------------+
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I1 - 87    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I2 - 69    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I3 - 48    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I4 - 44    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I5 - 39    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I6 - 45    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I7 - 39    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I8 - 49    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I9 - 40    |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I10 - 24   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I11 - 22   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I12 - 20   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I13 - 19   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I14 - 15   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I15 - 17   |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |   I16 - 10   |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |      I5      |
+|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I8      |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |    I2-I4     |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |    I2-I5     |
+|    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |    I8-I14    |
++-------------+------------+------------+----------------------------------------------------+--------------+
