@@ -97,62 +97,62 @@ def isAlive(person):
 
 
 ########################################################################################################################################################################
-def US09_birth_Before_Death_of_Parents(individualList, familyList):
-    for x in range(len(familyList)):
-        father_id = familyList[x]['husband']
-        mother_id = familyList[x]['wife']
-        child_type_check = familyList[x]['child']  
-		father_death_date = None
-		mother_death_date = None                                     # If only One child then it contains ID's else for checking the type (List or None)
-		if type(child_type_check) is None:                                               # If there are no child, No Error
-			pass
-		elif(type(child_type_check) is list):                                            # if there are multiple children
-			for z in range(len(child_type_check)):
-				current_child_id = child_type_check[z]                                                                          # Getting the id or current child
-				for i in range(len(individualList)):                                       # Looping throug all person dictionary to match the IDs and extract birth and date date
-					if(individualList[i]['id'] == father_id):
-						father_death_date = individualList[i]['death']
-					if(individualList[i]['id'] == mother_id):
-						mother_death_date = individualList[i]['death']
-					if(individualList[i]['id'] == current_child_id):
-						child_birth_date = individualList[i]['birthday']
+    def US09_birth_Before_Death_of_Parents(individualList, familyList):
+        for x in range(len(familyList)):
+            father_id = familyList[x]['husband']
+            mother_id = familyList[x]['wife']
+            child_type_check = familyList[x]['child']  
+            father_death_date = None
+            mother_death_date = None                                     # If only One child then it contains ID's else for checking the type (List or None)
+            if type(child_type_check) is None:                                               # If there are no child, No Error
+                pass
+            elif(type(child_type_check) is list):                                            # if there are multiple children
+                            for z in range(len(child_type_check)):
+                                    current_child_id = child_type_check[z]                                                                          # Getting the id or current child
+                                    for i in range(len(individualList)):                                       # Looping throug all person dictionary to match the IDs and extract birth and date date
+                                            if(individualList[i]['id'] == father_id):
+                                                    father_death_date = individualList[i]['death']
+                                            if(individualList[i]['id'] == mother_id):
+                                                    mother_death_date = individualList[i]['death']
+                                            if(individualList[i]['id'] == current_child_id):
+                                                    child_birth_date = individualList[i]['birthday']
 
-                                                if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
-							if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
-								pass
-							else:
-								print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
-								print "Father death Date: " + str(father_death_date)
-								print "Child Birth Date: " + str(child_birth_date)
-							if(mother_death_date is not None and mother_death_date > child_birth_date):   # If mother has a deathdate and its after the childBirth Date
-								pass  
-							else:
-								print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
-								print "Mother death Date: " + str(mother_death_date)
-								print "Child Birth Date: " + str(child_birth_date)
-		else:                                                                           # If there is only one child, take child_type_check as ID
-			for i in range(len(individualList)):
-				if(individualList[i]['id'] == father_id):                                    # Getting dates
-					father_death_date = individualList[i]['death']
-				if(individualList[i]['id'] == mother_id):
-					mother_death_date = individualList[i]['death']
-				if(individualList[i]['id'] == child_type_check):
-					child_birth_date = individualList[i]['birthday']
+                                                    if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
+                                                            if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
+                                                                    pass
+                                                            else:
+                                                                    print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
+                                                                    print "Father death Date: " + str(father_death_date)
+                                                                    print "Child Birth Date: " + str(child_birth_date)
+                                                            if(mother_death_date is not None and mother_death_date > child_birth_date):   # If mother has a deathdate and its after the childBirth Date
+                                                                    pass  
+                                                            else:
+                                                                    print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + current_child_id + ") Birth Date"
+                                                                    print "Mother death Date: " + str(mother_death_date)
+                                                                    print "Child Birth Date: " + str(child_birth_date)
+            else:                                                                                               # If there is only one child, take child_type_check as ID 
+                            for i in range(len(individualList)):
+                                    if(individualList[i]['id'] == father_id):                                    # Getting dates
+                                            father_death_date = individualList[i]['death']
+                                    if(individualList[i]['id'] == mother_id):
+                                            mother_death_date = individualList[i]['death']
+                                    if(individualList[i]['id'] == child_type_check):
+                                            child_birth_date = individualList[i]['birthday']
 
-					if(father_death_date and mother_death_date is not None):                # Same check as above
-						if(father_death_date is not None and father_death_date > child_birth_date):
-							pass
-						else:
-							print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
-							print("Father death Date: " + str(father_death_date))
-							print("Child Birth Date: " + str(child_birth_date))
-						if(mother_death_date is not None and mother_death_date > child_birth_date):
-							pass  
-						else:
-							print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
-							print("Mother death Date: " + str(mother_death_date))
-							print("Child Birth Date: " + str(child_birth_date))
-    
+                                            if(father_death_date and mother_death_date is not None):                # Same check as above
+                                                    if(father_death_date is not None and father_death_date > child_birth_date):
+                                                            pass
+                                                    else:
+                                                            print "ERROR: FAMILY: US09: Violated- Father's (" + father_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
+                                                            print("Father death Date: " + str(father_death_date))
+                                                            print("Child Birth Date: " + str(child_birth_date))
+                                                    if(mother_death_date is not None and mother_death_date > child_birth_date):
+                                                            pass  
+                                                    else:
+                                                            print "ERROR: FAMILY: US09: Violated- Mother's (" + mother_id + ") Death date can't be before Child's (" + child_type_check + ") Birth Date"
+                                                            print("Mother death Date: " + str(mother_death_date))
+                                                            print("Child Birth Date: " + str(child_birth_date))
+        
 
 ###########################################################################################################################################################################
 def US15_fewer_than_fifteen_siblings(familyList):
