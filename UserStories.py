@@ -257,7 +257,6 @@ def errorMessage(tag, concerned, name, description, location = '-'):
 
 def writeTableToFile():
     outputFile = open('Parser_Output.txt', 'a')
-    outputFile.write('\n\n' + " Error Report \n")
-    outputFile.write('---------------------------------------------------------------------------------'+ '\n' + '\n')
+    outputFile.write('\n\n'  + "{0:^150}".format(" Error Report") + "\n\n")
     outputFile.write(str(errorTable)+"\n")
     outputFile.close()           
