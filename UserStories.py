@@ -252,7 +252,7 @@ def fewer_than_fifteen_siblings_US15(familyList):
 		if family.children != None and len(family.childrenchild) >= 15:
                     errorTable.add_row([tag,concerned,US,description,family.ID])
 			#print "ERROR: FAMILY: US15: Fewer than 15 siblings  Violated - For id "+ family.ID
-			return False
+		    return False
 	return True
 
 #######################################################################################################################################################################
