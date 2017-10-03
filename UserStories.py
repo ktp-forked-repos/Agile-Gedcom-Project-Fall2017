@@ -18,16 +18,10 @@ def userStories(individualList, familyList):
 ########################################################################################################################################################################
 def individualAge(individualList):
     """ US27 : Include individual ages """ 
-
-    ages = []     
-
-
     tag = "INFORMATION"
     concerned = "INDIVIDUAL"
     name = "US27"
     description = "List each individual's age"
-
-    #ssages = []     
 
     for indi in individualList:
         birth = individualList[indi].getBirthday().split("-")
@@ -48,24 +42,7 @@ def individualAge(individualList):
 
         ages.append(age)
         individualList[indi].setAge(age)
-
-        #ages.append(age)
-        individualList[indi].setAge(age)
         errorMessage(tag, concerned, name, description, indi + " - " + str(age))
-
-        """name = individualList[indi].name.split("/")
-        firstName = name[0]
-        lastName = name[1]
-        print  firstName + lastName + ": " + str(age) + " years" """
-
-    # Each individual's current age when listing
-
-    #outputFile = open('Parser_Output.txt', 'w')
-    #individualTable.add_column(["Age",ages])
-
-    # outputFile = open('Parser_Output.txt', 'a')
-    # individualTable.add_column('Age', ages)
-    # outputFile.write("{0:^150}".format(str(individualTable.get_string(fields=['ID','Name','Age']))) + '\n')
 
 #########################################################################################################################################################################
 def checkBigamy(individualList, familyList):
@@ -125,7 +102,6 @@ def US09_birthBeforeDeath(individualList, familyList):
         father_id = familyList[i][husband]
         mother_id = familyList[i[wife]]
     
-
 #########################################################################################################################################################################
 def errorMessage(tag, concerned, name, description, location = '-'):
     outputFile = open('Parser_Output.txt', 'a')
