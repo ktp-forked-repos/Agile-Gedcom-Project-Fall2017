@@ -176,10 +176,10 @@ def birthBeforeDeath_us03(individualList):
 
 ########################################################################################################################################################################
     def birth_Before_Death_of_Parents_US09(individualList, familyList):
-        for x in range(len(familyList)):
-            father_id = familyList[x]['husband']
-            mother_id = familyList[x]['wife']
-            child_type_check = familyList[x]['child']  
+        for x in familyList:
+            father_id = familyList[x].husband
+            mother_id = familyList[x].wife
+            child_type_check = familyList[x].childern  
             father_death_date = None
             mother_death_date = None                                     # If only One child then it contains ID's else for checking the type (List or None)
             if type(child_type_check) is None:                                               # If there are no child, No Error
@@ -188,12 +188,12 @@ def birthBeforeDeath_us03(individualList):
                             for z in range(len(child_type_check)):
                                     current_child_id = child_type_check[z]                                                                          # Getting the id or current child
                                     for i in range(len(individualList)):                                       # Looping throug all person dictionary to match the IDs and extract birth and date date
-                                            if(individualList[i]['id'] == father_id):
-                                                    father_death_date = individualList[i]['death']
-                                            if(individualList[i]['id'] == mother_id):
-                                                    mother_death_date = individualList[i]['death']
-                                            if(individualList[i]['id'] == current_child_id):
-                                                    child_birth_date = individualList[i]['birthday']
+                                            if(individualList[i].id == father_id):
+                                                    father_death_date = individualList[i].death
+                                            if(individualList[i].id == mother_id):
+                                                    mother_death_date = individualList[i].death
+                                            if(individualList[i].id == current_child_id):
+                                                    child_birth_date = individualList[i].birthday
 
                                                     if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
                                                             if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
@@ -210,12 +210,12 @@ def birthBeforeDeath_us03(individualList):
                                                                     print "Child Birth Date: " + str(child_birth_date)
             else:                                                                                               # If there is only one child, take child_type_check as ID 
                             for i in range(len(individualList)):
-                                    if(individualList[i]['id'] == father_id):                                    # Getting dates
-                                            father_death_date = individualList[i]['death']
-                                    if(individualList[i]['id'] == mother_id):
-                                            mother_death_date = individualList[i]['death']
-                                    if(individualList[i]['id'] == child_type_check):
-                                            child_birth_date = individualList[i]['birthday']
+                                    if(individualList[i].id == father_id):                                    # Getting dates
+                                            father_death_date = individualList[i].death
+                                    if(individualList[i].id== mother_id):
+                                            mother_death_date = individualList[i].death
+                                    if(individualList[i].id == child_type_check):
+                                            child_birth_date = individualList[i].birthday
 
                                             if(father_death_date and mother_death_date is not None):                # Same check as above
                                                     if(father_death_date is not None and father_death_date > child_birth_date):
