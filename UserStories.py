@@ -120,13 +120,13 @@ def isAlive(person):
 
 
 ########################################################################################################################################################################
-def US09_birthBeforeDeath(individualList, familyList)
+def US09_birthBeforeDeath(individualList, familyList):
     for i in range(len(familyList)):
         father_id = familyList[i][husband]
-        mother_id = familyList[i[wife]
+        mother_id = familyList[i[wife]]
     
 
-###########################################################################################################################################################################
+#########################################################################################################################################################################
 def errorMessage(tag, concerned, name, description, location = '-'):
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
