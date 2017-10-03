@@ -1,22 +1,20 @@
 import datetime
 from Parser import individualTable, familyTable
 from Functions import checkDate
+from prettytable import PrettyTable
 
+errorTable = PrettyTable()
+errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location']
 
 def userStories(individualList, familyList):
 
 
-    outputFile = open('Parser_Output.txt', 'a')
-    outputFile.write('\n' + "{0:^150}".format(" Error Report ") + '\n' + '\n')
-    outputFile.write('\t' + 'Tag' + '\t' + '\t' + 'Concerned' + '\t' + '\t' + 'User Story' + '\t' + '\t' + '\t' + 'Description' + '\t' + '\t' + '\t' + '\t' + '\t' +  '\t' + 'Location' + '\n' +'\n')
-    outputFile.close()
-
- 
     # Sprint 1 stories:
     individualAge_us27(individualList)
     checkBigamy_us11(individualList, familyList)
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
+    writeTableToFile()
 
 ########################################################################################################################################################################
 
@@ -125,14 +123,16 @@ def birthBeforeMarriage_us02(individualList):
         elif birthday == '':
             #log this as error
             description="birthdate not specified"
-            errorMessage(tag, concerned, US, description, indi)
+            errorTable.add_row([tag,concerned,US,description,indi])
+            #errorMessage(tag, concerned, US, description, indi)
             continue
         else:
             res=checkDate(birthday,marriage)
             if res!= True:
                 #log this as error
                 description="marriage "+ marriage+" is before dirthdate "+birthday
-                errorMessage(tag, concerned, US, description, indi)
+                #errorMessage(tag, concerned, US, description, indi)
+                errorTable.add_row([tag,concerned,US,description,indi])
                 #print("INDI "+indi+" NOT ok for marriage")
 	
 	
@@ -154,7 +154,8 @@ def birthBeforeDeath_us03(individualList):
             #log this as error
             #print ("INDI "+indi+" NOT ok for death")
             description="birthdate not specified"
-            errorMessage(tag, concerned, US, description, indi)
+            #errorMessage(tag, concerned, US, description, indi)
+            errorTable.add_row([tag,concerned,US,description,indi])
             continue
         else:
             res=checkDate(birthday,death)
@@ -162,7 +163,8 @@ def birthBeforeDeath_us03(individualList):
                 #log this as error
                 #print ("INDI "+ indi+" NOT ok for death")
                 description="death "+ death+" is before dirthdate "+birthday
-                errorMessage(tag, concerned, US, description, indi)
+                #errorMessage(tag, concerned, US, description, indi)
+                errorTable.add_row([tag,concerned,US,description,indi])
 	
 
 ########################################################################################################################################################################
@@ -244,4 +246,11 @@ def US09_birthBeforeDeath(individualList, familyList):
 def errorMessage(tag, concerned, name, description, location = '-'):
     outputFile = open('Parser_Output.txt', 'a')
     outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
+    outputFile.close()
+
+def writeTableToFile():
+    outputFile = open('Parser_Output.txt', 'a')
+    outputFile.write('\n\n' + " Error Report \n")
+    outputFile.write('---------------------------------------------------------------------------------'+ '\n' + '\n')
+    outputFile.write(str(errorTable)+"\n")
     outputFile.close()
