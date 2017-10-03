@@ -2,8 +2,8 @@
 0 HEAD
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
-1 FILE My Family
-1 DATE 7 SEP 2017
+1 FILE Family 2
+1 DATE 3 OCT 2017
 1 DEST ANSTFILE
 1 GEDC
 2 VERS 5.5.1
@@ -21,7 +21,17 @@
 1 BIRT
 2 DATE 5 JAN 1930
 1 FAMS @F1@
+1 FAMS @F2@
 0 @I2@ INDI
+1 NAME Lisa /Winchester/
+2 GIVN Lisa
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 10 JUN 1972
+1 FAMS @F1@
+0 @I3@ INDI
 1 NAME Mary /Winchester/
 2 GIVN Mary
 2 SURN Winchester
@@ -31,8 +41,8 @@
 2 DATE 19 AUG 1948
 1 DEAT Y
 2 DATE 10 APR 1970
-1 FAMS @F1@
-0 @I3@ INDI
+1 FAMS @F2@
+0 @I4@ INDI
 1 NAME Dean /Winchester/
 2 GIVN Dean
 2 SURN Winchester
@@ -40,9 +50,8 @@
 1 SEX M
 1 BIRT
 2 DATE 15 APR 1969
-1 FAMS @F2@
-1 FAMC @F1@
-0 @I4@ INDI
+1 FAMC @F2@
+0 @I5@ INDI
 1 NAME Sam /Winchester/
 2 GIVN Sam
 2 SURN Winchester
@@ -51,8 +60,8 @@
 1 BIRT
 2 DATE 7 SEP 1973
 1 FAMS @F3@
-1 FAMC @F1@
-0 @I5@ INDI
+1 FAMC @F2@
+0 @I6@ INDI
 1 NAME Christine /Campbell/
 2 GIVN Christine
 2 SURN Campbell
@@ -62,17 +71,17 @@
 2 DATE 18 DEC 1977
 1 FAMS @F4@
 1 FAMS @F5@
-1 FAMC @F1@
-0 @I6@ INDI
-1 NAME Lisa /Winchester/
-2 GIVN Lisa
-2 SURN Winchester
-2 _MARNM Winchester
-1 SEX F
-1 BIRT
-2 DATE 10 JUN 1972
-1 FAMS @F2@
+1 FAMC @F2@
 0 @I7@ INDI
+1 NAME Mark /Campbell/
+2 GIVN Mark
+2 SURN Campbell
+2 _MARNM Campbell
+1 SEX M
+1 BIRT
+2 DATE 20 NOV 1976
+1 FAMS @F4@
+0 @I8@ INDI
 1 NAME Jessica /Carver/
 2 GIVN Jessica
 2 SURN Carver
@@ -81,7 +90,7 @@
 1 BIRT
 2 DATE 31 OCT 1977
 1 FAMS @F3@
-0 @I8@ INDI
+0 @I9@ INDI
 1 NAME Shane /Moore/
 2 GIVN Shane
 2 SURN Moore
@@ -92,15 +101,6 @@
 1 DEAT Y
 2 DATE 6 JUL 2000
 1 FAMS @F5@
-0 @I9@ INDI
-1 NAME Mark /Campbell/
-2 GIVN Mark
-2 SURN Campbell
-2 _MARNM Campbell
-1 SEX M
-1 BIRT
-2 DATE 20 NOV 1976
-1 FAMS @F4@
 0 @I10@ INDI
 1 NAME Justice /Winchester/
 2 GIVN Justice
@@ -109,7 +109,7 @@
 1 SEX F
 1 BIRT
 2 DATE 1 MAY 1993
-1 FAMC @F2@
+1 FAMC @F1@
 0 @I11@ INDI
 1 NAME Zack /Winchester/
 2 GIVN Zack
@@ -118,7 +118,7 @@
 1 SEX M
 1 BIRT
 2 DATE 15 SEP 1995
-1 FAMC @F2@
+1 FAMC @F1@
 0 @I12@ INDI
 1 NAME Ben /Winchester/
 2 GIVN Ben
@@ -164,43 +164,187 @@
 1 BIRT
 2 DATE 16 NOV 2006
 1 FAMC @F4@
+0 @I17@ INDI
+1 NAME Peter /Winchester/
+2 GIVN Peter
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 25 JAN 1998
+1 FAMC @F3@
+0 @I18@ INDI
+1 NAME June /Winchester/
+2 GIVN June
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 11 AUG 1995
+1 FAMC @F3@
+0 @I19@ INDI
+1 NAME Ten /Winchester/
+2 GIVN Ten
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 7 NOV 1996
+1 FAMC @F3@
+0 @I20@ INDI
+1 NAME Priya /Winchester/
+2 GIVN Priya
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 5 OCT 1995
+1 FAMC @F3@
+0 @I21@ INDI
+1 NAME Shina /Winchester/
+2 GIVN Shina
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 15 FEB 1997
+1 FAMC @F3@
+0 @I22@ INDI
+1 NAME Joshu /Winchester/
+2 GIVN Joshu
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 15 FEB 1997
+1 FAMC @F3@
+0 @I23@ INDI
+1 NAME David /Winchester/
+2 GIVN David
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 10 DEC 1993
+1 FAMC @F3@
+0 @I24@ INDI
+1 NAME Maggi /Winchester/
+2 GIVN Maggi
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 19 SEP 2000
+1 FAMC @F3@
+0 @I25@ INDI
+1 NAME Blue /Winchester/
+2 GIVN Blue
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 19 SEP 2000
+1 FAMC @F3@
+0 @I26@ INDI
+1 NAME Sugar /Winchester/
+2 GIVN Sugar
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 21 JUN 2001
+1 FAMC @F3@
+0 @I27@ INDI
+1 NAME Bunny /Winchester/
+2 GIVN Bunny
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 21 JUN 2001
+1 FAMC @F3@
+0 @I28@ INDI
+1 NAME Honey /Winchester/
+2 GIVN Honey
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX F
+1 BIRT
+2 DATE 21 JUN 2001
+1 FAMC @F3@
+0 @I29@ INDI
+1 NAME Robert /Winchester/
+2 GIVN Robert
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 3 DEC 2002
+1 FAMC @F3@
+0 @I30@ INDI
+1 NAME Super /Winchester/
+2 GIVN Super
+2 SURN Winchester
+2 _MARNM Winchester
+1 SEX M
+1 BIRT
+2 DATE 10 DEC 1993
+1 DEAT Y
+2 DATE 6 JUL 1992
+1 FAMC @F3@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
-1 CHIL @I3@
-1 CHIL @I4@
-1 CHIL @I5@
-1 MARR
-2 DATE 2 MAY 1968
-1 _CURRENT Y
-0 @F2@ FAM
-1 HUSB @I1@
-1 WIFE @I6@
 1 CHIL @I10@
 1 CHIL @I11@
 1 MARR
-2 DATE 31 JAN 1991
+2 DATE 31 JAN 1969
 1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I1@
+1 WIFE @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 MARR
+2 DATE 2 MAY 1968
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
 0 @F3@ FAM
-1 HUSB @I4@
-1 WIFE @I7@
+1 HUSB @I5@
+1 WIFE @I8@
 1 CHIL @I12@
 1 CHIL @I13@
+1 CHIL @I17@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHIL @I27@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
 1 MARR
 2 DATE 8 AUG 1994
 1 DIV
 2 DATE 27 DEC 2002
 1 _CURRENT N
 0 @F4@ FAM
-1 HUSB @I9@
-1 WIFE @I5@
+1 HUSB @I7@
+1 WIFE @I6@
 1 CHIL @I16@
 1 MARR
 2 DATE 4 OCT 2005
 1 _CURRENT Y
 0 @F5@ FAM
-1 HUSB @I8@
-1 WIFE @I5@
+1 HUSB @I9@
+1 WIFE @I6@
 1 CHIL @I14@
 1 CHIL @I15@
 1 MARR
@@ -209,4 +353,3 @@
 2 TYPE Ending
 1 _CURRENT N
 0 TRLR
-

@@ -15,7 +15,7 @@ def userStories(individualList, familyList):
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
     birth_Before_Death_of_Parents_US09(individualList, familyList)
-    #fewer_than_fifteen_siblings_US15(familyList)
+    fewer_than_fifteen_siblings_US15(familyList)
     writeTableToFile()
 
 ########################################################################################################################################################################
@@ -85,20 +85,36 @@ def checkBigamy_us11(individualList, familyList):
                                 #bigamy = True       
                                 #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                 errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
+                            
+                            # Otherwise check if the person was once invloved in bigamy
+                            else:
+                                # If the person got divorced from 1st marriage after marrying the 2nd time
+                                if (checkDate(secondMarriage.marriage, individualList[firstMarriage.wife].death)):
+                                    #bigamy = True
+                                    #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                                    errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
 
                         elif (individualList[indi].ID == firstMarriage.wife):
                             if (isAlive(individualList[firstMarriage.husband])):
                                 #bigamy = True    
                                 #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                 errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
-
-                    # Otherwise check if the person was once invloved in bigamy
+                            
+                            # Otherwise check if the person was once invloved in bigamy
+                            else:
+                                # If the person got divorced from 1st marriage after marrying the 2nd time
+                                if (checkDate(secondMarriage.marriage, individualList[firstMarriage.husband].death)):
+                                    #bigamy = True
+                                    #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                                    errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
                     else:
                         # If the person got divorced from 1st marriage after marrying the 2nd time
                         if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
                             #bigamy = True
                             #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                             errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
+
+
 
 ###########################################################################################################################################################################
 
@@ -244,20 +260,14 @@ def fewer_than_fifteen_siblings_US15(familyList):
         US="US15"
         description="Fewer than 15 siblings"
         location=""
-	for family in familyList:
-		if family['children'] != None and len(family['children']) >= 15:
-                    errorTable.add_row([tag,concerned,US,description,family['ID']])
+	for i in familyList:
+		if familyList[i].children != None and len(familyList[i].children) >= 15:
+                    errorTable.add_row([tag,concerned,US,description,familyList[i].ID])
 			#print "ERROR: FAMILY: US15: Fewer than 15 siblings  Violated - For id "+ family.ID
 		    return False
 	return True
 
-#######################################################################################################################################################################
-                
-def US09_birthBeforeDeath(individualList, familyList):
-    for i in range(len(familyList)):
-        father_id = familyList[i][husband]
-        mother_id = familyList[i[wife]]
-    
+
    
 #########################################################################################################################################################################
 
