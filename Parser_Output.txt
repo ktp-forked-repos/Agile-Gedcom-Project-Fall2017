@@ -54,4 +54,5 @@
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I5       |
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I8       |
 |    ERROR    | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |        I8       |
+|   ANAMOLY   | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I8-I5      |
 +-------------+------------+------------+----------------------------------------------------+-----------------+

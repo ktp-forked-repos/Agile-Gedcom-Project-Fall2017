@@ -1,4 +1,5 @@
 import datetime
+from datetime import date
 from Parser import individualTable, familyTable
 from Functions import checkDate
 from prettytable import PrettyTable
@@ -14,6 +15,8 @@ def userStories(individualList, familyList):
     checkBigamy_us11(individualList, familyList)
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
+    #US12_parents_not_too_old(individualList, familyList)
+    marriage_after_14_US10(individualList,familyList)
     writeTableToFile()
 
 ########################################################################################################################################################################
@@ -258,19 +261,77 @@ def writeTableToFile():
 ######################################################################################################################################################################
 
 
-def US12_parents_not_too_old(all_persons, all_families):
-	for i in range(len(all_families)):
-		if all_families[i]['Children'] != None:
-			father_id = all_families[i]['Husband ID']
-			mother_id = all_families[i]['Wife ID']
-			child_id = all_families[i]['Children']
-			for x in range(len(all_persons)):
-				if all_persons[x]['ID'] == child_id:
-					child_age = all_persons[x]['age']
-				if all_persons[x]['ID'] == father_id:
-					father_age = all_persons[x]['age']
-				if all_persons[x]['ID'] == mother_id:
-					mother_age = all_persons[x]['age']
-					
-					if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
-						print "ERROR: FAMILIES: US12: Parents too old violated. "  + child_id
+##def US12_parents_not_too_old(individualList, familyList):
+##    for indi in individualList:
+##        birth = individualList[indi].birthday.split("-")
+##        if (individualList[indi].birthday != 'NA'):           
+##            birthyear = int(birth[0])
+##            birthmonth = int(birth[1])
+##            birthdate = int(birth[2])
+##
+##            today = datetime.date.today()
+##    
+##    for i in familyList:
+##        #if familyList[i].children != None:
+##            father_id = familyList[i].husband
+##            mother_id = familyList[i].wife
+##            child_id = familyList[i].children.split(",")
+##            print father_id
+##            print mother_id
+##            print child_id
+##            
+##            for x in individualList:
+##                
+##                if individualList[x].ID == father_id:
+##                    #print individualList[x].ID
+##                    #father_age = today.year - birthyear
+##                    #print father_age
+##                    father_age = individualList[x].age
+##                    #print father_age
+##                if individualList[x].ID == child_id:
+##                    #print individualList[x].ID                    
+##                    #child_age = today.year - birthyear
+##                    child_age = individualList[x].age
+##                    #print child_id
+##                    #print child_age
+##                
+##                if individualList[x].ID == mother_id:
+##                    #mother_age = today.year - birthyear
+##                    mother_age = individualList[x].age
+##                    #print mother_age
+##					
+##                #if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
+##                 #       print "ERROR: FAMILIES: US12: Parents too old violated. "  + child_id
+
+
+def marriage_after_14_US10(individualList,familyList):
+    tag="ANAMOLY"
+    concerned="INDIVIDUAL"
+    US="US10"
+    description="Marraige should be after 14 years of birth "
+    location=""
+    for i in familyList:
+        husband_id = familyList[i].husband
+        wife_id = familyList[i].wife
+        Marraige_date = familyList[i].marriage
+        #print Marraige_date
+        birth = familyList[i].marriage.split("-")
+        m_year = int(birth[0])
+        #print m_year
+        for z in individualList:
+            if individualList[z].ID == husband_id:
+                birth = individualList[z].birthday.split("-")
+                h_year = int(birth[0])
+                #print h_year
+            if individualList[z].ID == wife_id:
+                birth = individualList[z].birthday.split("-")
+                w_year = int(birth[0])
+                #print w_year
+        if m_year - h_year >= 14 and m_year - w_year >=14:
+            pass
+        else:
+            errorTable.add_row([tag,concerned, US, description, husband_id + '-' + wife_id])
+
+            
+                       
+ 
