@@ -186,7 +186,7 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
         for x in familyList:
             father_id = familyList[x].husband
             mother_id = familyList[x].wife
-            child_type_check = familyList[x].childern  
+            child_type_check = familyList[x].children  
             father_death_date = None
             mother_death_date = None                                     # If only One child then it contains ID's else for checking the type (List or None)
             if type(child_type_check) is None:                                               # If there are no child, No Error
