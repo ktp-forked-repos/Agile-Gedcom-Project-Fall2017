@@ -82,9 +82,18 @@ def parser():
 					elif (date == 'death'):
 						individual[label].setDeath(args)
 					elif (date == 'marriage'):
+						husband=family[label].getHusband()
+						wife=family[label].getWife()
+						individual[husband].setMarriage(args)
+						individual[wife].setMarriage(args)
 						family[label].setMarriage(args)
 					elif (date == 'divorce'):
+						husband=family[label].getHusband()
+						wife=family[label].getWife()
+						individual[husband].setDivorce(args)
+						individual[wife].setDivorce(args)
 						family[label].setDivorce(args)
+						
 
 	# Output file
 	outputFile = open('Parser_Output.txt', 'w')

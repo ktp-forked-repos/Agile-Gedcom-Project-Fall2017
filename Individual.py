@@ -4,7 +4,7 @@ from Functions import checkDate
 class Individual(object):
 
 	def __init__(self, ID, name = '', sex = '', birthday = '', death = 'NA', age = '-', childFamily = 'NA', spouseFamily = 'NA'
-				,marriage ='NA'):
+				,marriage ='NA', divorce='NA'):
 		self.ID = ID
 		self.name = name
 		self.sex = sex
@@ -39,27 +39,22 @@ class Individual(object):
 		self.spouseFamily = spouseFamily
 
 	def setMarriage(self, marriage):
+		marriage= formatDate(marriage)
 		self.marriage = marriage
+
+	def setDivorce(self,divorce):
+		divorce=formatDate(divorce)
+		self.divorce= divorce
 
 	def getBirthday(self):
 		return self.birthday
 
+	def getMarriage(self):
+		return self.marriage
 
-	
-	def birthBeforeMarriage(self):
-		#print self.birthday
-		if self.marriage is None:
-			return False
-		if self.birthday is None:
-			return False
-		return checkDate( self.birthday, self.marriage)
-	
-	def birthBeforeDeath(self):
-		print self.birthday
-		if self.death == 'NA' and self.birthday != '':
-			return True
-		if self.birthday == '':
-			return False
-		return checkDate( self.birthday, self.death)	
+	def getDeath(self):
+		return self.death
 
-	
+	def getDivorce(self):
+		return self.divorce
+		

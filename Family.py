@@ -26,4 +26,9 @@ class Family(object):
 	def setDivorce(self, divorce):
 		divorce = formatDate(divorce)
 		self.divorce = divorce
-		
+	
+	def getHusband(self):
+		return self.husband
+
+	def getWife(self):
+		return self.wife
