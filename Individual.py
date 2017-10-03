@@ -3,7 +3,7 @@ from Functions import checkDate
 
 class Individual(object):
 
-	def __init__(self, ID, name = '', sex = '', birthday = '', death = 'NA', age = '-', childFamily = 'NA', spouseFamily = 'NA'
+	def __init__(self, ID, name = '', sex = '', birthday = 'NA', death = 'NA', age = '-', childFamily = 'NA', spouseFamily = 'NA'
 				,marriage ='NA', divorce='NA'):
 		self.ID = ID
 		self.name = name
