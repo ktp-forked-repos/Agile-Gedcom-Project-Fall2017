@@ -5,18 +5,29 @@ from Functions import checkDate
 
 def userStories(individualList, familyList):
 
+
+    outputFile = open('Parser_Output.txt', 'a')
+    outputFile.write('\n' + "{0:^150}".format(" Error Report ") + '\n' + '\n')
+    outputFile.write('\t' + 'Tag' + '\t' + '\t' + 'Concerned' + '\t' + '\t' + 'User Story' + '\t' + '\t' + '\t' + 'Description' + '\t' + '\t' + '\t' + '\t' + '\t' +  '\t' + 'Location' + '\n' +'\n')
+    outputFile.close()
+
+ 
     # Sprint 1 stories:
-    # individualAge(individualList)
-    # checkBigamy(individualList, familyList)
-    birthBeforeMarriage(individualList)
-    birthBeforeDeath(individualList)
+    individualAge(individualList)
+    checkBigamy(individualList, familyList)
+    birthBeforeMarriage_us02(individualList)
+    birthBeforeDeath_us03(individualList)
 
 ########################################################################################################################################################################
 
 
 def individualAge(individualList):
-    """ US27 : Include individual ages """
-    ages = []
+    """ US27 : Include individual ages """ 
+    tag = "INFORMATION"
+    concerned = "INDIVIDUAL"
+    name = "US27"
+    description = "List each individual's age"
+
     for indi in individualList:
         birth = individualList[indi].getBirthday().split("-")
 
@@ -33,22 +44,21 @@ def individualAge(individualList):
             if (today.day < birthdate):
                 age -= 1;
 
-        ages.append(age)
-        individualList[indi].setAge(age)
-        """name = individualList[indi].name.split("/")
-        firstName = name[0]
-        lastName = name[1]
-        print  firstName + lastName + ": " + str(age) + " years" """
 
-    # Each individual's current age when listing
-    # outputFile = open('Parser_Output.txt', 'w')
-    # individualTable.add_column(["Age",ages])
+        individualList[indi].setAge(age)
+        errorMessage(tag, concerned, name, description, indi + " - " + str(age))
 
 #########################################################################################################################################################################
 
 
 def checkBigamy(individualList, familyList):
     """ US11 : No bigamy """
+
+    tag = "ERROR"
+    concerned = "INDIVIDUAL"
+    name = "US11"
+    description = "Bigamy has been detected"
+
     for indi in individualList:
         if (individualList[indi].spouseFamily != 'NA'):   # Exclude the un-married people
             for fam in familyList:
@@ -68,22 +78,19 @@ def checkBigamy(individualList, familyList):
                         # Then check if the spouse from the 1st marriage is still alive for bigamy to take place
                         if (individualList[indi].ID == firstMarriage.husband):
                             if (isAlive(individualList[firstMarriage.wife])):
-                                pass
-                                # bigamy = True
-                                # print an error message on the screen/ call a function
+                                #bigamy = True       
+                                errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                         elif (individualList[indi].ID == firstMarriage.wife):
                             if (isAlive(individualList[firstMarriage.husband])):
-                                pass
-                                # bigamy = True
-                                # print an error message on the screen/ call a function
-
+                                #bigamy = True    
+                                errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
+                        
                     # Otherwise check if the person was once invloved in bigamy
                     else:
                         # If the person got divorced from 1st marriage after marrying the 2nd time
                         if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
-                            pass
-                            # bigamy = True
-                            # print an error message on the screen/ call a function
+                            #bigamy = True
+                            errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
 
 ###########################################################################################################################################################################
 
@@ -100,42 +107,71 @@ def isAlive(person):
 
 
 
-def birthBeforeMarriage(individualList):
+def birthBeforeMarriage_us02(individualList):
+    tag="ERROR"
+    concerned="INDIVIDUAL"
+    US="US02"
+    description=""
+    location=""
     for indi in individualList:
         #print(" INDI "+indi+ "  marriage: "+marriage +" birth: "+birth)
         birthday= individualList[indi].getBirthday()
         marriage= individualList[indi].getMarriage()
-        print(" INDI "+indi+ "  marriage: "+marriage +" birth: "+birthday)
+        #print(" INDI "+indi+ "  marriage: "+marriage +" birth: "+birthday)
         if marriage == 'NA' and birthday !='':
             #pass this as it is ok
             continue
         elif birthday == '':
             #log this as error
-            print(" INDI "+indi+ " NOT ok for marriage")
+            description="birthdate not specified"
+            errorMessage(tag, concerned, US, description, indi)
             continue
         else:
             res=checkDate(birthday,marriage)
             if res!= True:
                 #log this as error
-                print("INDI "+indi+" NOT ok for marriage")
+                description="marriage "+ marriage+" is before dirthdate "+birthday
+                errorMessage(tag, concerned, US, description, indi)
+                #print("INDI "+indi+" NOT ok for marriage")
 	
 	
-def birthBeforeDeath(individualList):
+def birthBeforeDeath_us03(individualList):
+    tag="ERROR"
+    concerned="INDIVIDUAL"
+    US="US03"
+    description=""
+    location=""
     for indi in individualList:
         birthday=individualList[indi].getBirthday()
         death=individualList[indi].getDeath()
-        print(" INDI "+indi+ "  death: "+death +" birth: "+birthday)
+        #print(" INDI "+indi+ "  death: "+death +" birth: "+birthday)
         if death == 'NA' and birthday != '':
             #pass this as it is okay
             #print ("INDI "+indi +" ok for death")
             continue
         if birthday == '':
             #log this as error
-            print ("INDI "+indi+" NOT ok for death")
+            #print ("INDI "+indi+" NOT ok for death")
+            description="birthdate not specified"
+            errorMessage(tag, concerned, US, description, indi)
             continue
         else:
             res=checkDate(birthday,death)
             if res!= True:
                 #log this as error
-                print ("INDI "+ indi+" NOT ok for death")
+                #print ("INDI "+ indi+" NOT ok for death")
+                description="death "+ death+" is before dirthdate "+birthday
+                errorMessage(tag, concerned, US, description, indi)
 	
+
+########################################################################################################################################################################
+def US09_birthBeforeDeath(individualList, familyList):
+    for i in range(len(familyList)):
+        father_id = familyList[i][husband]
+        mother_id = familyList[i[wife]]
+    
+#########################################################################################################################################################################
+def errorMessage(tag, concerned, name, description, location = '-'):
+    outputFile = open('Parser_Output.txt', 'a')
+    outputFile.write(tag + '\t' + '\t' + concerned + '\t' + '\t' + name + '\t' + '\t' + '\t' + description + '\t' + '\t' + '\t' + '\t' + location + '\n')
+    outputFile.close()
