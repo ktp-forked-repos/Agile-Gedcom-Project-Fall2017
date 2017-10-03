@@ -241,7 +241,7 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
 ##                                                            print("Child Birth Date: " + str(child_birth_date))
         
     
-###########################################################################################################################################################################
+
 def fewer_than_fifteen_siblings_US15(familyList):
         tag="ERROR"
         concerned="FAMILY"
