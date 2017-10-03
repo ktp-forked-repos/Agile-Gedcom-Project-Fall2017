@@ -166,7 +166,7 @@ def birthBeforeDeath_us03(individualList):
 	
 
 ########################################################################################################################################################################
-    def US09_birth_Before_Death_of_Parents(individualList, familyList):
+    def birth_Before_Death_of_Parents_US09(individualList, familyList):
         for x in range(len(familyList)):
             father_id = familyList[x]['husband']
             mother_id = familyList[x]['wife']
@@ -224,7 +224,7 @@ def birthBeforeDeath_us03(individualList):
         
 
 ###########################################################################################################################################################################
-def US15_fewer_than_fifteen_siblings(familyList):
+def fewer_than_fifteen_siblings_US15(familyList):
 	for family in familyList:
 		if family['child'] != None and len(family['child']) >= 15:
 			print "ERROR: FAMILY: US15: Fewer than 15 siblings  Violated - For id "+ family['Family_id']
