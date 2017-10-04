@@ -9,6 +9,7 @@ from Family import Family
 from collections import OrderedDict
 from prettytable import PrettyTable
 
+
 individual = OrderedDict()
 family = OrderedDict()
 individualTable = PrettyTable()
@@ -93,18 +94,12 @@ def parser():
 						individual[husband].setDivorce(args)
 						individual[wife].setDivorce(args)
 						family[label].setDivorce(args)
-						
 
-	# Output file
-	outputFile = open('Parser_Output.txt', 'w')
-
-	# Create table with the values	
+	# Create table with the values  
 	individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse']
 	for indi in individual:
 		individualTable.add_row([individual[indi].ID, individual[indi].name, individual[indi].sex, individual[indi].birthday, individual[indi].death, individual[indi].childFamily, individual[indi].spouseFamily])
-	outputFile.write(str(individualTable) + '\n')
-	
+
 	familyTable.field_names = ['ID', 'Married', 'Divorced', 'Husband ID', 'Husband Name', 'Wife ID', 'Wife Name', 'Children']
 	for fam in family:
 		familyTable.add_row([family[fam].ID, family[fam].marriage, family[fam].divorce, family[fam].husband, individual[family[fam].husband].name, family[fam].wife, individual[family[fam].wife].name, family[fam].children])
-	outputFile.write(str(familyTable) + '\n')

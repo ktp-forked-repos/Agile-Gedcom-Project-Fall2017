@@ -8,11 +8,10 @@ errorTable = PrettyTable()
 errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
 
 def userStories(individualList, familyList):
-
-
     # Sprint 1 stories:
     individualAge_us27(individualList)
     checkBigamy_us11(individualList, familyList)
+    
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
 
@@ -22,18 +21,21 @@ def userStories(individualList, familyList):
     birth_Before_Death_of_Parents_US09(individualList, familyList)
     fewer_than_fifteen_siblings_US15(familyList)
 
-    writeTableToFile()
+    # Sprint 2 stories:
+    # Sprint 3 stories:
+    # Sprint 4 stories:
+
+    writeTableToFile(individualList, familyList)
 
 ########################################################################################################################################################################
-
-
 def individualAge_us27(individualList):
     """ US27 : Include individual ages """ 
-    tag = "INFORMATION"
+    tag ="ERROR"
     concerned = "INDIVIDUAL"
     name = "US27"
-    description = "List each individual's age"
+    description = "Birthday not specified"
 
+    ages = []
     for indi in individualList:
         birth = individualList[indi].birthday.split("-")
         if (individualList[indi].birthday != 'NA'):           
@@ -50,20 +52,16 @@ def individualAge_us27(individualList):
                 if (today.day < birthdate):
                     age -= 1;
             individualList[indi].setAge(age)
-            #errorMessage(tag, concerned, name, description, indi + " - " + str(age))
-            errorTable.add_row([tag,concerned,name,description,indi + " - " + str(age)])
+            ages.append(age)
+            # errorTable.add_row([tag,concerned,name,description,indi + " - " + str(age)])
         else:
-            #errorMessage("ERROR" , concerned, name, "Birthday not specified")
-            errorTable.add_row(["ERROR",concerned,name,"Birthday not specified","-"])
-
+            errorTable.add_row([tag,concerned,name,description,indi])
+    individualTable.add_column('Age', ages)
             
 
 #########################################################################################################################################################################
-
-
 def checkBigamy_us11(individualList, familyList):
     """ US11 : No bigamy """
-
     tag = "ERROR"
     concerned = "INDIVIDUAL"
     name = "US11"
@@ -89,54 +87,29 @@ def checkBigamy_us11(individualList, familyList):
                         if (individualList[indi].ID == firstMarriage.husband):
                             if (isAlive(individualList[firstMarriage.wife])):
                                 #bigamy = True       
-                                #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                 errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
                             
-                            # Otherwise check if the person was once invloved in bigamy
+                            # Otherwise if the spouse has died his/ her death date
                             else:
-                                # If the person got divorced from 1st marriage after marrying the 2nd time
                                 if (checkDate(secondMarriage.marriage, individualList[firstMarriage.wife].death)):
                                     #bigamy = True
-                                    #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                     errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
 
                         elif (individualList[indi].ID == firstMarriage.wife):
                             if (isAlive(individualList[firstMarriage.husband])):
                                 #bigamy = True    
-                                #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                 errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
-                            
-                            # Otherwise check if the person was once invloved in bigamy
                             else:
-                                # If the person got divorced from 1st marriage after marrying the 2nd time
                                 if (checkDate(secondMarriage.marriage, individualList[firstMarriage.husband].death)):
                                     #bigamy = True
-                                    #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                                     errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
                     else:
                         # If the person got divorced from 1st marriage after marrying the 2nd time
                         if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
                             #bigamy = True
-                            #errorMessage(tag, concerned, name, description, "in " + firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi)
                             errorTable.add_row([tag,concerned,name,description, firstMarriage.ID + " and " + secondMarriage.ID + " by " + indi])
 
-
-
 ###########################################################################################################################################################################
-
-
-def isAlive(person):
-    """ Function to check if a person is still alive
-        ** Not a user story """
-    if (person.death != 'NA'):
-        return False
-    else:
-        return True
-
-###########################################################################################################################################################################
-
-
-
 def birthBeforeMarriage_us02(individualList):
     tag="ERROR"
     concerned="INDIVIDUAL"
@@ -166,7 +139,7 @@ def birthBeforeMarriage_us02(individualList):
                 errorTable.add_row([tag,concerned,US,description,indi])
                 #print("INDI "+indi+" NOT ok for marriage")
 	
-	
+###########################################################################################################################################################################	
 def birthBeforeDeath_us03(individualList):
     tag="ERROR"
     concerned="INDIVIDUAL"
@@ -197,7 +170,6 @@ def birthBeforeDeath_us03(individualList):
                 #errorMessage(tag, concerned, US, description, indi)
                 errorTable.add_row([tag,concerned,US,description,indi])
 	
-
 ########################################################################################################################################################################
 def birth_Before_Death_of_Parents_US09(individualList, familyList):
         tag="ERROR"
@@ -258,8 +230,7 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                                                     else:
                                                         errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +child_type_check])
  
-######################################################################################################################################################################    
-
+#########################################################################################################################################################################    
 def fewer_than_fifteen_siblings_US15(familyList):
         tag="ERROR"
         concerned="FAMILY"
@@ -273,18 +244,7 @@ def fewer_than_fifteen_siblings_US15(familyList):
 		    return False
 	return True
 
-
-   
 #########################################################################################################################################################################
-
-def writeTableToFile():
-    outputFile = open('Parser_Output.txt', 'a')
-    outputFile.write('\n\n'  + "{0:^150}".format(" Error Report") + "\n\n")
-    outputFile.write(str(errorTable)+"\n")
-    outputFile.close()           
-######################################################################################################################################################################
-
-
 def US12_parents_not_too_old(individualList, familyList):
     tag="ERROR"
     concerned="INDIVIDUAL"
@@ -309,7 +269,7 @@ def US12_parents_not_too_old(individualList, familyList):
                     
 
 
-######################################################################################################################################################################
+##########################################################################################################################################################################
 def marriage_after_14_US10(individualList,familyList):
     tag="ANAMOLY"
     concerned="INDIVIDUAL"
@@ -338,6 +298,24 @@ def marriage_after_14_US10(individualList,familyList):
         else:
             errorTable.add_row([tag,concerned, US, description, husband_id + '-' + wife_id])
 
-            
-                       
- 
+###########################################################################################################################################################################
+def writeTableToFile(individualList, familyList):
+    # Output file
+    outputFile = open('Parser_Output.txt', 'w')    
+    outputFile.write(str(individualTable) + '\n\n')
+    outputFile.write(str(familyTable) + '\n\n')
+
+    outputFile.write('\n\n'  + "{0:^150}".format(" Error Report") + "\n\n")
+    outputFile.write(str(errorTable)+"\n")
+    outputFile.close()
+
+###########################################################################################################################################################################
+def isAlive(person):
+    """ Function to check if a person is still alive
+        ** Not a user story """
+    if (person.death != 'NA'):
+        return False
+    else:
+        return True
+
+###########################################################################################################################################################################
