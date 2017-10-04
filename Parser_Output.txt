@@ -7,7 +7,7 @@
 |  I4 |  Dean /Winchester/   |   M    | 1969-04-15 |     NA     |   F2  |   NA   |
 |  I5 |   Sam /Winchester/   |   M    | 1973-09-07 |     NA     |   F2  |   F3   |
 |  I6 | Christine /Campbell/ |   F    | 1977-12-18 |     NA     |   F2  |   F5   |
-|  I7 |   Mark /Campbell/    |   M    | 1976-11-20 |     NA     |   NA  |   F4   |
+|  I7 |   Mark /Campbell/    |   M    | 1910-11-20 |     NA     |   NA  |   F4   |
 |  I8 |   Jessica /Carver/   |   F    | 1977-10-31 |     NA     |   NA  |   F3   |
 |  I9 |    Shane /Moore/     |   M    | 1968-04-24 | 2000-07-06 |   NA  |   F5   |
 | I10 | Justice /Winchester/ |   F    | 1993-05-01 |     NA     |   F1  |   NA   |
@@ -54,7 +54,7 @@
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I4 - 48     |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I5 - 44     |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I6 - 39     |
-| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I7 - 40     |
+| INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I7 - 106    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I8 - 39     |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I9 - 49     |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I10 - 24    |
@@ -64,13 +64,6 @@
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I14 - 15    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I15 - 17    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I16 - 10    |
-<<<<<<< HEAD
-|    ERROR    | INDIVIDUAL |    US11    |              Bigamy has been detected              | F1 and F2 by I1 |
-|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I5       |
-|    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I8       |
-|    ERROR    | INDIVIDUAL |    US03    |  death 1967-07-06 is before dirthdate 1968-04-24   |        I8       |
-|   ANAMOLY   | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I8-I5      |
-=======
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I17 - 19    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I18 - 22    |
 | INFORMATION | INDIVIDUAL |    US27    |             List each individual's age             |     I19 - 20    |
@@ -90,9 +83,11 @@
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I6       |
 |    ERROR    | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I9       |
 |    ERROR    | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |       I30       |
+|    ERROR    | INDIVIDUAL |    US12    |                Parents not too old                 |      I7-I6      |
+|   ANAMOLY   | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I1-I2      |
+|   ANAMOLY   | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I9-I6      |
 |    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I5      |
 |    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I6      |
 |    ERROR    |   FAMILY   |    US09    |         Death date can't be before Child's         |      I9-I14     |
 |    ERROR    |   FAMILY   |    US15    |               Fewer than 15 siblings               |        F3       |
->>>>>>> 90612fc29e7e04421c678cf1139b3a772ca2a81e
 +-------------+------------+------------+----------------------------------------------------+-----------------+

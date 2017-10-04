@@ -15,13 +15,13 @@ def userStories(individualList, familyList):
     checkBigamy_us11(individualList, familyList)
     birthBeforeMarriage_us02(individualList)
     birthBeforeDeath_us03(individualList)
-<<<<<<< HEAD
-    #US12_parents_not_too_old(individualList, familyList)
+
+    US12_parents_not_too_old(individualList, familyList)
     marriage_after_14_US10(individualList,familyList)
-=======
+
     birth_Before_Death_of_Parents_US09(individualList, familyList)
     fewer_than_fifteen_siblings_US15(familyList)
->>>>>>> 90612fc29e7e04421c678cf1139b3a772ca2a81e
+
     writeTableToFile()
 
 ########################################################################################################################################################################
@@ -258,7 +258,7 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                                                     else:
                                                         errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +child_type_check])
  
-    
+######################################################################################################################################################################    
 
 def fewer_than_fifteen_siblings_US15(familyList):
         tag="ERROR"
@@ -285,49 +285,31 @@ def writeTableToFile():
 ######################################################################################################################################################################
 
 
-##def US12_parents_not_too_old(individualList, familyList):
-##    for indi in individualList:
-##        birth = individualList[indi].birthday.split("-")
-##        if (individualList[indi].birthday != 'NA'):           
-##            birthyear = int(birth[0])
-##            birthmonth = int(birth[1])
-##            birthdate = int(birth[2])
-##
-##            today = datetime.date.today()
-##    
-##    for i in familyList:
-##        #if familyList[i].children != None:
-##            father_id = familyList[i].husband
-##            mother_id = familyList[i].wife
-##            child_id = familyList[i].children.split(",")
-##            print father_id
-##            print mother_id
-##            print child_id
-##            
-##            for x in individualList:
-##                
-##                if individualList[x].ID == father_id:
-##                    #print individualList[x].ID
-##                    #father_age = today.year - birthyear
-##                    #print father_age
-##                    father_age = individualList[x].age
-##                    #print father_age
-##                if individualList[x].ID == child_id:
-##                    #print individualList[x].ID                    
-##                    #child_age = today.year - birthyear
-##                    child_age = individualList[x].age
-##                    #print child_id
-##                    #print child_age
-##                
-##                if individualList[x].ID == mother_id:
-##                    #mother_age = today.year - birthyear
-##                    mother_age = individualList[x].age
-##                    #print mother_age
-##					
-##                #if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
-##                 #       print "ERROR: FAMILIES: US12: Parents too old violated. "  + child_id
+def US12_parents_not_too_old(individualList, familyList):
+    tag="ERROR"
+    concerned="INDIVIDUAL"
+    US="US12"
+    description="Parents not too old"
+    location=""
+        
+    for i in familyList:
+        if familyList[i].children != None:
+            father_id = familyList[i].husband
+            mother_id = familyList[i].wife
+            child_id = familyList[i].children
+             
+            father_age = individualList[father_id].age
+            mother_age = individualList[mother_id].age
+            for a in range(len(child_id)):                                   
+                child_age = individualList[child_id[a]].age
+                                     
+                			
+                if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
+                    errorTable.add_row([tag,concerned, US, description, father_id + '-' + mother_id])
+                    
 
 
+######################################################################################################################################################################
 def marriage_after_14_US10(individualList,familyList):
     tag="ANAMOLY"
     concerned="INDIVIDUAL"
