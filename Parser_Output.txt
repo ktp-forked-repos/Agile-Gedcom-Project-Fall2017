@@ -20,7 +20,7 @@
 | I17 |  Peter /Winchester/  |   M    | 1998-01-25 |     NA     |   F3  |   NA   |  19 |
 | I18 |  June /Winchester/   |   F    | 1995-08-11 |     NA     |   F3  |   NA   |  22 |
 | I19 |   Ten /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |  20 |
-| I20 |  Priya /Winchester/  |   F    | 1995-10-05 |     NA     |   F3  |   NA   |  21 |
+| I20 |  Priya /Winchester/  |   F    | 1995-10-05 |     NA     |   F3  |   NA   |  22 |
 | I21 |  Shina /Winchester/  |   F    | 1997-02-15 |     NA     |   F3  |   NA   |  20 |
 | I22 |  Joshu /Winchester/  |   F    | 1997-02-15 |     NA     |   F3  |   NA   |  20 |
 | I23 |  David /Winchester/  |   M    | 1993-12-10 |     NA     |   F3  |   NA   |  23 |
