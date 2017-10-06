@@ -23,8 +23,8 @@ def checkDate(date1, date2):
 		res= False
 		if date1simplified[0]<date2simplified[0]:
 			res=True
-		if date1simplified[0]==date2simplified[0] and date1simplified[1]<date2simplified[1]:
+		elif date1simplified[0]==date2simplified[0] and date1simplified[1]<date2simplified[1]:
 			res=True
-		if date1simplified[0]==date2simplified[0] and date1simplified[1]==date2simplified[1] and date1simplified[2]<=date2simplified[2] :
+		elif date1simplified[0]==date2simplified[0] and date1simplified[1]==date2simplified[1] and date1simplified[2]<=date2simplified[2] :
 			res=True
 		return res
