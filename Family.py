@@ -2,7 +2,7 @@ from Functions import formatDate
 
 class Family(object):
 	
-	def __init__(self, ID, husband = '', wife = '', marriage = '', divorce = 'NA'):
+	def __init__(self, ID = 'NA', husband = 'NA', wife = 'NA', marriage = 'NA', divorce = 'NA'):
 		self.ID = ID
 		self.husband = husband
 		self.wife = wife
