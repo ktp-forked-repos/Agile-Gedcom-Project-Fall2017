@@ -47,19 +47,19 @@
 
                                                                      Error Report                                                                     
 
-+---------+------------+------------+----------------------------------------------------+-----------------+
-|   Tag   | Concerned  | User Story |                    Description                     |   Location/ ID  |
-+---------+------------+------------+----------------------------------------------------+-----------------+
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |        I2       |
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |        I6       |
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |        I9       |
-|  ERROR  | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |       I30       |
-|  ERROR  | INDIVIDUAL |    US11    |              Bigamy has been detected              | F2 and F1 by I1 |
-|  ERROR  | INDIVIDUAL |    US12    |                Parents not too old                 |      I7-I6      |
-| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I1-I2      |
-| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |      I9-I6      |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I5      |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |      I3-I6      |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |      I9-I14     |
-|  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |        F3       |
-+---------+------------+------------+----------------------------------------------------+-----------------+
++---------+------------+------------+----------------------------------------------------+--------------+
+|   Tag   | Concerned  | User Story |                    Description                     | Location/ ID |
++---------+------------+------------+----------------------------------------------------+--------------+
+|  ERROR  | INDIVIDUAL |    US11    |            Bigamy detected in F2 and F1            |      I1      |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |      I2      |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |      I6      |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I9      |
+|  ERROR  | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |     I30      |
+|  ERROR  | INDIVIDUAL |    US12    |                Parents not too old                 |    I7-I6     |
+| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |    I1-I2     |
+| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |    I9-I6     |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I5     |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I6     |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I9-I14    |
+|  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |      F3      |
++---------+------------+------------+----------------------------------------------------+--------------+

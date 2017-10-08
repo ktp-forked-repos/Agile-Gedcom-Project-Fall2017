@@ -17,16 +17,27 @@ def userStories(individualList, familyList):
     # Sprint 4 stories:
 
     #Executing Sprint1
+    ages = []
+
     for indi in individualList:
         #print indi.marriage
         if(birthBeforeMarriage_us02(individualList[indi]) is not True):
             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
         if(birthBeforeDeath_us03(individualList[indi]) is not True):
             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
-    
-    individualAge_us27(individualList)
-    checkBigamy_us11(individualList, familyList)
-    
+
+        individual = individualList[indi]
+        # User story 27:
+        age = individualAge_us27(individual)
+        individual.setAge(age)
+        ages.append(age)
+
+        # User story 11:
+        if (checkBigamy_us11(individual, individualList, familyList)):
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
+
+    individualTable.add_column('Age', ages)
+       
     US12_parents_not_too_old(individualList, familyList)
     marriage_after_14_US10(individualList,familyList)
 
@@ -36,74 +47,57 @@ def userStories(individualList, familyList):
     writeTableToFile(individualList, familyList)
 
 ########################################################################################################################################################################
-def individualAge_us27(individualList):
+def individualAge_us27(individual):
     """ US27 : Include individual ages """ 
-    tag ="ERROR"
-    concerned = "INDIVIDUAL"
-    name = "US27"
-    description = "Birthday not specified"
+    if (individual.birthday != 'NA'):
+        birth = individual.birthday.split("-")           
+        birthyear = int(birth[0])
+        birthmonth = int(birth[1])
+        birthdate = int(birth[2])
 
-    ages = []
-    for indi in individualList:
-    	individual = individualList[indi]
-        if (individual.birthday == ''):
-        	continue
-
-        elif (individual.birthday != 'NA'):
-            birth = individual.birthday.split("-")           
-            birthyear = int(birth[0])
-            birthmonth = int(birth[1])
-            birthdate = int(birth[2])
-
-            today = datetime.date.today()
-
-            age = today.year - birthyear
-            if (today.month < birthmonth):
+        today = datetime.date.today()
+        age = today.year - birthyear
+        if (today.month < birthmonth):
+            age -= 1;
+        elif (today.month == birthmonth):
+            if (today.day < birthdate):
                 age -= 1;
-            elif (today.month == birthmonth):
-                if (today.day < birthdate):
-                    age -= 1;
-            individual.setAge(age)
-            ages.append(age)
-        else:
-            errorTable.add_row([tag,concerned,name,description,individual.ID])
-    individualTable.add_column('Age', ages)
+        return age
+    else:
+        errorTable.add_row(["ERROR", "INDIVIDUAL", "US27", "Birthdate of " + individual + " not specified"])
+        return "NA"
             
 
 #########################################################################################################################################################################
-def checkBigamy_us11(individualList, familyList):
+def checkBigamy_us11(individual, individualList, familyList):
     """ US11 : No bigamy """
-    tag = "ERROR"
-    concerned = "INDIVIDUAL"
-    name = "US11"
-    description = "Bigamy has been detected"
+    global outputValues
+    error = False    
+    if (individual.spouseFamily != 'NA'):   # Exclude the un-married people
+        for fam in familyList:
+            family = familyList[fam]
+            # Enter only if the person is a spouse in any other family apart from the one he/ she is currently a spouse in.
+            if (fam != individual.spouseFamily and ((family.husband and individual.ID == family.husband) or (family.wife and individual.ID == family.wife))):
 
-    for indi in individualList:
-        individual = individualList[indi]
-        if (individual.spouseFamily != 'NA'):   # Exclude the un-married people
-            for fam in familyList:
-                family = familyList[fam]
-                # Enter only if the person is a spouse in any other family apart from the one he/ she is currently a spouse in.
-                if (fam != individual.spouseFamily and ((family.husband and individual.ID == family.husband) or (family.wife and individual.ID == family.wife))):
+                if (familyList[individual.spouseFamily].marriage and family.marriage): # If both marriage dates available
+                    firstMarriage, secondMarriage = determineMarriageOrder(familyList[individual.spouseFamily], family)
+                    spouseID = determineSpouse(individual, firstMarriage)
+                    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US11", "Bigamy detected in " + firstMarriage.ID + " and " + secondMarriage.ID)
 
-                    if (familyList[individual.spouseFamily].marriage and family.marriage): # If both marriage dates available
-                        firstMarriage, secondMarriage = determineMarriageOrder(familyList[individual.spouseFamily], family)
-                        spouseID = determineSpouse(individual, firstMarriage)
-                        location = firstMarriage.ID + " and " + secondMarriage.ID + " by " + individual.ID
-
-                        # Check if the person got married 2nd time even when he/ she has not yet been divorced from the 1st marriage
-                        if (firstMarriage.divorce == 'NA'):                                         
-                            # Then check if the spouse from the 1st marriage is still alive
-                            if (isAlive(individualList[spouseID])):
-                                errorTable.add_row([tag,concerned,name,description,location])                                     
-                            # Otherwise check if the spouse died after the second marrriage
-                            else:
-                                if (checkDate(secondMarriage.marriage, individualList[spouseID].death)):
-                                    errorTable.add_row([tag,concerned,name,description,location])
+                    # Check if the person got married 2nd time even when he/ she has not yet been divorced from the 1st marriage
+                    if (firstMarriage.divorce == 'NA'):                                         
+                        # Then check if the spouse from the 1st marriage is still alive
+                        if (isAlive(individualList[spouseID])):                           
+                            error = True                                     
+                        # Otherwise check if the spouse died after the second marrriage
                         else:
-                            # If the person got divorced from 1st marriage after marrying the 2nd time
-                            if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
-                                errorTable.add_row([tag,concerned,name,description,location])
+                            if (checkDate(secondMarriage.marriage, individualList[spouseID].death)):
+                                error = True
+                    else:
+                        # If the person got divorced from 1st marriage after marrying the 2nd time
+                        if (checkDate(secondMarriage.marriage, firstMarriage.divorce)):
+                            error = True
+    return error
 
 ###########################################################################################################################################################################
 def birthBeforeMarriage_us02(individual):
