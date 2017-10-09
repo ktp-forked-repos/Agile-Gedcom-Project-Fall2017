@@ -17,8 +17,8 @@
 | I14 |    Kevin /Moore/     |   M    | 2002-06-12 |     NA     |   F5  |   NA   |  15 |
 | I15 |    Sydney /Moore/    |   F    | 2000-03-28 |     NA     |   F5  |   NA   |  17 |
 | I16 |  Hannah /Campbell/   |   F    | 2006-11-16 |     NA     |   F4  |   NA   |  10 |
-| I17 |  Peter /Winchester/  |   M    | 1998-01-25 |     NA     |   F3  |   NA   |  19 |
-| I18 |  June /Winchester/   |   F    | 1995-08-11 |     NA     |   F3  |   NA   |  22 |
+| I17 |  Peter /Winchester/  |   M    | 1998-01-25 |     NA     |   F3  |   F6   |  19 |
+| I18 |  June /Winchester/   |   F    | 1995-08-11 |     NA     |   F3  |   F6   |  22 |
 | I19 |   Ten /Winchester/   |   M    | 1996-11-07 |     NA     |   F3  |   NA   |  20 |
 | I20 |  Priya /Winchester/  |   F    | 1995-10-05 |     NA     |   F3  |   NA   |  22 |
 | I21 |  Shina /Winchester/  |   F    | 1997-02-15 |     NA     |   F3  |   NA   |  20 |
@@ -33,33 +33,34 @@
 | I30 |  Super /Winchester/  |   M    | 1993-12-10 | 1992-07-06 |   F3  |   NA   |  23 |
 +-----+----------------------+--------+------------+------------+-------+--------+-----+
 
-+----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
-| ID |  Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |                                                     Children                                                     |
-+----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
-| F1 | 1969-01-31 |     NA     |     I1     | John /Winchester/ |    I2   |  Lisa /Winchester/   |                                                  ['I10', 'I11']                                                  |
-| F2 | 1968-05-02 |     NA     |     I1     | John /Winchester/ |    I3   |  Mary /Winchester/   |                                                ['I4', 'I5', 'I6']                                                |
-| F3 | 1994-08-08 | 2002-12-27 |     I5     |  Sam /Winchester/ |    I8   |   Jessica /Carver/   | ['I12', 'I13', 'I17', 'I18', 'I19', 'I20', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I27', 'I28', 'I29', 'I30'] |
-| F4 | 2005-10-04 |     NA     |     I7     |  Mark /Campbell/  |    I6   | Christine /Campbell/ |                                                     ['I16']                                                      |
-| F5 | 1967-03-18 |     NA     |     I9     |   Shane /Moore/   |    I6   | Christine /Campbell/ |                                                  ['I14', 'I15']                                                  |
-+----+------------+------------+------------+-------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
++----+------------+------------+------------+--------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
+| ID |  Married   |  Divorced  | Husband ID |    Husband Name    | Wife ID |      Wife Name       |                                                     Children                                                     |
++----+------------+------------+------------+--------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
+| F1 | 1969-01-31 |     NA     |     I1     | John /Winchester/  |    I2   |  Lisa /Winchester/   |                                                  ['I10', 'I11']                                                  |
+| F2 | 1968-05-02 |     NA     |     I1     | John /Winchester/  |    I3   |  Mary /Winchester/   |                                                ['I4', 'I5', 'I6']                                                |
+| F3 | 1994-08-08 | 2002-12-27 |     I5     |  Sam /Winchester/  |    I8   |   Jessica /Carver/   | ['I12', 'I13', 'I17', 'I18', 'I19', 'I20', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I27', 'I28', 'I29', 'I30'] |
+| F4 | 2005-10-04 |     NA     |     I7     |  Mark /Campbell/   |    I6   | Christine /Campbell/ |                                                     ['I16']                                                      |
+| F5 | 1967-03-18 |     NA     |     I9     |   Shane /Moore/    |    I6   | Christine /Campbell/ |                                                  ['I14', 'I15']                                                  |
+| F6 | 2017-10-10 |     NA     |    I17     | Peter /Winchester/ |   I18   |  June /Winchester/   |                                                        []                                                        |
+| F7 | 2016-08-10 |     NA     |    I14     |   Kevin /Moore/    |    I6   | Christine /Campbell/ |                                                        []                                                        |
++----+------------+------------+------------+--------------------+---------+----------------------+------------------------------------------------------------------------------------------------------------------+
 
 
 
                                                                      Error Report                                                                     
 
-+---------+------------+------------+----------------------------------------------------+--------------+
-|   Tag   | Concerned  | User Story |                    Description                     | Location/ ID |
-+---------+------------+------------+----------------------------------------------------+--------------+
-|  ERROR  | INDIVIDUAL |    US11    |              Bigamy has been detected              |  F2,F1 - I1  |
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |      I2      |
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |      I6      |
-|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I9      |
-|  ERROR  | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |     I30      |
-|  ERROR  | INDIVIDUAL |    US12    |                Parents not too old                 |    I7-I6     |
-| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |    I1-I2     |
-| ANAMOLY | INDIVIDUAL |    US10    |    Marraige should be after 14 years of birth      |    I9-I6     |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I5     |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I6     |
-|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |    I9-I14    |
-|  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |      F3      |
-+---------+------------+------------+----------------------------------------------------+--------------+
++-------+------------+------------+----------------------------------------------------+--------------+
+|  Tag  | Concerned  | User Story |                    Description                     | Location/ ID |
++-------+------------+------------+----------------------------------------------------+--------------+
+| ERROR | INDIVIDUAL |    US11    |              Bigamy has been detected              |  F2,F1 - I1  |
+| ERROR | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |      I2      |
+| ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |    I6-I14    |
+| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I9      |
+| ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |   I17-I18    |
+| ERROR | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |     I30      |
+| ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |    I7-I6     |
+| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I5     |
+| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |    I3-I6     |
+| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |    I9-I14    |
+| ERROR |   FAMILY   |    US15    |               Fewer than 15 siblings               |      F3      |
++-------+------------+------------+----------------------------------------------------+--------------+
