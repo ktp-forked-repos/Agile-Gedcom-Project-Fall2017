@@ -50,7 +50,7 @@
 +---------+------------+------------+----------------------------------------------------+--------------+
 |   Tag   | Concerned  | User Story |                    Description                     | Location/ ID |
 +---------+------------+------------+----------------------------------------------------+--------------+
-|  ERROR  | INDIVIDUAL |    US11    |            Bigamy detected in F2 and F1            |      I1      |
+|  ERROR  | INDIVIDUAL |    US11    |              Bigamy has been detected              |  F2,F1 - I1  |
 |  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |      I2      |
 |  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1977-12-18 |      I6      |
 |  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |      I9      |

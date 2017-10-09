@@ -11,16 +11,13 @@ errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Loca
 outputValues=OutputValues()
 
 def userStories(individualList, familyList):
-    
-    # Sprint 2 stories:
-    # Sprint 3 stories:
-    # Sprint 4 stories:
 
-    #Executing Sprint1
     ages = []
+    previousIndividual = []
+    previousSiblings = []
 
     for indi in individualList:
-        #print indi.marriage
+        #Executing Sprint1
         if(birthBeforeMarriage_us02(individualList[indi]) is not True):
             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
         if(birthBeforeDeath_us03(individualList[indi]) is not True):
@@ -31,11 +28,23 @@ def userStories(individualList, familyList):
         age = individualAge_us27(individual)
         individual.setAge(age)
         ages.append(age)
-
         # User story 11:
         if (checkBigamy_us11(individual, individualList, familyList)):
-            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,outputValues.location])
 
+
+        #Executing Sprint2
+        # User story 17
+        # if (marriedToDescendants_us17(individual, familyList)):
+        # User story 18
+        if (marriedToSiblings_us18(individual, familyList)):
+            print outputValues.location           
+            for location in outputValues.location:
+                if (indi not in previousSiblings or location.split(",")[1] not in previousIndividual):
+                    previousSiblings.append(location.split(",")[1])
+                    errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+            previousIndividual.append(indi)
+                 
     individualTable.add_column('Age', ages)
        
     US12_parents_not_too_old(individualList, familyList)
@@ -77,13 +86,13 @@ def checkBigamy_us11(individual, individualList, familyList):
         for fam in familyList:
             family = familyList[fam]
             # Enter only if the person is a spouse in any other family apart from the one he/ she is currently a spouse in.
-            if (fam != individual.spouseFamily and ((family.husband and individual.ID == family.husband) or (family.wife and individual.ID == family.wife))):
-
+            if (fam != individual.spouseFamily and ((family.husband and individual.ID == family.husband)
+                 or (family.wife and individual.ID == family.wife))):
                 if (familyList[individual.spouseFamily].marriage and family.marriage): # If both marriage dates available
                     firstMarriage, secondMarriage = determineMarriageOrder(familyList[individual.spouseFamily], family)
                     spouseID = determineSpouse(individual, firstMarriage)
-                    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US11", "Bigamy detected in " + firstMarriage.ID + " and " + secondMarriage.ID)
-
+                    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US11",
+                            "Bigamy has been detected", firstMarriage.ID + "," + secondMarriage.ID + " - " + individual.ID)
                     # Check if the person got married 2nd time even when he/ she has not yet been divorced from the 1st marriage
                     if (firstMarriage.divorce == 'NA'):                                         
                         # Then check if the spouse from the 1st marriage is still alive
@@ -248,6 +257,42 @@ def marriage_after_14_US10(individualList,familyList):
             pass
         else:
             errorTable.add_row([tag,concerned, US, description, husband_id + '-' + wife_id])
+
+###########################################################################################################################################################################
+def marriedToDescendants_us17(individual, familyList):
+    """ US18 : Siblings should not marry each other """
+    global outputValues
+    error = False
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US18", "Parents married to their descendants")
+    outputValues.location = []
+    if (individual.spouseFamily != 'NA'):
+        family = individual.spouseFamily
+        # if (family.children):
+
+    
+###########################################################################################################################################################################
+def marriedToSiblings_us18(individual, familyList):
+    """ US18 : Siblings should not marry each other """
+    global outputValues
+    error = False
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US18", "Siblings of a family are married to each other")
+    outputValues.location = []
+    siblings = set()
+    siblings.add(individual.ID)
+    if (individual.childFamily != 'NA' and individual.spouseFamily != 'NA'):
+        family = familyList[individual.childFamily]
+        siblings.symmetric_difference_update(family.children)
+        for fam in familyList:
+            if (fam != family.ID and (familyList[fam].husband == family.husband or familyList[fam].wife == family.wife)):
+                siblings.update(familyList[fam].children)
+        for fam2 in familyList:
+            family2 = familyList[fam2]
+            if (individual.spouseFamily == family2.ID or individual.ID == family2.husband or individual.ID == family2.wife):
+                spouse = determineSpouse(individual, family2)
+                if (spouse in siblings):
+                    error = True
+                    outputValues.location.append(individual.ID + "," + spouse)
+    return error
 
 ###########################################################################################################################################################################
 def writeTableToFile(individualList, familyList):
