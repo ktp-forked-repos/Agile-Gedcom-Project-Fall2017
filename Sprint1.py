@@ -1,28 +1,31 @@
-import datetime
-from datetime import date
-from Parser import individualTable, familyTable
 from Functions import checkDate
 from prettytable import PrettyTable
 from OutputValues import OutputValues
+from Functions import writeTableToFile
+from Parser import individualTable, familyTable
+import os
+import datetime
 
 errorTable = PrettyTable()
 errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
 
-outputValues=OutputValues()
+outputValues = OutputValues()
+outputFile = ""
 
-def userStories(individualList, familyList):
 
+
+def sprint1(individualList, familyList):
+    print "sprint1"
     ages = []
     previousIndividual = []
     previousSiblings = []
 
     for indi in individualList:
         #Executing Sprint1
-        if(birthBeforeMarriage_us02(individualList[indi]) is not True):
-            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
-        if(birthBeforeDeath_us03(individualList[indi]) is not True):
-            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,indi])
-
+        if birthBeforeMarriage_us02(individualList[indi]) is not True:
+            errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
+        if birthBeforeDeath_us03(individualList[indi]) is not True:
+            errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
         individual = individualList[indi]
         # User story 27:
         age = individualAge_us27(individual)
@@ -52,8 +55,10 @@ def userStories(individualList, familyList):
 
     birth_Before_Death_of_Parents_US09(individualList, familyList)
     fewer_than_fifteen_siblings_US15(familyList)
-
-    writeTableToFile(individualList, familyList)
+  
+    writeTableToFile(errorTable,"Sprint1")
+        
+        
 
 ########################################################################################################################################################################
 def individualAge_us27(individual):
@@ -111,7 +116,7 @@ def checkBigamy_us11(individual, individualList, familyList):
 ###########################################################################################################################################################################
 def birthBeforeMarriage_us02(individual):
     global outputValues
-    outputValues=OutputValues("ERROR","INDIVIDUAL","US02","marriage "+ individual.marriage+" is before dirthdate "+individual.birthday)
+    outputValues=OutputValues("ERROR","INDIVIDUAL","US02","marriage "+ individual.marriage+" is before birthdate "+individual.birthday)
     if individual.marriage=='NA' and individual.birthday != 'NA':
 		return True
     if individual.birthday == 'NA':
@@ -122,7 +127,7 @@ def birthBeforeMarriage_us02(individual):
 ###########################################################################################################################################################################	
 def birthBeforeDeath_us03(individual):
     global outputValues
-    outputValues=OutputValues("ERROR","INDIVIDUAL","US03","death "+ individual.death+" is before dirthdate "+individual.birthday)
+    outputValues=OutputValues("ERROR","INDIVIDUAL","US03","death "+ individual.death+" is before birthdate "+individual.birthday)
     if individual.death=='NA' and individual.birthday != 'NA':
 		return True
     if individual.birthday == 'NA':
@@ -327,17 +332,6 @@ def marriedToSiblings_us18(individual, familyList):
                     error = True
                     outputValues.location.append(individual.ID + "-" + spouse)
     return error
-
-###########################################################################################################################################################################
-def writeTableToFile(individualList, familyList):
-    # Output file
-    outputFile = open('Parser_Output.txt', 'w')    
-    outputFile.write(str(individualTable) + '\n\n')
-    outputFile.write(str(familyTable) + '\n\n')
-
-    outputFile.write('\n\n'  + "{0:^150}".format(" Error Report") + "\n\n")
-    outputFile.write(str(errorTable)+"\n")
-    outputFile.close()
 
 ###########################################################################################################################################################################
 def isAlive(person):

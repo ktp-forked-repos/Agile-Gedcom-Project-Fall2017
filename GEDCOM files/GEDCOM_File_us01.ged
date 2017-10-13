@@ -1,0 +1,36 @@
+0 NOTE Dhavala Manjunatha Project1 CS555
+0 @us_01_I1@ INDI
+ 1 NAMES Emilia /Stone/
+  2 GIVN Emilia
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 10 MAR 2091
+ 1 FAMC @us_01_F1@
+0 @us_01_I2@ INDI
+ 1 NAME Jeff /Stone/
+  2 GIVN Jeff
+  2 SURN Stone
+ 1 SEX M
+ 1 BIRT
+  2 DATE 25 APR 1965
+ 1 DEAT
+  2 DATE 15 DEC 2020
+ 1 FAMS @us_01_F1@
+0 @us_01_I3@ INDI
+ 1 NAME Rebecca /Stone/
+  2 GIVN Rebecca
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 23 OCT 1967
+ 1 FAMS @us_01_F1@
+0 @us_01_F1@ FAM
+ 1 HUSB @us_01_I2@
+ 1 WIFE @us_01_I3@
+ 1 CHIL @us_01_I1@
+ 1 MARR
+ 2 DATE 4 APR 2021
+ 1 DIV
+ 2 DATE 21 JUN 2051
+0 TRLR
