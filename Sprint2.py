@@ -37,7 +37,7 @@ def sprint2(individualList, familyList):
 ########################################################################################################################################################################
 def birthdayBeforeCurrentDate_us01(birthday):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Birth day "+ birthday+" is before today")
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Birth day "+ birthday+" is after today")
     if birthday == 'NA':
         outputValues.description = "Birthdate is not specified"
         return False
@@ -46,19 +46,19 @@ def birthdayBeforeCurrentDate_us01(birthday):
 
 def deathBeforCurrentDate_us01(death):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Death day "+ death+" is before today")
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Death day "+ death+" is after today")
     today = datetime.date.today().strftime("%Y-%m-%d")
     return  checkDate(death, today)
 
 def marriageBeforCurrentDate_us01(marriage):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Marriage day "+ marriage+" is before today")
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Marriage day "+ marriage+" is after today")
     today = datetime.date.today().strftime("%Y-%m-%d")
     return  checkDate(marriage, today)
 
 def divorceBeforCurrentDate_us01(divorce):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Divorce day "+ divorce+" is before today")
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Divorce day "+ divorce+" is after today")
     today = datetime.date.today().strftime("%Y-%m-%d")
     return checkDate(divorce, today)
 

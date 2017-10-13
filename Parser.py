@@ -27,7 +27,7 @@ def init():
 	abs_file_path = os.path.join(script_dr, rel_path)
 	files=os.listdir(abs_file_path)
 	finalGedcomFile=abs_file_path+"GEDCOM_final.ged"
-	with open(finalGedcomFile,"w") as fo:
+	with open(finalGedcomFile,"w+") as fo:
 		for f in sorted(files):
 			with open(os.path.join(abs_file_path,f),"rb") as fi:
 				shutil.copyfileobj(fi,fo)

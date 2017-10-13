@@ -59,11 +59,11 @@
 |  Tag  | Concerned  | User Story |                    Description                     |            Location/ ID            |
 +-------+------------+------------+----------------------------------------------------+------------------------------------+
 | ERROR | INDIVIDUAL |    US11    |              Bigamy has been detected              | sprint1_F2,sprint1_F1 - sprint1_I1 |
-| ERROR | INDIVIDUAL |    US02    | marriage 1969-01-31 is before dirthdate 1972-06-10 |             sprint1_I2             |
+| ERROR | INDIVIDUAL |    US02    | marriage 1969-01-31 is before birthdate 1972-06-10 |             sprint1_I2             |
 | ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |       sprint1_I6-sprint1_I14       |
-| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before dirthdate 1968-04-24 |             sprint1_I9             |
+| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1968-04-24 |             sprint1_I9             |
 | ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |      sprint1_I17-sprint1_I18       |
-| ERROR | INDIVIDUAL |    US03    |  death 1992-07-06 is before dirthdate 1993-12-10   |            sprint1_I30             |
+| ERROR | INDIVIDUAL |    US03    |  death 1992-07-06 is before birthdate 1993-12-10   |            sprint1_I30             |
 | ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |       sprint1_I7-sprint1_I6        |
 | ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |         us_01_I2-us_01_I3          |
 | ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |         us_07_I2-us_07_I3          |
