@@ -172,7 +172,6 @@
 1 SEX M
 1 BIRT
 2 DATE 25 JAN 1998
-1 FAMS @sprint1_F6@
 1 FAMC @sprint1_F3@
 0 @sprint1_I18@ INDI
 1 NAME June /Winchester/
@@ -182,7 +181,6 @@
 1 SEX F
 1 BIRT
 2 DATE 11 AUG 1995
-1 FAMS @sprint1_F6@
 1 FAMC @sprint1_F3@
 0 @sprint1_I19@ INDI
 1 NAME Ten /Winchester/
@@ -351,17 +349,6 @@
 1 CHIL @sprint1_I15@
 1 MARR
 2 DATE 18 MAR 1967
-0 @sprint1_F6@ FAM
-1 HUSB @sprint1_I17@
-1 WIFE @sprint1_I18@
-1 MARR
-2 DATE 10 OCT 2017
-0 @sprint1_F7@ FAM
-1 HUSB @sprint1_I14@
-1 WIFE @sprint1_I6@
-1 MARR
-2 DATE 10 AUG 2016
-1 _CURRENT Y
 1 EVEN
 2 TYPE Ending
 1 _CURRENT N
@@ -435,4 +422,351 @@
  1 CHIL @us_07_I1@
  1 MARR
  2 DATE 4 APR 1990
+0 TRLR
+0 NOTE Project1 CS555
+0 @us_17_I1@ INDI
+1 NAME Matthew /Wood/
+2 GIVN Matthew
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 5 JAN 1945
+1 FAMS @us_17_F1@
+0 @us_17_I2@ INDI
+1 NAME Mary /Wood/
+2 GIVN Mary
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 19 AUG 1948
+1 DEAT Y
+2 DATE 2 JAN 1990
+1 FAMS @us_17_F1@
+0 @us_17_I3@ INDI
+1 NAME Melissa /Jones/
+2 GIVN Melissa
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 15 APR 1970
+1 FAMS @us_17_F2@
+1 FAMC @us_17_F1@
+0 @us_17_I4@ INDI
+1 NAME Michael /Wood/
+2 GIVN Michael
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 7 SEP 1973
+1 FAMS @us_17_F3@
+1 FAMC @us_17_F1@
+0 @us_17_I5@ INDI
+1 NAME Betty /Wood/
+2 GIVN Betty
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 17 DEC 1977
+1 FAMS @us_17_F4@
+1 FAMC @us_17_F1@
+0 @us_17_I6@ INDI
+1 NAME Ryan /Jones/
+2 GIVN Ryan
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 10 JUN 1972
+1 FAMS @us_17_F2@
+0 @us_17_I7@ INDI
+1 NAME Alice /Turner/
+2 GIVN Alice
+2 SURN Turner
+1 SEX F
+1 BIRT
+2 DATE 31 OCT 1977
+1 FAMS @us_17_F3@
+0 @us_17_I8@ INDI
+1 NAME Edward /Cole/
+2 GIVN Edward
+2 SURN Cole
+1 SEX M
+1 BIRT
+2 DATE 24 APR 1968
+1 DEAT Y
+2 DATE 6 JUL 2000
+1 FAMS @us_17_F4@
+0 @us_17_I9@ INDI
+1 NAME Sara /Jones/
+2 GIVN Sara
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 1 MAY 1993
+1 FAMC @us_17_F2@
+1 FAMS @us_17_F6@
+0 @us_17_I10@ INDI
+1 NAME Bill /Jones/
+2 GIVN Bill
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 15 SEP 1995
+1 FAMC @us_17_F2@
+1 FAMS @us_17_F5@
+0 @us_17_I11@ INDI
+1 NAME Rob /Wood/
+2 GIVN Rob
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 7 NOV 1996
+1 FAMC @us_17_F3@
+0 @us_17_I12@ INDI
+1 NAME Josh /Wood/
+2 GIVN Josh
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 25 JAN 1998
+1 FAMC @us_17_F3@
+0 @us_17_I13@ INDI
+1 NAME Dylan /Cole/
+2 GIVN Dylan
+2 SURN Cole
+1 SEX M
+1 BIRT
+2 DATE 12 JUN 1998
+1 FAMC @us_17_F4@
+0 @us_17_I14@ INDI
+1 NAME Jenna /Cole/
+2 GIVN Jenna
+2 SURN Cole
+1 SEX F
+1 BIRT
+2 DATE 28 MAR 2000
+1 FAMC @us_17_F4@
+0 @us_17_F1@ FAM
+1 HUSB @us_17_I1@
+1 WIFE @us_17_I2@
+1 CHIL @us_17_I3@
+1 CHIL @us_17_I4@
+1 CHIL @us_17_I5@
+1 MARR
+2 DATE 2 MAY 1968
+1 _CURRENT Y
+0 @us_17_F2@ FAM
+1 HUSB @us_17_I6@
+1 WIFE @us_17_I3@
+1 CHIL @us_17_I9@
+1 CHIL @us_17_I10@
+1 MARR
+2 DATE 31 JAN 1991
+1 DIV
+2 DATE 27 DEC 1998
+1 _CURRENT Y
+0 @us_17_F3@ FAM
+1 HUSB @us_17_I4@
+1 WIFE @us_17_I7@
+1 CHIL @us_17_I11@
+1 CHIL @us_17_I12@
+1 MARR
+2 DATE 8 AUG 1994
+1 _CURRENT N
+0 @us_17_F4@ FAM
+1 HUSB @us_17_I8@
+1 WIFE @us_17_I5@
+1 CHIL @us_17_I13@
+1 CHIL @us_17_I14@
+1 MARR
+2 DATE 17 MAR 1997
+1 _CURRENT Y
+0 @us_17_F5@ FAM
+1 HUSB @us_17_I3@
+1 WIFE @us_17_I10@
+1 MARR
+2 DATE 5 MAY 2012
+1 _CURRENT Y
+0 @us_17_F6@ FAM
+1 HUSB @us_17_I1@
+1 WIFE @us_17_I9@
+1 MARR
+2 DATE 22 OCT 2015
+1 _CURRENT Y
+0 TRLR
+0 NOTE Project1 CS555
+0 @us_18_I1@ INDI
+1 NAME Matthew /Wood/
+2 GIVN Matthew
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 5 JAN 1945
+1 FAMS @us_18_F1@
+0 @us_18_I2@ INDI
+1 NAME Mary /Wood/
+2 GIVN Mary
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 19 AUG 1948
+1 FAMS @us_18_F1@
+0 @us_18_I3@ INDI
+1 NAME Melissa /Jones/
+2 GIVN Melissa
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 15 APR 1970
+1 FAMS @us_18_F2@
+1 FAMC @us_18_F1@
+0 @us_18_I4@ INDI
+1 NAME Michael /Wood/
+2 GIVN Michael
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 7 SEP 1973
+1 FAMS @us_18_F3@
+1 FAMC @us_18_F1@
+0 @us_18_I5@ INDI
+1 NAME Betty /Wood/
+2 GIVN Betty
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 18 DEC 1977
+1 FAMS @us_18_F4@
+1 FAMC @us_18_F1@
+0 @us_18_I6@ INDI
+1 NAME Ryan /Jones/
+2 GIVN Ryan
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 10 JUN 1972
+1 FAMS @us_18_F2@
+0 @us_18_I7@ INDI
+1 NAME Alice /Turner/
+2 GIVN Alice
+2 SURN Turner
+1 SEX F
+1 BIRT
+2 DATE 31 OCT 1977
+1 FAMS @us_18_F3@
+0 @us_18_I8@ INDI
+1 NAME Edward /Cole/
+2 GIVN Edward
+2 SURN Cole
+1 SEX M
+1 BIRT
+2 DATE 24 APR 1968
+1 DEAT Y
+2 DATE 6 JUL 2000
+1 FAMS @us_18_F4@
+0 @us_18_I9@ INDI
+1 NAME Sara /Jones/
+2 GIVN Sara
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 1 MAY 1993
+1 FAMC @us_18_F2@
+0 @us_18_I10@ INDI
+1 NAME Bill /Jones/
+2 GIVN Bill
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 15 SEP 1995
+1 FAMC @us_18_F2@
+0 @us_18_I11@ INDI
+1 NAME Rob /Wood/
+2 GIVN Rob
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 7 NOV 1996
+1 FAMC @us_18_F3@
+1 FAMS @us_18_F6@
+0 @us_18_I12@ INDI
+1 NAME Josh /Wood/
+2 GIVN Josh
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 25 JAN 1998
+1 FAMC @us_18_F3@
+0 @us_18_I13@ INDI
+1 NAME Dylan /Cole/
+2 GIVN Dylan
+2 SURN Cole
+1 SEX M
+1 BIRT
+2 DATE 12 JUN 1998
+1 FAMC @us_18_F4@
+0 @us_18_I14@ INDI
+1 NAME Jenna /Cole/
+2 GIVN Jenna
+2 SURN Cole
+1 SEX F
+1 BIRT
+2 DATE 28 MAR 2000
+1 FAMC @us_18_F4@
+0 @us_18_I15@ INDI
+1 NAME Lizzie /Wood/
+2 GIVN Lizzie
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 15 NOV 2002
+1 FAMC @us_18_F5@
+1 FAMS @us_18_F6@
+0 @us_18_F1@ FAM
+1 HUSB @us_18_I1@
+1 WIFE @us_18_I2@
+1 CHIL @us_18_I3@
+1 CHIL @us_18_I4@
+1 CHIL @us_18_I5@
+1 MARR
+2 DATE 2 MAY 1968
+1 _CURRENT Y
+0 @us_18_F2@ FAM
+1 HUSB @us_18_I6@
+1 WIFE @us_18_I3@
+1 CHIL @us_18_I9@
+1 CHIL @us_18_I10@
+1 MARR
+2 DATE 31 JAN 1991
+1 _CURRENT Y
+0 @us_18_F3@ FAM
+1 HUSB @us_18_I4@
+1 WIFE @us_18_I7@
+1 CHIL @us_18_I11@
+1 CHIL @us_18_I12@
+1 MARR
+2 DATE 8 AUG 1994
+1 DIV
+2 DATE 27 DEC 1998
+1 _CURRENT N
+0 @us_18_F4@ FAM
+1 HUSB @us_18_I8@
+1 WIFE @us_18_I5@
+1 CHIL @us_18_I13@
+1 CHIL @us_18_I14@
+1 MARR
+2 DATE 18 MAR 1997
+1 _CURRENT Y
+0 @us_18_F5@ FAM
+1 HUSB @us_18_I4@
+1 WIFE @us_18_I5@
+1 CHIL @us_18_I15@
+1 MARR
+2 DATE 5 MAY 2001
+1 _CURRENT Y
+0 @us_18_F6@ FAM
+1 HUSB @us_18_I11@
+1 WIFE @us_18_I15@
+1 MARR
+2 DATE 5 MAY 2017
+1 _CURRENT Y
 0 TRLR

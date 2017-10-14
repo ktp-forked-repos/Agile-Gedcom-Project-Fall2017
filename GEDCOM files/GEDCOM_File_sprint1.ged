@@ -172,7 +172,6 @@
 1 SEX M
 1 BIRT
 2 DATE 25 JAN 1998
-1 FAMS @sprint1_F6@
 1 FAMC @sprint1_F3@
 0 @sprint1_I18@ INDI
 1 NAME June /Winchester/
@@ -182,7 +181,6 @@
 1 SEX F
 1 BIRT
 2 DATE 11 AUG 1995
-1 FAMS @sprint1_F6@
 1 FAMC @sprint1_F3@
 0 @sprint1_I19@ INDI
 1 NAME Ten /Winchester/
@@ -351,17 +349,6 @@
 1 CHIL @sprint1_I15@
 1 MARR
 2 DATE 18 MAR 1967
-0 @sprint1_F6@ FAM
-1 HUSB @sprint1_I17@
-1 WIFE @sprint1_I18@
-1 MARR
-2 DATE 10 OCT 2017
-0 @sprint1_F7@ FAM
-1 HUSB @sprint1_I14@
-1 WIFE @sprint1_I6@
-1 MARR
-2 DATE 10 AUG 2016
-1 _CURRENT Y
 1 EVEN
 2 TYPE Ending
 1 _CURRENT N

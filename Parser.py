@@ -11,6 +11,7 @@ from Individual import Individual
 from Family import Family
 from collections import OrderedDict
 from prettytable import PrettyTable
+import datetime
 import shutil
 import os
 
@@ -115,15 +116,33 @@ def parser():
 						individual[husband].setDivorce(args)
 						individual[wife].setDivorce(args)
 						family[label].setDivorce(args)
-						
+	ages = []
 
+	for indi in individual:
+	    """ US27 : Include individual ages """ 
+	    if (individual[indi].birthday != 'NA'):
+	        birth = individual[indi].birthday.split("-")           
+	        birthyear = int(birth[0])
+	        birthmonth = int(birth[1])
+	        birthdate = int(birth[2])
+
+	        today = datetime.date.today()
+	        age = today.year - birthyear
+	        if (today.month < birthmonth):
+	            age -= 1;
+	        elif (today.month == birthmonth):
+	            if (today.day < birthdate):
+	                age -= 1;
+        	individual[indi].setAge(age)
+        	ages.append(age)
+        
 	# Output file
 	outputFile = open('Parser_Output.txt', 'w')
 
 	# Create table with the values	
-	individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse']
+	individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse', 'Age']
 	for indi in individual:
-		individualTable.add_row([individual[indi].ID, individual[indi].name, individual[indi].sex, individual[indi].birthday, individual[indi].death, individual[indi].childFamily, individual[indi].spouseFamily])
+		individualTable.add_row([individual[indi].ID, individual[indi].name, individual[indi].sex, individual[indi].birthday, individual[indi].death, individual[indi].childFamily, individual[indi].spouseFamily, individual[indi].age])
 	outputFile.write(str(individualTable) + '\n')
 	
 	familyTable.field_names = ['ID', 'Married', 'Divorced', 'Husband ID', 'Husband Name', 'Wife ID', 'Wife Name', 'Children']
