@@ -50,6 +50,7 @@ def userStories(individualList, familyList):
     US12_parents_not_too_old(individualList, familyList)
     #marriage_after_14_US10(individualList,familyList)
 
+    
     birth_Before_Death_of_Parents_US09(individualList, familyList)
     fewer_than_fifteen_siblings_US15(familyList)
 
@@ -131,12 +132,16 @@ def birthBeforeDeath_us03(individual):
     return checkDate( individual.birthday, individual.death)
 	
 ########################################################################################################################################################################
+
+
 def birth_Before_Death_of_Parents_US09(individualList, familyList):
         tag="ERROR"
         concerned="FAMILY"
         US="US09"
         description="Death date can't be before Child's"
         location=""
+        global outputValues
+        
         for x in familyList:
             father_id = familyList[x].husband
             mother_id = familyList[x].wife
@@ -147,7 +152,8 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                 pass
             elif(type(child_type_check) is list):                                            # if there are multiple children
                             for z in range(len(child_type_check)):
-                                    current_child_id = child_type_check[z]                                                                          # Getting the id or current child
+                                    current_child_id = child_type_check[z]
+                                    # Getting the id or current child
                                     for i in individualList:                                       # Looping throug all person dictionary to match the IDs and extract birth and date date
                                             if(individualList[i].ID == father_id):
                                                     father_death_date = individualList[i].death
@@ -156,22 +162,19 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                                                     
                                             if(individualList[i].ID == current_child_id):
                                                     child_birth_date = individualList[i].birthday
-                                                   
-
-
-                                                    if(father_death_date and mother_death_date is not None):                        # If both parents have a death date
-                                                            if(father_death_date is not None and father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
-                                                                    pass
-                                                            else:
-                                                                errorTable.add_row([tag,concerned,US,description,father_id + '-'+ current_child_id])
-
-                                                            if(mother_death_date is not None and mother_death_date > child_birth_date):   # If mother has a deathdate and its after the childBirth Date
-                                                                    pass
-                                                            else:
-                                                                errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +current_child_id])
-
-            else:                                                                                               # If there is only one child, take child_type_check as ID 
-                            for i in individualList:
+                                    
+                                    if(father_death_date and mother_death_date is not None):
+                                         if(father_death_date > child_birth_date):   # If father has a deathddate and its after the childbirth date
+                                              pass
+                                         else:
+                                              errorTable.add_row([tag,concerned,US,description,father_id + '-'+ current_child_id])
+                                         if(mother_death_date > child_birth_date):
+                                              pass
+                                         else:
+                                               errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +current_child_id])
+                                                                    
+            else:
+                for i in individualList:
                                     if(individualList[i].ID == father_id):                                    # Getting dates
                                             father_death_date = individualList[i].death
                                     if(individualList[i].ID== mother_id):
@@ -180,16 +183,21 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
                                             child_birth_date = individualList[i].birthday
 
                                             if(father_death_date and mother_death_date is not None):                # Same check as above
-                                                    if(father_death_date is not None and father_death_date > child_birth_date):
+            
+
+                                                    if( father_death_date > child_birth_date):
                                                             pass
                                                     else:
+                                                        
                                                         errorTable.add_row([tag,concerned,US,description,father_id + '-'+ child_type_check])
+                                                    
 
-                                                    if(mother_death_date is not None and mother_death_date > child_birth_date):
+                                                    if( mother_death_date > child_birth_date):
                                                             pass  
                                                     else:
-                                                        errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +child_type_check])
- 
+                                                       
+                                                        errorTable.add_row([tag,concerned,US,description,mother_id+ '-' +child_type_check])           
+       
 #########################################################################################################################################################################    
 def fewer_than_fifteen_siblings_US15(familyList):
         tag="ERROR"
@@ -198,7 +206,7 @@ def fewer_than_fifteen_siblings_US15(familyList):
         description="Fewer than 15 siblings"
         location=""
 	for i in familyList:
-		if familyList[i].children != None and len(familyList[i].children) >= 15:
+		if  len(familyList[i].children) >= 15:
                     errorTable.add_row([tag,concerned,US,description,familyList[i].ID])
 			#print "ERROR: FAMILY: US15: Fewer than 15 siblings  Violated - For id "+ family.ID
 		    return False
