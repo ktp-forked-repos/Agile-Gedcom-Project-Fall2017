@@ -6,21 +6,43 @@
 
 from Individual import Individual
 from Family import Family
+
+from Individual import Individual
+from Family import Family
 from collections import OrderedDict
 from prettytable import PrettyTable
-
+import datetime
+import shutil
+import os
 
 individual = OrderedDict()
 family = OrderedDict()
 individualTable = PrettyTable()
 familyTable = PrettyTable()
- 
+finalGedcomFile=""
+
+def init():
+	global finalGedcomFile
+	script_dr=os.path.dirname(__file__)
+	rel_path = "GEDCOM files/"
+	abs_file_path = os.path.join(script_dr, rel_path)
+	files=os.listdir(abs_file_path)
+	finalGedcomFile=abs_file_path+"GEDCOM_final.ged"
+	with open(finalGedcomFile,"w+") as fo:
+		for f in sorted(files):
+			with open(os.path.join(abs_file_path,f),"rb") as fi:
+				shutil.copyfileobj(fi,fo)
+
+
+
 def parser():
-	with open("GEDCOM_File.ged") as inputFile:
+	global finalGedcomFile
+	init()
+	with open(finalGedcomFile) as inputFile:
 		for line in inputFile:
 			# Split each line into individual elements
 			values = line.split()
-
+			
 			#Check if the line is not blank
 			if(values):		
 				level = values[0]	# LEVEL
@@ -94,12 +116,37 @@ def parser():
 						individual[husband].setDivorce(args)
 						individual[wife].setDivorce(args)
 						family[label].setDivorce(args)
+	ages = []
 
-	# Create table with the values  
-	individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse']
 	for indi in individual:
-		individualTable.add_row([individual[indi].ID, individual[indi].name, individual[indi].sex, individual[indi].birthday, individual[indi].death, individual[indi].childFamily, individual[indi].spouseFamily])
+	    """ US27 : Include individual ages """ 
+	    if (individual[indi].birthday != 'NA'):
+	        birth = individual[indi].birthday.split("-")           
+	        birthyear = int(birth[0])
+	        birthmonth = int(birth[1])
+	        birthdate = int(birth[2])
 
+	        today = datetime.date.today()
+	        age = today.year - birthyear
+	        if (today.month < birthmonth):
+	            age -= 1;
+	        elif (today.month == birthmonth):
+	            if (today.day < birthdate):
+	                age -= 1;
+        	individual[indi].setAge(age)
+        	ages.append(age)
+        
+	# Output file
+	outputFile = open('Parser_Output.txt', 'w')
+
+	# Create table with the values	
+	individualTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Death', 'Child', 'Spouse', 'Age']
+	for indi in individual:
+		individualTable.add_row([individual[indi].ID, individual[indi].name, individual[indi].sex, individual[indi].birthday, individual[indi].death, individual[indi].childFamily, individual[indi].spouseFamily, individual[indi].age])
+	outputFile.write(str(individualTable) + '\n')
+	
 	familyTable.field_names = ['ID', 'Married', 'Divorced', 'Husband ID', 'Husband Name', 'Wife ID', 'Wife Name', 'Children']
 	for fam in family:
 		familyTable.add_row([family[fam].ID, family[fam].marriage, family[fam].divorce, family[fam].husband, individual[family[fam].husband].name, family[fam].wife, individual[family[fam].wife].name, family[fam].children])
+	outputFile.write(str(familyTable) + '\n')
+	outputFile.close

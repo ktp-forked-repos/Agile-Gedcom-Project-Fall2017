@@ -2,10 +2,10 @@
 ##				   	       MAIN FILE	   					   ##
 #################################################################
 
+from Sprint1 import sprint1
+from Sprint2 import sprint2
 from Parser import parser, individual, family
-from UserStories import userStories
 
 parser()
-
-# Pass in the individual and family lists for the user-story validations
-userStories(individual, family)
+sprint1(individual,family)
+sprint2(individual,family)

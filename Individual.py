@@ -14,6 +14,7 @@ class Individual(object):
 		self.childFamily = childFamily
 		self.spouseFamily = spouseFamily
 		self.marriage = marriage
+		self.divorce=divorce
 
 	def setName(self, name):
 		self.name = name
