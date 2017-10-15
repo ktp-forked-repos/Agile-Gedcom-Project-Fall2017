@@ -5,7 +5,8 @@ import datetime
 from prettytable import PrettyTable
 from Functions import writeTableToFile, checkDate, dates_within
 from OutputValues import OutputValues
-from Sprint1 import determineSpouse
+from Sprint1 import determineSpouse,isAlive
+
 
 errorTable = PrettyTable()
 errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
@@ -30,6 +31,15 @@ def sprint2(individualList, familyList):
             errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
         if lessThan150Years_US07(individualList[indi]) is not True:
             errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
+
+        #user story 21 and 29
+        if correct_gender_for_role_US21(individualList[indi], familyList) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+        if list_of_deceased_US29(individualList[indi]) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
 
         individual = individualList[indi]
         # User story 17
@@ -157,3 +167,38 @@ def marriedToSiblings_us18(individual, familyList):
     return error
 
 ###########################################################################################################################################################################
+def correct_gender_for_role_US21(individualList, familyList):
+        global outputValues
+        outputValues = OutputValues("ERROR", "FAMILY", "US21")
+        outputValues.location = []
+	for i in familyList:
+		husband_id = familyList[i].husband
+		wife_id = familyList[i].wife
+
+		#for i in individualList:
+		if individualList.ID == husband_id:
+				if individualList.sex == 'M':
+					continue
+                                        return True
+				else:
+                                        outputValues.location.append(individualList.ID)
+                                        outputValues.description="Correct gender for role is violated for husband_id"
+                                        return False
+                if individualList.ID == wife_id:
+				if individualList.sex == 'F':
+					continue
+                                        return True
+				else:
+                                        outputValues.location.append(individualList.ID)
+                                        outputValues.description="Correct gender for role is violated for wife_id"
+                                        return False
+#######################################################################################################################################################################
+def list_of_deceased_US29(individualList):
+        global outputValues
+        outputValues = OutputValues("ERROR", "INDIVIDUAL", "US29","Deceased people")
+        outputValues.location = []
+	#for i in individualList:
+	#individual_ID = individualList[i].ID
+	if(isAlive(individualList)) is not True:
+            outputValues.location.append(individualList.ID)
+            return False

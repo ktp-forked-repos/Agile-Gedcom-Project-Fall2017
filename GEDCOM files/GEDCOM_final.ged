@@ -770,3 +770,59 @@
 2 DATE 5 MAY 2017
 1 _CURRENT Y
 0 TRLR
+0 NOTE Vasudha Project1 CS555 
+0 @us_21_I1@ INDI
+1 NAME Sam
+2 GIVN Sam
+1 SEX F
+1 BIRT
+2 DATE 8 MAR 1909
+1 FAMS @us_21_F1@
+0 @us_21_I2@ INDI
+1 NAME June
+2 GIVN June
+1 SEX M
+1 BIRT
+2 DATE 6 JUL 1939
+1 FAMS @us_21_F1@
+0 @us_21_I3@ INDI
+1 NAME Gimi
+2 GIVN Gimi
+1 SEX M
+1 BIRT
+2 DATE 6 MAY 1953
+1 FAMS @us_21_F2@
+1 FAMC @us_21_F1@
+0 @us_21_I4@ INDI
+1 NAME Kook
+2 GIVN Kook
+1 SEX F
+1 BIRT
+2 DATE 6 MAY 1990
+1 FAMC @us_21_F1@
+0 @us_21_I5@ INDI
+1 NAME Sugar
+2 GIVN Sugar
+1 SEX F
+1 BIRT
+2 DATE 9 MAR 1958
+1 FAMS @us_21_F2@
+0 @us_21_I6@ INDI
+1 NAME Sunny
+2 GIVN Sunny
+1 SEX M
+1 BIRT
+2 DATE 18 JUL 1990
+1 FAMC @us_21_F2@
+0 @us_21_F1@ FAM
+1 HUSB @us_21_I1@
+1 WIFE @us_21_I2@
+1 CHIL @us_21_I3@
+1 CHIL @us_21_I4@
+1 _CURRENT Y
+0 @us_21_F2@ FAM
+1 HUSB @us_21_I3@
+1 WIFE @us_21_I5@
+1 CHIL @us_21_I6@
+1 _CURRENT Y
+0 TRLR
