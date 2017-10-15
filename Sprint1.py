@@ -31,9 +31,11 @@ def sprint1(individualList, familyList):
     US12_parents_not_too_old(individualList, familyList)
     #marriage_after_14_US10(individualList,familyList)
 
-    
+    #user story 09-15
     birth_Before_Death_of_Parents_US09(individualList, familyList)
-    fewer_than_fifteen_siblings_US15(familyList)
+    if fewer_than_fifteen_siblings_US15(familyList) is not True:
+        errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,outputValues.location])
+           
   
     writeTableToFile(errorTable,"Sprint1")            
 #########################################################################################################################################################################
@@ -177,17 +179,15 @@ def birth_Before_Death_of_Parents_US09(individualList, familyList):
        
 #########################################################################################################################################################################    
 def fewer_than_fifteen_siblings_US15(familyList):
-        tag="ERROR"
-        concerned="FAMILY"
-        US="US15"
-        description="Fewer than 15 siblings"
-        location=""
+        global outputValues
+        outputValues = OutputValues("ERROR", "FAMILY", "US15", "Fewer than 15 siblings" )
+        outputValues.location =[]
 	for i in familyList:
-		if  len(familyList[i].children) >= 15:
-                    errorTable.add_row([tag,concerned,US,description,familyList[i].ID])
-			#print "ERROR: FAMILY: US15: Fewer than 15 siblings  Violated - For id "+ family.ID
+		if familyList[i].children != None and len(familyList[i].children) >= 15:
+                    outputValues.location = familyList[i].ID
 		    return False
 	return True
+
 
 #########################################################################################################################################################################
 def US12_parents_not_too_old(individualList, familyList):

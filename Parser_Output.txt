@@ -124,19 +124,31 @@
 
                                                                Error Report for Sprint2                                                               
 
-+-------+------------+------------+------------------------------------------------+---------------------+
-|  Tag  | Concerned  | User Story |                  Description                   |     Location/ ID    |
-+-------+------------+------------+------------------------------------------------+---------------------+
-| ERROR | INDIVIDUAL |    US01    |      Birth day 2091-03-10 is after today       |       us_01_I1      |
-| ERROR | INDIVIDUAL |    US01    |      Death day 2020-12-15 is after today       |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |     Marriage day 2021-04-04 is after today     |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |     Divorce day 2051-06-21 is after today      |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |     Marriage day 2021-04-04 is after today     |       us_01_I3      |
-| ERROR | INDIVIDUAL |    US01    |     Divorce day 2051-06-21 is after today      |       us_01_I3      |
-| ERROR | INDIVIDUAL |    US07    |    Individual's age is more than 150 years     |       us_07_I2      |
-| ERROR | INDIVIDUAL |    US07    |    Individual's age is more than 150 years     |       us_07_I3      |
-| ERROR | INDIVIDUAL |    US17    |        Parent married to its descendant        |  us_17_I1-us_17_I9  |
-| ERROR | INDIVIDUAL |    US17    |        Parent married to its descendant        |  us_17_I3-us_17_I10 |
-| ERROR | INDIVIDUAL |    US18    | Siblings of a family are married to each other |  us_18_I4-us_18_I5  |
-| ERROR | INDIVIDUAL |    US18    | Siblings of a family are married to each other | us_18_I11-us_18_I15 |
-+-------+------------+------------+------------------------------------------------+---------------------+
++-------+------------+------------+----------------------------------------------------+---------------------+
+|  Tag  | Concerned  | User Story |                    Description                     |     Location/ ID    |
++-------+------------+------------+----------------------------------------------------+---------------------+
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
+| ERROR | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
+| ERROR | INDIVIDUAL |    US01    |        Death day 2020-12-15 is after today         |       us_01_I2      |
+| ERROR | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I2      |
+| ERROR | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I2      |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_01_I2      |
+| ERROR | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I3      |
+| ERROR | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I3      |
+| ERROR | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
+| ERROR | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
+| ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I1-us_17_I9  |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I2      |
+| ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_17_I3      |
+| ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I3-us_17_I10 |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I8      |
+| ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |      us_17_I10      |
+| ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |  us_18_I4-us_18_I5  |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_18_I8      |
+| ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
+| ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
+| ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
++-------+------------+------------+----------------------------------------------------+---------------------+
