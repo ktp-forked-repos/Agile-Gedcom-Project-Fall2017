@@ -94,19 +94,26 @@ class TestFamily(unittest.TestCase):
                  'A5': Individual('A1', spouseFamily = 'B2'),
                  'A7': Individual('A1', spouseFamily = 'NA'),
                  'A8': Individual('A1', spouseFamily = 'B3')}
+
+        #Parent married to child
         list2 = {'B1': Family('B1', husband = 'A1', wife = 'A2'),
+                  'B2': Family('B2', husband = 'A1', wife = 'A5')}
+        children = ['A3', 'A4', 'A5']
+        for child in children:
+            list2['B1'].setChildren(child)
+        self.assertTrue(marriedToDescendants_us17(list1['A1'], list1, list2))
+
+        #Parent married to grand child
+        list3 = {'B1': Family('B1', husband = 'A1', wife = 'A2'),
                  'B2': Family('B2', husband = 'A3', wife = 'A6'),
                  'B3': Family('B3', husband = 'A1', wife = 'A8')}
         children = ['A3', 'A4', 'A5']
         for child in children:
-            list2['B1'].setChildren(child)
+            list3['B1'].setChildren(child)
         grandChildren = ['A7', 'A8']
         for grandChild in grandChildren:
-            list2['B2'].setChildren(grandChild)
-        #Parent married to child
-        self.assertTrue(marriedToDescendants_us17(list1['A1'], list1, list2))
-        #Parent married to grand child
-        self.assertTrue(marriedToDescendants_us17(list1['A1'], list1, list2))
+            list3['B2'].setChildren(grandChild)                
+        self.assertTrue(marriedToDescendants_us17(list1['A1'], list1, list3))
 
 
     def test_marriedToSiblings_us18(self):  
