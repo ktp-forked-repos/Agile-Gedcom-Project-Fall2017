@@ -4,6 +4,7 @@ from OutputValues import OutputValues
 from Functions import writeTableToFile
 from Parser import individualTable, familyTable
 import os
+import datetime
 
 errorTable = PrettyTable()
 errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
@@ -34,6 +35,24 @@ def sprint1(individualList, familyList):
     fewer_than_fifteen_siblings_US15(familyList)
   
     writeTableToFile(errorTable,"Sprint1")            
+#########################################################################################################################################################################
+"""For Testing Purpose"""
+def individualAge_us27(individual):
+    """ US27 : Include individual ages """ 
+    if (individual.birthday != 'NA'):
+        birth = individual.birthday.split("-")           
+        birthyear = int(birth[0])
+        birthmonth = int(birth[1])
+        birthdate = int(birth[2])
+
+        today = datetime.date.today()
+        age = today.year - birthyear
+        if (today.month < birthmonth):
+            age -= 1
+        elif (today.month == birthmonth):
+            if (today.day < birthdate):
+                age -= 1
+        return age
 
 #########################################################################################################################################################################
 def checkBigamy_us11(individual, individualList, familyList):
