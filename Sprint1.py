@@ -22,15 +22,23 @@ def sprint1(individualList, familyList):
             errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
         if birthBeforeDeath_us03(individualList[indi]) is not True:
             errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
-        
+
+        # User story 10
+        if marriage_after_14_US10(individualList[indi],familyList) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description,location])
+
         individual = individualList[indi]
         # User story 11:
         if (checkBigamy_us11(individual, individualList, familyList)):
             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,outputValues.location])
                
-    US12_parents_not_too_old(individualList, familyList)
-    #marriage_after_14_US10(individualList,familyList)
+    #User story 12
+    if (US12_parents_not_too_old(individualList, familyList))is not True:
+        for location in outputValues.location:
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
+    
     #user story 09-15
     birth_Before_Death_of_Parents_US09(individualList, familyList)
     if fewer_than_fifteen_siblings_US15(familyList) is not True:
@@ -191,57 +199,77 @@ def fewer_than_fifteen_siblings_US15(familyList):
 
 #########################################################################################################################################################################
 def US12_parents_not_too_old(individualList, familyList):
-    tag="ERROR"
-    concerned="INDIVIDUAL"
-    US="US12"
-    description="Parents not too old"
-    location=""
-        
+    global outputValues
+    outputValues = OutputValues("ERROR","INDIVIDUAL","US12"," Parents too old ")
+    outputValues.location=[]
+            
     for i in familyList:
         if familyList[i].children != None:
             father_id = familyList[i].husband
             mother_id = familyList[i].wife
+            print mother_id
             child_id = familyList[i].children
-             
             father_age = individualList[father_id].age
-            mother_age = individualList[mother_id].age
-            for a in range(len(child_id)):                                   
-                child_age = individualList[child_id[a]].age
-                                     
-                			
-                if ((father_age - child_age > 80) or (mother_age - child_age > 60)):
-                    errorTable.add_row([tag,concerned, US, description, father_id + '-' + mother_id])
-                    
+            mother_age =individualList[mother_id].age
+            print mother_age
 
-
+        for a in range(len(child_id)):
+            #for i in individualList:
+            
+                #child_new_id = child_id[a]
+                        #print child_new_id
+                #if (individualList[i].ID  == child_new_id):
+            child_age = individualList[child_id[a]].age
+                    #print child_age
+##
+##                if individualList[i].ID == father_id:
+##                    father_age = individualList[i].age
+##                        
+##                    
+##                if individualList[i].ID == mother_id:
+##                    mother_age =individualList[i].age
+                        
+            if (father_age - child_age) > 80:
+                outputValues.location.append(father_id)
+                return False
+            if (mother_age - child_age) > 60:
+                outputValues.location.append(mother_id)
+                return False
+            
 ##########################################################################################################################################################################
 def marriage_after_14_US10(individualList,familyList):
-    tag="ANAMOLY"
-    concerned="INDIVIDUAL"
-    US="US10"
-    description="Marraige should be after 14 years of birth "
-    location=""
+    global outputValues
+    outputValues = OutputValues("ERROR","INDIVIDUAL","US10"," Marraige before 14 years of age ")  
+    outputValues.location=[]
+  
+   
     for i in familyList:
         husband_id = familyList[i].husband
         wife_id = familyList[i].wife
-        Marraige_date = familyList[i].marriage
-        #print Marraige_date
-        birth = familyList[i].marriage.split("-")
-        m_year = int(birth[0])
-        #print m_year
-        for z in individualList:
-            if individualList[z].ID == husband_id:
-                birth = individualList[z].birthday.split("-")
-                h_year = int(birth[0])
-                #print h_year
-            if individualList[z].ID == wife_id:
-                birth = individualList[z].birthday.split("-")
-                w_year = int(birth[0])
-                #print w_year
-        if m_year - h_year >= 14 and m_year - w_year >=14:
-            pass
-        else:
-            errorTable.add_row([tag,concerned, US, description, husband_id + '-' + wife_id])
+        if familyList[i].marriage != 'NA':
+            Marraige_date = familyList[i].marriage
+            birth = familyList[i].marriage.split("-")
+            m_year = int(birth[0])
+                      
+        if individualList.ID == husband_id:
+            birth = individualList.birthday.split("-")
+            h_year = int(birth[0])
+            if (m_year - h_year >= 14):
+                pass
+            #return True
+            else:
+                outputValues.location.append(husband_id)       
+                return False
+                
+
+        if individualList.ID == wife_id:
+            birth = individualList.birthday.split("-")
+            w_year = int(birth[0])
+            if (m_year - w_year >=14):
+                pass
+            else:
+                outputValues.location.append(wife_id)
+                return False
 
 ###########################################################################################################################################################################
 def isAlive(person):

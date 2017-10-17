@@ -72,6 +72,10 @@
 |   us_21_I4  |         Kook         |   F    | 1990-05-06 |     NA     |  us_21_F1  |     NA     |  27 |
 |   us_21_I5  |        Sugar         |   F    | 1958-03-09 |     NA     |     NA     |  us_21_F2  |  59 |
 |   us_21_I6  |        Sunny         |   M    | 1990-07-18 |     NA     |  us_21_F2  |     NA     |  27 |
+|   us_31_I1  |      Priya /A/       |   F    | 1955-10-12 |     NA     |     NA     |  us_31_F1  |  62 |
+|   us_31_I2  |      Lingu /A/       |   M    | 1955-07-12 |     NA     |     NA     |  us_31_F1  |  62 |
+|   us_31_I3  |      Aryan /A/       |   M    | 1985-06-17 |     NA     |  us_31_F1  |     NA     |  32 |
+|   us_31_I4  |      Shreya /A/      |   F    | 1980-08-02 |     NA     |  us_31_F1  |     NA     |  37 |
 +-------------+----------------------+--------+------------+------------+------------+------------+-----+
 +------------+------------+------------+------------+-------------------+------------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |     ID     |  Married   |  Divorced  | Husband ID |    Husband Name   |  Wife ID   |      Wife Name       |                                                                                                                     Children                                                                                                                     |
@@ -97,6 +101,7 @@
 |  us_18_F6  | 2017-05-05 |     NA     | us_18_I11  |     Rob /Wood/    | us_18_I15  |    Lizzie /Wood/     |                                                                                                                        []                                                                                                                        |
 |  us_21_F1  |     NA     |     NA     |  us_21_I1  |        Sam        |  us_21_I2  |         June         |                                                                                                             ['us_21_I3', 'us_21_I4']                                                                                                             |
 |  us_21_F2  |     NA     |     NA     |  us_21_I3  |        Gimi       |  us_21_I5  |        Sugar         |                                                                                                                   ['us_21_I6']                                                                                                                   |
+|  us_31_F1  |     NA     |     NA     |  us_31_I2  |     Lingu /A/     |  us_31_I1  |      Priya /A/       |                                                                                                             ['us_31_I3', 'us_31_I4']                                                                                                             |
 +------------+------------+------------+------------+-------------------+------------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -107,13 +112,13 @@
 +-------+------------+------------+----------------------------------------------------+------------------------------------+
 | ERROR | INDIVIDUAL |    US11    |              Bigamy has been detected              | sprint1_F2,sprint1_F1 - sprint1_I1 |
 | ERROR | INDIVIDUAL |    US02    | marriage 1969-01-31 is before birthdate 1972-06-10 |             sprint1_I2             |
+| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I2             |
 | ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1977-12-18 |             sprint1_I6             |
+| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I6             |
 | ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1968-04-24 |             sprint1_I9             |
+| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I9             |
 | ERROR | INDIVIDUAL |    US03    |  death 1992-07-06 is before birthdate 1993-12-10   |            sprint1_I30             |
-| ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |       sprint1_I7-sprint1_I6        |
-| ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |         us_01_I2-us_01_I3          |
-| ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |         us_07_I2-us_07_I3          |
-| ERROR | INDIVIDUAL |    US12    |                Parents not too old                 |         us_21_I1-us_21_I2          |
+| ERROR | INDIVIDUAL |    US12    |                  Parents too old                   |             sprint1_I7             |
 | ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I5        |
 | ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I6        |
 | ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I9-sprint1_I14       |
@@ -128,6 +133,7 @@
 |  Tag  | Concerned  | User Story |                    Description                     |     Location/ ID    |
 +-------+------------+------------+----------------------------------------------------+---------------------+
 | ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
+| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |      sprint1_I4     |
 | ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
 | ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
 | ERROR | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
@@ -151,4 +157,6 @@
 | ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
 | ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
 | ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
+| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
+| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
 +-------+------------+------------+----------------------------------------------------+---------------------+

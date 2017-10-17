@@ -21,6 +21,13 @@ def sprint2(individualList, familyList):
     
     for indi in individualList:
         #Executing Sprint2
+
+         # User story 31
+        if (living_single_us31 (individualList[indi])is not True):
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
+       
         if birthdayBeforeCurrentDate_us01(individualList[indi].birthday) is not True:
             errorTable.add_row([outputValues.tag, outputValues.concerned, outputValues.US, outputValues.description, indi])
         if deathBeforCurrentDate_us01(individualList[indi].death) is not True:
@@ -57,6 +64,19 @@ def sprint2(individualList, familyList):
     writeTableToFile(errorTable,"Sprint2")
 
 ########################################################################################################################################################################
+def living_single_us31 (individual):
+    global outputValues
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US31", " Single even after the age of 30")
+    outputValues.location = []
+     # Checking wether the person is and does not have a spouse 
+    if ((individual.death == 'NA') and (individual.spouseFamily == 'NA')):
+        if (individual.age > 30):                                               # If that person is above 30 years append his ID
+            outputValues.location.append(individual.ID)  
+
+
+#######################################################################################################################################################################
+
+
 def birthdayBeforeCurrentDate_us01(birthday):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Birth day "+ birthday+" is after today")
