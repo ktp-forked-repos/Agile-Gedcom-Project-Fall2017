@@ -1,7 +1,10 @@
 ##############################################################################################################################
 ## Sprint 2
 ###########################################################################################################################################################################
-import datetime
+from datetime import datetime
+from datetime import date
+from datetime import time
+from datetime import timedelta
 from prettytable import PrettyTable
 from Functions import writeTableToFile, checkDate, dates_within
 from OutputValues import OutputValues
@@ -24,6 +27,10 @@ def sprint2(individualList, familyList):
 
          # User story 31
         if (living_single_us31 (individualList[indi])is not True):
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+        # User story 36
+        if (recent_deaths_us36(individualList[indi]))is not True:
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
@@ -63,6 +70,23 @@ def sprint2(individualList, familyList):
                 
     writeTableToFile(errorTable,"Sprint2")
 
+#######################################################################################################################################################################
+def recent_deaths_us36(individual):
+    global outputValues
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US36", " Died recently")
+    outputValues.location = []
+    #If individual is dead the find the death date 
+    if individual.death != 'NA':
+        death_date = individual.death
+        today = date.today().strftime("%Y-%m-%d")
+        d1 = datetime.strptime(death_date, "%Y-%m-%d")
+        d2 = datetime.strptime(today, "%Y-%m-%d")                   #Find today's date
+        death_day = (d2 - d1)
+        
+        #Function to find did the person die withinlast 30days 
+        if death_day.days < 30 and death_day.days > 0:
+            outputValues.location.append(individual.ID) 
+        
 ########################################################################################################################################################################
 def living_single_us31 (individual):
     global outputValues
@@ -83,25 +107,25 @@ def birthdayBeforeCurrentDate_us01(birthday):
     if birthday == 'NA':
         outputValues.description = "Birthdate is not specified"
         return False
-    today = datetime.date.today().strftime("%Y-%m-%d")
+    today = date.today().strftime("%Y-%m-%d")
     return checkDate(birthday, today)
 
 def deathBeforCurrentDate_us01(death):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Death day "+ death+" is after today")
-    today = datetime.date.today().strftime("%Y-%m-%d")
+    today = date.today().strftime("%Y-%m-%d")
     return  checkDate(death, today)
 
 def marriageBeforCurrentDate_us01(marriage):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Marriage day "+ marriage+" is after today")
-    today = datetime.date.today().strftime("%Y-%m-%d")
+    today = date.today().strftime("%Y-%m-%d")
     return  checkDate(marriage, today)
 
 def divorceBeforCurrentDate_us01(divorce):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US01", "Divorce day "+ divorce+" is after today")
-    today = datetime.date.today().strftime("%Y-%m-%d")
+    today = date.today().strftime("%Y-%m-%d")
     return checkDate(divorce, today)
 
 ########################################################################################################################################################################
@@ -112,7 +136,7 @@ def lessThan150Years_US07(individual):
         if individual.death!='NA':
             return dates_within(individual.birthday, individual.death, 150, 'years')
         else:
-            return dates_within(individual.birthday, datetime.date.today().strftime("%Y-%m-%d"), 150, 'years')
+            return dates_within(individual.birthday, date.today().strftime("%Y-%m-%d"), 150, 'years')
     return False
 
 ###########################################################################################################################################################################

@@ -72,8 +72,8 @@
 |   us_21_I4  |         Kook         |   F    | 1990-05-06 |     NA     |  us_21_F1  |     NA     |  27 |
 |   us_21_I5  |        Sugar         |   F    | 1958-03-09 |     NA     |     NA     |  us_21_F2  |  59 |
 |   us_21_I6  |        Sunny         |   M    | 1990-07-18 |     NA     |  us_21_F2  |     NA     |  27 |
-|   us_31_I1  |      Priya /A/       |   F    | 1955-10-12 |     NA     |     NA     |  us_31_F1  |  62 |
-|   us_31_I2  |      Lingu /A/       |   M    | 1955-07-12 |     NA     |     NA     |  us_31_F1  |  62 |
+|   us_31_I1  |      Priya /A/       |   F    | 1955-10-12 | 2017-10-16 |     NA     |  us_31_F1  |  62 |
+|   us_31_I2  |      Lingu /A/       |   M    | 1955-07-12 | 2017-10-10 |     NA     |  us_31_F1  |  62 |
 |   us_31_I3  |      Aryan /A/       |   M    | 1985-06-17 |     NA     |  us_31_F1  |     NA     |  32 |
 |   us_31_I4  |      Shreya /A/      |   F    | 1980-08-02 |     NA     |  us_31_F1  |     NA     |  37 |
 +-------------+----------------------+--------+------------+------------+------------+------------+-----+
@@ -157,6 +157,10 @@
 | ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
 | ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
 | ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
+| ERROR | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I1      |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
+| ERROR | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I2      |
+| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
 | ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
 | ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
 +-------+------------+------------+----------------------------------------------------+---------------------+
