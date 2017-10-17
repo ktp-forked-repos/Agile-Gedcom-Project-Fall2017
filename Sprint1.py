@@ -207,11 +207,11 @@ def US12_parents_not_too_old(individualList, familyList):
         if familyList[i].children != None:
             father_id = familyList[i].husband
             mother_id = familyList[i].wife
-            print mother_id
+            #print mother_id
             child_id = familyList[i].children
             father_age = individualList[father_id].age
             mother_age =individualList[mother_id].age
-            print mother_age
+            #print mother_age
 
         for a in range(len(child_id)):
             #for i in individualList:
