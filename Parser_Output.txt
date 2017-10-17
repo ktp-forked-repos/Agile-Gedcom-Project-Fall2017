@@ -107,60 +107,60 @@
 
                                                                Error Report for Sprint1                                                               
 
-+-------+------------+------------+----------------------------------------------------+------------------------------------+
-|  Tag  | Concerned  | User Story |                    Description                     |            Location/ ID            |
-+-------+------------+------------+----------------------------------------------------+------------------------------------+
-| ERROR | INDIVIDUAL |    US11    |              Bigamy has been detected              | sprint1_F2,sprint1_F1 - sprint1_I1 |
-| ERROR | INDIVIDUAL |    US02    | marriage 1969-01-31 is before birthdate 1972-06-10 |             sprint1_I2             |
-| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I2             |
-| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1977-12-18 |             sprint1_I6             |
-| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I6             |
-| ERROR | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1968-04-24 |             sprint1_I9             |
-| ERROR | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I9             |
-| ERROR | INDIVIDUAL |    US03    |  death 1992-07-06 is before birthdate 1993-12-10   |            sprint1_I30             |
-| ERROR | INDIVIDUAL |    US12    |                  Parents too old                   |             sprint1_I7             |
-| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I5        |
-| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I6        |
-| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I9-sprint1_I14       |
-| ERROR |   FAMILY   |    US09    |         Death date can't be before Child's         |         us_01_I2-us_01_I1          |
-| ERROR |   FAMILY   |    US15    |               Fewer than 15 siblings               |             sprint1_F3             |
-+-------+------------+------------+----------------------------------------------------+------------------------------------+
++---------+------------+------------+----------------------------------------------------+------------------------------------+
+|   Tag   | Concerned  | User Story |                    Description                     |            Location/ ID            |
++---------+------------+------------+----------------------------------------------------+------------------------------------+
+|  ERROR  | INDIVIDUAL |    US11    |              Bigamy has been detected              | sprint1_F2,sprint1_F1 - sprint1_I1 |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before birthdate 1972-06-10 |             sprint1_I2             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I2             |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1977-12-18 |             sprint1_I6             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I6             |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1968-04-24 |             sprint1_I9             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I9             |
+|  ERROR  | INDIVIDUAL |    US03    |  death 1992-07-06 is before birthdate 1993-12-10   |            sprint1_I30             |
+| ANAMOLY | INDIVIDUAL |    US12    |                  Parents too old                   |             sprint1_I7             |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I5        |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I6        |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I9-sprint1_I14       |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |         us_01_I2-us_01_I1          |
+|  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |             sprint1_F3             |
++---------+------------+------------+----------------------------------------------------+------------------------------------+
 
 
                                                                Error Report for Sprint2                                                               
 
-+-------+------------+------------+----------------------------------------------------+---------------------+
-|  Tag  | Concerned  | User Story |                    Description                     |     Location/ ID    |
-+-------+------------+------------+----------------------------------------------------+---------------------+
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
-| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |      sprint1_I4     |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
-| ERROR | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
-| ERROR | INDIVIDUAL |    US01    |        Death day 2020-12-15 is after today         |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_01_I2      |
-| ERROR | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I3      |
-| ERROR | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I3      |
-| ERROR | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
-| ERROR | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
-| ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I1-us_17_I9  |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I2      |
-| ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_17_I3      |
-| ERROR | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I3-us_17_I10 |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I8      |
-| ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |      us_17_I10      |
-| ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |  us_18_I4-us_18_I5  |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_18_I8      |
-| ERROR | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
-| ERROR |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
-| ERROR |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
-| ERROR | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I1      |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
-| ERROR | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I2      |
-| ERROR | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
-| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
-| ERROR | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
-+-------+------------+------------+----------------------------------------------------+---------------------+
++---------+------------+------------+----------------------------------------------------+---------------------+
+|   Tag   | Concerned  | User Story |                    Description                     |     Location/ ID    |
++---------+------------+------------+----------------------------------------------------+---------------------+
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |      sprint1_I4     |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
+|  ERROR  | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
+|  ERROR  | INDIVIDUAL |    US01    |        Death day 2020-12-15 is after today         |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I2      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I3      |
+|  ERROR  | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I3      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
+|  ERROR  | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I1-us_17_I9  |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I2      |
+|  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_17_I3      |
+|  ERROR  | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I3-us_17_I10 |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I8      |
+|  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |      us_17_I10      |
+|  ERROR  | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |  us_18_I4-us_18_I5  |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_18_I8      |
+|  ERROR  | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
+|  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
+|  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
+| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I1      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
+| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I2      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
++---------+------------+------------+----------------------------------------------------+---------------------+

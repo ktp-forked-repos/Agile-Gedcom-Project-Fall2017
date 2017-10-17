@@ -48,6 +48,11 @@ class TestFamily(unittest.TestCase):
         self.assertTrue(birthdayBeforeCurrentDate_us01('2015-03-10'))
         self.assertTrue(marriageBeforCurrentDate_us01('2015-03-10'))
         self.assertTrue(deathBeforCurrentDate_us01('2015-03-10'))
+
+
+    def test_recent_death_us36(self):
+        from Individual import Individual
+        self.assertEqual (recent_deaths_us36(Individual(self)
         
 
     def test_lessThan150Years_US07(self):

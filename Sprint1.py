@@ -200,7 +200,7 @@ def fewer_than_fifteen_siblings_US15(familyList):
 #########################################################################################################################################################################
 def US12_parents_not_too_old(individualList, familyList):
     global outputValues
-    outputValues = OutputValues("ERROR","INDIVIDUAL","US12"," Parents too old ")
+    outputValues = OutputValues("ANAMOLY","INDIVIDUAL","US12"," Parents too old ")
     outputValues.location=[]
             
     for i in familyList:
@@ -239,7 +239,7 @@ def US12_parents_not_too_old(individualList, familyList):
 ##########################################################################################################################################################################
 def marriage_after_14_US10(individualList,familyList):
     global outputValues
-    outputValues = OutputValues("ERROR","INDIVIDUAL","US10"," Marraige before 14 years of age ")  
+    outputValues = OutputValues("ANAMOLY","INDIVIDUAL","US10"," Marraige before 14 years of age ")  
     outputValues.location=[]
   
    

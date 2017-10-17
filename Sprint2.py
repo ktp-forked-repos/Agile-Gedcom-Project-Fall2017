@@ -73,7 +73,7 @@ def sprint2(individualList, familyList):
 #######################################################################################################################################################################
 def recent_deaths_us36(individual):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US36", " Died recently")
+    outputValues = OutputValues("ANAMOLY", "INDIVIDUAL", "US36", " Died recently")
     outputValues.location = []
     #If individual is dead the find the death date 
     if individual.death != 'NA':
@@ -90,7 +90,7 @@ def recent_deaths_us36(individual):
 ########################################################################################################################################################################
 def living_single_us31 (individual):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US31", " Single even after the age of 30")
+    outputValues = OutputValues("ANAMOLY", "INDIVIDUAL", "US31", " Single even after the age of 30")
     outputValues.location = []
      # Checking wether the person is and does not have a spouse 
     if ((individual.death == 'NA') and (individual.spouseFamily == 'NA')):
@@ -239,7 +239,7 @@ def correct_gender_for_role_US21(individualList, familyList):
 #######################################################################################################################################################################
 def list_of_deceased_US29(individualList):
         global outputValues
-        outputValues = OutputValues("ERROR", "INDIVIDUAL", "US29","Deceased people")
+        outputValues = OutputValues("ANAMOLY", "INDIVIDUAL", "US29","Deceased people")
         outputValues.location = []
 	#for i in individualList:
 	#individual_ID = individualList[i].ID
