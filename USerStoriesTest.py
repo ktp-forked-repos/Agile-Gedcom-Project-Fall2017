@@ -6,6 +6,7 @@ from Sprint1 import birthBeforeDeath_us03
 from Sprint1 import individualAge_us27, checkBigamy_us11
 from Sprint2 import divorceBeforCurrentDate_us01,birthdayBeforeCurrentDate_us01,marriageBeforCurrentDate_us01,deathBeforCurrentDate_us01, lessThan150Years_US07
 from Sprint2 import marriedToDescendants_us17, marriedToSiblings_us18
+from Sprint2 import recent_deaths_us36, living_single_us31
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -52,7 +53,13 @@ class TestFamily(unittest.TestCase):
 
     def test_recent_death_us36(self):
         from Individual import Individual
-        self.assertEqual (recent_deaths_us36(Individual(self)
+        self.assertEqual (recent_deaths_us36(Individual(self,10, death = '2017-10-10')),True)
+        self.assertFalse(recent_deaths_us36(Individual(self,10,death ='1845-10-05')))
+        self.assertTrue(recent_deaths_us36(Individual(self,10,death ='2017-10-10')), False)
+
+    def test_living_single_us31(self):
+        from Individual import Individual
+        self.assertEqual (living_single_us31(Individual(self, 10, birthday = '1977-12-17')), True)
         
 
     def test_lessThan150Years_US07(self):
