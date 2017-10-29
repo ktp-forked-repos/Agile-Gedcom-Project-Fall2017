@@ -121,18 +121,9 @@ def parser():
 	for indi in individual:
 	    """ US27 : Include individual ages """ 
 	    if (individual[indi].birthday != 'NA'):
-	        birth = individual[indi].birthday.split("-")           
-	        birthyear = int(birth[0])
-	        birthmonth = int(birth[1])
-	        birthdate = int(birth[2])
-
-	        today = datetime.date.today()
-	        age = today.year - birthyear
-	        if (today.month < birthmonth):
-	            age -= 1;
-	        elif (today.month == birthmonth):
-	            if (today.day < birthdate):
-	                age -= 1;
+	        born = datetime.datetime.strptime(individual[indi].birthday, "%Y-%m-%d")
+    		today = datetime.date.today()
+    		age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
         	individual[indi].setAge(age)
         	ages.append(age)
         

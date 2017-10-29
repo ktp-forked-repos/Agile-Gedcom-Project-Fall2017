@@ -51,19 +51,9 @@ def sprint1(individualList, familyList):
 def individualAge_us27(individual):
     """ US27 : Include individual ages """ 
     if (individual.birthday != 'NA'):
-        birth = individual.birthday.split("-")           
-        birthyear = int(birth[0])
-        birthmonth = int(birth[1])
-        birthdate = int(birth[2])
-
+        born = datetime.datetime.strptime(individual.birthday, "%Y-%m-%d")
         today = datetime.date.today()
-        age = today.year - birthyear
-        if (today.month < birthmonth):
-            age -= 1
-        elif (today.month == birthmonth):
-            if (today.day < birthdate):
-                age -= 1
-        return age
+        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 #########################################################################################################################################################################
 def checkBigamy_us11(individual, individualList, familyList):

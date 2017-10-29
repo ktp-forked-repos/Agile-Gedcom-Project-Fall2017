@@ -33,10 +33,10 @@
 | sprint1_I30 |  Super /Winchester/  |   M    | 1993-12-10 | 1992-07-06 | sprint1_F3 |     NA     |  23 |
 |   us_01_I1  |          NA          |   F    | 2091-03-10 |     NA     |  us_01_F1  |     NA     | -74 |
 |   us_01_I2  |     Jeff /Stone/     |   M    | 1965-04-25 | 2020-12-15 |     NA     |  us_01_F1  |  52 |
-|   us_01_I3  |   Rebecca /Stone/    |   F    | 1967-10-23 |     NA     |     NA     |  us_01_F1  |  49 |
+|   us_01_I3  |   Rebecca /Stone/    |   F    | 1967-10-23 |     NA     |     NA     |  us_01_F1  |  50 |
 |   us_07_I1  |          NA          |   F    | 1991-03-10 |     NA     |  us_07_F1  |     NA     |  26 |
 |   us_07_I2  |     Jeff /Stone/     |   M    | 1835-04-25 |     NA     |     NA     |  us_07_F1  | 182 |
-|   us_07_I3  |   Rebecca /Stone/    |   F    | 1836-10-23 | 2010-09-11 |     NA     |  us_07_F1  | 180 |
+|   us_07_I3  |   Rebecca /Stone/    |   F    | 1836-10-23 | 2010-09-11 |     NA     |  us_07_F1  | 181 |
 |   us_17_I1  |    Matthew /Wood/    |   M    | 1945-01-05 |     NA     |     NA     |  us_17_F1  |  72 |
 |   us_17_I2  |     Mary /Wood/      |   F    | 1948-08-19 | 1990-01-02 |     NA     |  us_17_F1  |  69 |
 |   us_17_I3  |   Melissa /Jones/    |   F    | 1970-04-15 |     NA     |  us_17_F1  |  us_17_F2  |  47 |
@@ -133,7 +133,6 @@
 |   Tag   | Concerned  | User Story |                    Description                     |     Location/ ID    |
 +---------+------------+------------+----------------------------------------------------+---------------------+
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
-| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |      sprint1_I4     |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
 |  ERROR  | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
@@ -157,10 +156,43 @@
 |  ERROR  | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
 |  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
 |  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
-| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I1      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
-| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I2      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
-| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
-| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
 +---------+------------+------------+----------------------------------------------------+---------------------+
+
+
+                                                               Error Report for Sprint3                                                               
+
++-------+------------+------------+--------------------------------+--------------+
+|  Tag  | Concerned  | User Story |          Description           | Location/ ID |
++-------+------------+------------+--------------------------------+--------------+
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |  sprint1_I1  |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |  sprint1_I2  |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |  sprint1_I5  |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |  sprint1_I6  |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |  sprint1_I7  |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |  sprint1_I8  |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_01_I3   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_07_I2   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_17_I1   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_17_I3   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_17_I4   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_17_I5   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_17_I6   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_17_I7   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_17_I9   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |  us_17_I10   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_18_I1   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_18_I2   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_18_I3   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_18_I4   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_18_I5   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_18_I6   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_18_I7   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |  us_18_I11   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |  us_18_I15   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_21_I1   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_21_I2   |
+| ERROR | INDIVIDUAL |    US30    | List of husband Living married |   us_21_I3   |
+| ERROR | INDIVIDUAL |    US30    |  List of wife Living married   |   us_21_I5   |
++-------+------------+------------+--------------------------------+--------------+

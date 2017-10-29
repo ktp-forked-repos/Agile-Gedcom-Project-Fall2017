@@ -7,6 +7,7 @@ from Sprint1 import individualAge_us27, checkBigamy_us11
 from Sprint2 import divorceBeforCurrentDate_us01,birthdayBeforeCurrentDate_us01,marriageBeforCurrentDate_us01,deathBeforCurrentDate_us01, lessThan150Years_US07
 from Sprint2 import marriedToDescendants_us17, marriedToSiblings_us18
 from Sprint2 import recent_deaths_us36, living_single_us31
+from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -73,7 +74,7 @@ class TestFamily(unittest.TestCase):
     def test_individualAge_us27(self):
         from Individual import Individual
         self.assertEqual(individualAge_us27(Individual(self, 10, birthday = '1977-10-14')), 40)
-        self.assertEqual(individualAge_us27(Individual(self, 10, birthday = '1977-10-29')), 39)
+        self.assertEqual(individualAge_us27(Individual(self, 10, birthday = '1977-01-29')), 40)
         self.assertEqual(individualAge_us27(Individual(self, 10, birthday = '1977-09-14')), 40)
         self.assertEqual(individualAge_us27(Individual(self, 10, birthday = '1977-12-17')), 39)
 
@@ -146,6 +147,56 @@ class TestFamily(unittest.TestCase):
         for child in children:
             list3['B1'].setChildren(child)
         self.assertFalse(marriedToSiblings_us18(list1['A3'], list3))
+
+
+    def test_siblingSpacing_us13(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'B1': Family('B1')}
+        children = ['A3', 'A4', 'A5']
+        for child in children:
+            list1['B1'].setChildren(child)
+        #Spacing violated by less than 8 months condition
+        list2 = {'A1': Individual('A1', birthday = '1980-01-01'),
+                 'A2': Individual('A2', birthday = '1987-02-05'),
+                 'A3': Individual('A3', birthday = '1980-07-01')}        
+        self.assertTrue(siblingSpacing_us13(list1['B1'],list2))
+        #Spacing violated by more than 2 days condition
+        list3 = {'A1': Individual('A1', birthday = '1980-01-01'),
+                 'A2': Individual('A2', birthday = '1987-02-05'),
+                 'A3': Individual('A3', birthday = '1980-01-03')}        
+        self.assertTrue(siblingSpacing_us13(list1['B1'],list2))
+        #Spacing not violated
+        list3 = {'A1': Individual('A1', birthday = '1980-01-01'),
+                 'A2': Individual('A2', birthday = '1987-02-05'),
+                 'A3': Individual('A3', birthday = '1984-01-03')}        
+        self.assertFalse(siblingSpacing_us13(list1['B1'],list2))
+
+
+    def test_firstCousinsMarried_us19(self):
+        from Individual import Individual
+        from Family import Family    
+        list1 = {'A1': Individual('A1', childFamily = 'B1'),
+                 'A2': Individual('A1'),
+                 'A3': Individual('A3', childFamily = 'B1', spouseFamily = 'B3'),
+                 'A4': Individual('A4', childFamily = 'B2', spouseFamily = 'B4')}
+        #Married to first cousin
+        list2 = {'B1': Family('B1'),
+                 'B2': Family('B2', husband = 'A1', wife = 'A2'),
+                 'B3': Family('B3'),
+                 'B4': Family('B4', husband = 'A4', wife = 'A5')}
+        list2['B1'].setChildren('A3')
+        list2['B2'].setChildren('A4')
+        cousins = ['A5', 'A6']
+        for cousin in cousins:
+            list2['B3'].setChildren(cousin)        
+        self.assertTrue(firstCousinsMarried_us19(list1['A4'], list1, list2))
+        #Not married to first cousin
+        list3 = {'B1': Family('B1'),
+                 'B2': Family('B2', husband = 'A1', wife = 'A2'),
+                 'B3': Family('B3'),
+                 'B4': Family('B4', husband = 'A4', wife = 'A7')}
+        self.assertFalse(firstCousinsMarried_us19(list1['A4'], list1, list3))
 
  
 if __name__ == '__main__':

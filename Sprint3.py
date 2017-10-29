@@ -103,8 +103,13 @@ def US37_Spouses_Descendants_died_within_last_30_days(individualList,familyList)
 	
 	print "US 37: List all living spouses and descendants of people in a GEDCOM file who died in the last 30 days are" + ' ' + ', '.join(alive_descendats)
 	return alive_descendats
-            
+
+####################################################################################################################################################################
+def siblingSpacing_us13(family, individualList):
+    pass            
         
-          
+####################################################################################################################################################################
+def firstCousinsMarried_us19(individua, individualList, familylList):
+    pass         
             
             
