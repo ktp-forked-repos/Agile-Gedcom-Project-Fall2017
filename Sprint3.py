@@ -83,7 +83,7 @@ def List_recent_births_US35(individualList):
         #Function to find did the person die withinlast 30days 
         if recent_birth.days < 30 and recent_birth.days > 0:
             outputValues.location.append(individualList.ID)
-            #return False
+            return False
 
 
 ####################################################################################################################################################################
