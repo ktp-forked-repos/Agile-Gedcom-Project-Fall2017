@@ -11,6 +11,7 @@ from Sprint2 import correct_gender_for_role_US21,list_of_deceased_US29
 from Sprint2 import recent_deaths_us36, living_single_us31
 from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
 from Sprint3 import List_living_married_US30,List_recent_births_US35
+from Sprint3 import checkMarriageBeforeDivorce_us04, checkMarriageBeforeDeath_us05
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -252,7 +253,29 @@ class TestFamily(unittest.TestCase):
     def test_List_recent_births_US35(self):
         from Individual import Individual
         self.assertFalse(List_recent_births_US35(Individual(self,10,death= '2017-09-1')))
-        
+
+    def test_checkMarriageBeforeDivorce_us04(self):
+        from Family import Family
+        self.assertEqual( checkMarriageBeforeDivorce_us04(Family(self, 10,marriage = '1915-10-05')), True)
+        self.assertTrue(checkMarriageBeforeDivorce_us04(Family(self,10,marriage ='1945-10-05',divorce= '1975-03-10')))
+        self.assertTrue(checkMarriageBeforeDivorce_us04(Family(self,10,marriage ='1945-10-05',divorce= '1945-11-10')))
+        self.assertTrue(checkMarriageBeforeDivorce_us04(Family(self,10,marriage ='1945-11-05',divorce= '1945-11-10')))
+        self.assertFalse(checkMarriageBeforeDivorce_us04(Family(self,10,marriage ='1945-01-05',divorce= '1935-03-10')))
+        self.assertFalse(checkMarriageBeforeDivorce_us04(Family(self,10,divorce= '1935-03-10')))
+        self.assertFalse(checkMarriageBeforeDivorce_us04(Family(self,10)))
+
+    def test_checkMarriageBeforeDeath_us05(self):
+        from Family import Family
+        from Individual import Individual
+        self.assertEqual( checkMarriageBeforeDeath_us05(Family(self, 10,marriage = '1945-10-05'),Individual(self,10,birthday='1915-10-05')), True)
+        self.assertTrue(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10,birthday='1915-10-05',death= '1975-03-10')))
+        self.assertTrue(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10,birthday='1915-10-05',death= '1945-11-10')))
+        self.assertTrue(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10,birthday='1915-10-05',death= '1945-11-10')))
+        self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10,birthday='1915-10-05',death= '1935-03-10')))
+        self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,),Individual(self,10,birthday='1915-10-05')))
+        self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10)))
+
+
 
  
 if __name__ == '__main__':

@@ -36,12 +36,22 @@ def sprint3(individualList, familyList):
                     errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
             previousIndividual.append(indi) 
 
-    #User story 13
+    #User story 13,05 and 04
     for fam in familyList:
         family = familyList[fam]
         if siblingSpacing_us13(family, individualList):
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
+        if checkMarriageBeforeDivorce_us04(family) is not True:
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,family.ID])
+
+        if checkMarriageBeforeDeath_us05(family,individualList[family.wife]) is not True:
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,family.wife])
+
+        if checkMarriageBeforeDeath_us05(family,individualList[family.husband]) is not True:
+            errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,family.husband])
+
 
     writeTableToFile(errorTable,"Sprint3")
 
@@ -196,3 +206,30 @@ def determineChildren(individual, familyList):
             if (fam == individual.spouseFamily or ((individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife))):
                 children.extend(familyList[fam].children)
     return children
+
+####################################################################################################################################################################
+
+def checkMarriageBeforeDivorce_us04(family):
+    global outputValues
+    outputValues=OutputValues("ERROR","family","US04","marriage "+ family.marriage+" is after divorce "+family.divorce)
+    if family.marriage=='NA':
+        outputValues.description="marriage not specified"
+        return False
+    if family.divorce == 'NA':
+        return True
+    return checkDate( family.marriage, family.divorce)
+    
+####################################################################################################################################################################
+
+def checkMarriageBeforeDeath_us05(family,individual):
+    global outputValues
+    outputValues=OutputValues("ERROR","family","US05","marriage "+ family.marriage+" is after death "+individual.death+" of individual ")
+    if family.marriage=='NA':
+        outputValues.description="marriage date not specified"
+        return False
+    if individual.birthday=='NA':
+        outputValues.description="birth date not specified"
+        return False
+    if individual.death=='NA':
+        return True
+    return checkDate( family.marriage, individual.death)
