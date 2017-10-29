@@ -15,9 +15,9 @@ outputFile = ""
 def sprint3(individualList, familyList):
     print "sprint3"
 
-    #User stories US30-35
+    
     for indi in individualList:
-
+        #User stories US30-35
         if List_living_married_US30(individualList[indi],familyList) is not True:
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
@@ -26,6 +26,16 @@ def sprint3(individualList, familyList):
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
+        individual = individualList[indi]
+        #User story 19
+        # if (firstCousinsMarried_us19(individual, individualList, familyList)):
+        #     for location in outputValues.location:
+        #         if (indi not in previousSiblings or location.split("-")[1] not in previousIndividual):
+        #             previousSiblings.append(location.split("-")[1])
+        #             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+        #     previousIndividual.append(indi) 
+
+    #User story 13
     for fam in familyList:
         family = familyList[fam]
         if siblingSpacing_us13(family, individualList):
@@ -111,31 +121,30 @@ def US37_Spouses_Descendants_died_within_last_30_days(individualList,familyList)
 def siblingSpacing_us13(family, individualList):
     global outputValues
     error = False
-    outputValues = OutputValues("ERROR", "FAMILY", "US13")
+    outputValues = OutputValues("ERROR", "FAMILY", "US13", "Sibling spacing violated")
     outputValues.location = []
     previousSiblings = []
     if (family.children):
         for child1 in family.children:
             for child2 in family.children:
                 if ((child1 != child2) and ((child1 not in previousSiblings) or (child1 not in previousSiblings))):
-                    if (lessThan8Months(individualList[child1].birthday, individualList[child2].birthday)):
+                    if (moreThan1day(individualList[child1].birthday, individualList[child2].birthday)):
                         previousSiblings.append(child1)
                         previousSiblings.append(child2)
-                        outputValues.description = "Siblings born less than 8 months apart"
                         outputValues.location.append(family.ID + "-" + child1 + "," + child2)
                         error = True
-                    elif (moreThan1day(individualList[child1].birthday, individualList[child2].birthday)):
+                    elif (lessThan8Months(individualList[child1].birthday, individualList[child2].birthday)):
                         previousSiblings.append(child1)
                         previousSiblings.append(child2)
-                        outputValues.description = "Siblings born more than 2 days apart"
                         outputValues.location.append(family.ID + "-" + child1 + "," + child2)
                         error = True
+                    
     return error
 
 def lessThan8Months(birthdate1, birthdate2):
     born1 = datetime.strptime(birthdate1, "%Y-%m-%d")
     born2 = datetime.strptime(birthdate2, "%Y-%m-%d")
-    months = abs(born1.year - born2.year) * 12 + abs(born1.month - born2.month)
+    months = abs((born1.year - born2.year) * 12 + (born1.month - born2.month))
     if (months < 8):
         return True
     return False
@@ -150,7 +159,40 @@ def moreThan1day(birthdate1, birthdate2):
     return False
         
 ####################################################################################################################################################################
-def firstCousinsMarried_us19(individua, individualList, familylList):
-    pass         
-            
-            
+def firstCousinsMarried_us19(individual, individualList, familyList):
+    global outputValues
+    error = False
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US19", "First cousins married to each other")
+    outputValues.location = []   
+    if (individual.childFamily != 'NA' and individual.spouseFamily != 'NA'):
+        father = individualList[familyList[individual.childFamily].husband]
+        mother = individualList[familyList[individual.childFamily].wife]
+        fatherSiblings = determineSiblings(father, familyList)
+        motherSiblings = determineSiblings(mother, familyList)
+        UncleAunts = fatherSiblings.union(motherSiblings)
+        cousins = set()
+        for person in UncleAunts:
+            cousins.update(determineChildren(individualList[person], familyList))
+        for fam in familyList:
+            if (fam == individual.spouseFamily or (individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife)):
+                spouse = determineSpouse(individual,familyList[fam])
+                if (spouse in cousins):
+                    print individual.ID, spouse
+                    error = True
+                    outputValues.location.append(individual.ID + "-" + spouse)
+    return error
+
+def determineSiblings(individual, familyList):
+    siblings = set()
+    siblings.add(individual.ID)
+    if (individual.childFamily != 'NA'):
+        siblings.symmetric_difference_update(familyList[individual.childFamily].children)
+    return siblings
+
+def determineChildren(individual, familyList):
+    children = set()
+    if (individual.spouseFamily != 'NA'):
+        for fam in familyList:
+            if (fam != individual.spouseFamily and ((individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife))):
+                children.update(fam.children)
+    return children

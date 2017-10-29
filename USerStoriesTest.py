@@ -183,9 +183,11 @@ class TestFamily(unittest.TestCase):
         #Married to first cousin
         list2 = {'B1': Family('B1'),
                  'B2': Family('B2', husband = 'A1', wife = 'A2'),
-                 'B3': Family('B3'),
+                 'B3': Family('B3', husband = 'A3'),
                  'B4': Family('B4', husband = 'A4', wife = 'A5')}
-        list2['B1'].setChildren('A3')
+        children = ['A1', 'A3']
+        for child in children:
+            list2['B1'].setChildren(child)
         list2['B2'].setChildren('A4')
         cousins = ['A5', 'A6']
         for cousin in cousins:
