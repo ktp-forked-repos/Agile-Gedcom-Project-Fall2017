@@ -3,11 +3,14 @@ from unittest import TestLoader, TextTestRunner, TestSuite
 from Functions import formatDate
 from Sprint1 import birthBeforeMarriage_us02
 from Sprint1 import birthBeforeDeath_us03
+from Sprint1 import birth_Before_Death_of_Parents_US09,fewer_than_fifteen_siblings_US15
 from Sprint1 import individualAge_us27, checkBigamy_us11
 from Sprint2 import divorceBeforCurrentDate_us01,birthdayBeforeCurrentDate_us01,marriageBeforCurrentDate_us01,deathBeforCurrentDate_us01, lessThan150Years_US07
 from Sprint2 import marriedToDescendants_us17, marriedToSiblings_us18
+from Sprint2 import correct_gender_for_role_US21,list_of_deceased_US29
 from Sprint2 import recent_deaths_us36, living_single_us31
 from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
+from Sprint3 import List_living_married_US30,List_recent_births_US35
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -148,6 +151,44 @@ class TestFamily(unittest.TestCase):
             list3['B1'].setChildren(child)
         self.assertFalse(marriedToSiblings_us18(list1['A3'], list3))
 
+    def test_fewer_than_fifteen_siblings_US15(self):
+        from Individual import Individual
+        from Family import Family
+        ls1 = {'A1': Individual('A1', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A2': Individual('A2', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A3': Individual('A3', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A4': Individual('A4', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A5': Individual('A5', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A6': Individual('A6', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A7': Individual('A7', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A8': Individual('A8', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A9': Individual('A9', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A10': Individual('A10', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A11': Individual('A11', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A12': Individual('A12', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A13': Individual('A13', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A14': Individual('A14', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A15': Individual('A15', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A16': Individual('A16', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A17': Individual('A17', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1')}
+        ls2 = {'F1': Family('F1', husband = 'A1', wife = 'A2', marriage = '1990-03016', divorce = 'NA')}
+        children =['A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17']
+        for child in children:
+            ls2['F1'].setChildren(child)
+        self.assertFalse(fewer_than_fifteen_siblings_US15(ls2))
+
+    def test_correct_gender_for_role_US21(self):
+        from Individual import Individual
+        from Family import Family
+        ls1 = {'A1': Individual('A1', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A2': Individual('A2', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),}
+        ls2 = {'F1': Family('F1', husband = 'A1', wife = 'A2', marriage = formatDate('16 MAR 1990'), divorce = 'NA')}
+        self.assertFalse(correct_gender_for_role_US21(ls1['A1'],ls2))
+
+    def test_list_of_deceased_US29(self):
+        from Individual import Individual
+        self.assertFalse(list_of_deceased_US29(Individual(self,10,death= '1950-08-14')))
+
 
     def test_siblingSpacing_us13(self):
         from Individual import Individual
@@ -199,6 +240,19 @@ class TestFamily(unittest.TestCase):
                  'B3': Family('B3'),
                  'B4': Family('B4', husband = 'A4', wife = 'A7')}
         self.assertFalse(firstCousinsMarried_us19(list1['A4'], list1, list3))
+
+    def test_List_living_married_US30(self):
+        from Individual import Individual
+        from Family import Family
+        ls1 = {'A1': Individual('A1', 'NA', 'F', 'NA', 'NA', 'NA', 'NA', 'F1'),
+                 'A2': Individual('A2', 'NA', 'M', 'NA', 'NA', 'NA', 'NA', 'F1'),}
+        ls2 = {'F1': Family('F1', husband = 'A1', wife = 'A2', marriage = formatDate('16 MAR 1990'), divorce = 'NA')}
+        self.assertFalse(List_living_married_US30(ls1['A1'],ls2))
+
+    def test_List_recent_births_US35(self):
+        from Individual import Individual
+        self.assertFalse(List_recent_births_US35(Individual(self,10,death= '2017-09-1')))
+        
 
  
 if __name__ == '__main__':
