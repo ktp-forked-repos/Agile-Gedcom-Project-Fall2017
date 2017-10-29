@@ -74,10 +74,10 @@ def List_recent_births_US35(individualList):
         today = date.today().strftime("%Y-%m-%d")
         #print today
         
-        d1 = datetime.strptime(birthdate, "%Y-%m-%d")
-        d2 = datetime.strptime(today, "%Y-%m-%d")
+        dateB = datetime.strptime(birthdate, "%Y-%m-%d")
+        dateT = datetime.strptime(today, "%Y-%m-%d")
 
-        recent_birth = (d2 - d1)
+        recent_birth = (dateT - dateB)
         #print recent_birth
         
         #Function to find did the person die withinlast 30days 
