@@ -157,20 +157,20 @@ class TestFamily(unittest.TestCase):
         for child in children:
             list1['B1'].setChildren(child)
         #Spacing violated by less than 8 months condition
-        list2 = {'A1': Individual('A1', birthday = '1980-01-01'),
-                 'A2': Individual('A2', birthday = '1987-02-05'),
-                 'A3': Individual('A3', birthday = '1980-07-01')}        
+        list2 = {'A3': Individual('A1', birthday = '1980-01-01'),
+                 'A4': Individual('A2', birthday = '1987-02-05'),
+                 'A5': Individual('A3', birthday = '1980-07-01')}        
         self.assertTrue(siblingSpacing_us13(list1['B1'],list2))
         #Spacing violated by more than 2 days condition
-        list3 = {'A1': Individual('A1', birthday = '1980-01-01'),
-                 'A2': Individual('A2', birthday = '1987-02-05'),
-                 'A3': Individual('A3', birthday = '1980-01-03')}        
+        list3 = {'A3': Individual('A1', birthday = '1980-01-01'),
+                 'A4': Individual('A2', birthday = '1987-02-05'),
+                 'A5': Individual('A3', birthday = '1980-01-03')}        
         self.assertTrue(siblingSpacing_us13(list1['B1'],list2))
         #Spacing not violated
-        list3 = {'A1': Individual('A1', birthday = '1980-01-01'),
-                 'A2': Individual('A2', birthday = '1987-02-05'),
-                 'A3': Individual('A3', birthday = '1984-01-03')}        
-        self.assertFalse(siblingSpacing_us13(list1['B1'],list2))
+        list4 = {'A3': Individual('A1', birthday = '1980-01-01'),
+                 'A4': Individual('A2', birthday = '1987-02-05'),
+                 'A5': Individual('A3', birthday = '1984-01-03')}        
+        self.assertFalse(siblingSpacing_us13(list1['B1'],list4))
 
 
     def test_firstCousinsMarried_us19(self):

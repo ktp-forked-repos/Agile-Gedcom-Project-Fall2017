@@ -14,20 +14,23 @@ outputFile = ""
 
 def sprint3(individualList, familyList):
     print "sprint3"
-    previousIndividual = []
-    previousSiblings = []
 
     #User stories US30-35
     for indi in individualList:
 
-         if List_living_married_US30(individualList[indi],familyList) is not True:
-             for location in outputValues.location:
-                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+        if List_living_married_US30(individualList[indi],familyList) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
-         if List_recent_births_US35(individualList[indi]) is not True:
-             for location in outputValues.location:
-                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+        if List_recent_births_US35(individualList[indi]) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
+    for fam in familyList:
+        family = familyList[fam]
+        if siblingSpacing_us13(family, individualList):
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
     writeTableToFile(errorTable,"Sprint3")
 
@@ -106,7 +109,45 @@ def US37_Spouses_Descendants_died_within_last_30_days(individualList,familyList)
 
 ####################################################################################################################################################################
 def siblingSpacing_us13(family, individualList):
-    pass            
+    global outputValues
+    error = False
+    outputValues = OutputValues("ERROR", "FAMILY", "US13")
+    outputValues.location = []
+    previousSiblings = []
+    if (family.children):
+        for child1 in family.children:
+            for child2 in family.children:
+                if ((child1 != child2) and ((child1 not in previousSiblings) or (child1 not in previousSiblings))):
+                    if (lessThan8Months(individualList[child1].birthday, individualList[child2].birthday)):
+                        previousSiblings.append(child1)
+                        previousSiblings.append(child2)
+                        outputValues.description = "Siblings born less than 8 months apart"
+                        outputValues.location.append(family.ID + "-" + child1 + "," + child2)
+                        error = True
+                    elif (moreThan1day(individualList[child1].birthday, individualList[child2].birthday)):
+                        previousSiblings.append(child1)
+                        previousSiblings.append(child2)
+                        outputValues.description = "Siblings born more than 2 days apart"
+                        outputValues.location.append(family.ID + "-" + child1 + "," + child2)
+                        error = True
+    return error
+
+def lessThan8Months(birthdate1, birthdate2):
+    born1 = datetime.strptime(birthdate1, "%Y-%m-%d")
+    born2 = datetime.strptime(birthdate2, "%Y-%m-%d")
+    months = abs(born1.year - born2.year) * 12 + abs(born1.month - born2.month)
+    if (months < 8):
+        return True
+    return False
+
+def moreThan1day(birthdate1, birthdate2):
+    born1 = datetime.strptime(birthdate1, "%Y-%m-%d")
+    born2 = datetime.strptime(birthdate2, "%Y-%m-%d")
+    if ((born1.year - born2.year) == 0 and (born1.month - born2.month) == 0):
+        days = abs(born1.day - born2.day) 
+        if (days > 1):
+            return True
+    return False
         
 ####################################################################################################################################################################
 def firstCousinsMarried_us19(individua, individualList, familylList):
