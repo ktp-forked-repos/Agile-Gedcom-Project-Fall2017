@@ -14,7 +14,8 @@ outputFile = ""
 
 def sprint3(individualList, familyList):
     print "sprint3"
-
+    previousIndividual = []
+    previousSiblings = []
     
     for indi in individualList:
         #User stories US30-35
@@ -28,12 +29,12 @@ def sprint3(individualList, familyList):
 
         individual = individualList[indi]
         #User story 19
-        # if (firstCousinsMarried_us19(individual, individualList, familyList)):
-        #     for location in outputValues.location:
-        #         if (indi not in previousSiblings or location.split("-")[1] not in previousIndividual):
-        #             previousSiblings.append(location.split("-")[1])
-        #             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
-        #     previousIndividual.append(indi) 
+        if (firstCousinsMarried_us19(individual, individualList, familyList)):
+            for location in outputValues.location:
+                if (indi not in previousSiblings or location.split("-")[1] not in previousIndividual):
+                    previousSiblings.append(location.split("-")[1])
+                    errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+            previousIndividual.append(indi) 
 
     #User story 13
     for fam in familyList:
@@ -170,29 +171,28 @@ def firstCousinsMarried_us19(individual, individualList, familyList):
         fatherSiblings = determineSiblings(father, familyList)
         motherSiblings = determineSiblings(mother, familyList)
         UncleAunts = fatherSiblings.union(motherSiblings)
-        cousins = set()
+        cousins = []
         for person in UncleAunts:
-            cousins.update(determineChildren(individualList[person], familyList))
+            cousins.extend(determineChildren(individualList[person], familyList))
         for fam in familyList:
             if (fam == individual.spouseFamily or (individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife)):
                 spouse = determineSpouse(individual,familyList[fam])
                 if (spouse in cousins):
-                    print individual.ID, spouse
                     error = True
                     outputValues.location.append(individual.ID + "-" + spouse)
     return error
 
 def determineSiblings(individual, familyList):
     siblings = set()
-    siblings.add(individual.ID)
     if (individual.childFamily != 'NA'):
+        siblings.add(individual.ID)
         siblings.symmetric_difference_update(familyList[individual.childFamily].children)
     return siblings
 
 def determineChildren(individual, familyList):
-    children = set()
+    children = []
     if (individual.spouseFamily != 'NA'):
         for fam in familyList:
-            if (fam != individual.spouseFamily and ((individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife))):
-                children.update(fam.children)
+            if (fam == individual.spouseFamily or ((individual.ID == familyList[fam].husband) or (individual.ID == familyList[fam].wife))):
+                children.extend(familyList[fam].children)
     return children
