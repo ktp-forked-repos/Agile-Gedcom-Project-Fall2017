@@ -55,6 +55,16 @@ def sprint3(individualList, familyList):
 
     writeTableToFile(errorTable,"Sprint3")
 
+######################################################################################################################################################################
+def Recent_surviors_US37 (individualList,familyList):
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US30")
+    outputValues.location = []
+
+    
+
+
+    
+######################################################################################################################################################################
 def List_living_married_US30(individualList,familyList):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US30")
@@ -73,7 +83,7 @@ def List_living_married_US30(individualList,familyList):
                 outputValues.description="List of wife Living married"
                 return False
 
-
+#######################################################################################################################################################################
 def List_recent_births_US35(individualList):
     global outputValues
     outputValues = OutputValues("ERROR", "INDIVIDUAL", "US35","List of recent birth")
