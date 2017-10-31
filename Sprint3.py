@@ -243,9 +243,10 @@ def siblingSpacing_us13(family, individualList):
 def lessThan8Months(birthdate1, birthdate2):
     born1 = datetime.strptime(birthdate1, "%Y-%m-%d")
     born2 = datetime.strptime(birthdate2, "%Y-%m-%d")
-    months = abs((born1.year - born2.year) * 12 + (born1.month - born2.month))
-    if (months < 8):
-        return True
+    if((born1.year - born2.year) != 0 or (born1.month - born2.month) != 0):
+        months = abs((born1.year - born2.year) * 12 + (born1.month - born2.month))
+        if (months < 8):
+            return True
     return False
 
 def moreThan1day(birthdate1, birthdate2):

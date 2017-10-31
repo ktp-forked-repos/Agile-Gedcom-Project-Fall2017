@@ -258,15 +258,10 @@
 |  ERROR  | INDIVIDUAL |    US35    |                        List of recent birth                       |              us_21_I4              |
 |  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_21_I5              |
 |  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_37_I1              |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I12,sprint1_I19 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I13,sprint1_I17 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I12,sprint1_I21 |
 |  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I18,sprint1_I20 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I21,sprint1_I12 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I19,sprint1_I21 |
 |  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I22,sprint1_I12 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I23,sprint1_I30 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I24,sprint1_I25 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I26,sprint1_I27 |
-|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I28,sprint1_I26 |
 |  ERROR  |   family   |    US05    |    marriage 2021-04-04 is after death 2020-12-15 of individual    |              us_01_I2              |
 |  ERROR  |   family   |    US04    |          marriage 1990-04-04 is after divorce 1987-04-04          |              us_04_F1              |
 |  ERROR  |   family   |    US05    |    marriage 1990-04-04 is after death 1989-09-11 of individual    |              us_05_I3              |
