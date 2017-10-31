@@ -51,14 +51,92 @@ def sprint3(individualList, familyList):
 
         if checkMarriageBeforeDeath_us05(family,individualList[family.husband]) is not True:
             errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,family.husband])
+ #User Story 34
+    if List_large_age_difference_US34 (individualList,familyList) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
+    #User Story 37 
+    if Recent_surviors_US37 (individualList,familyList)is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+                
+
 
 
     writeTableToFile(errorTable,"Sprint3")
 
 ######################################################################################################################################################################
-def Recent_surviors_US37 (individualList,familyList):
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US30")
+######################################################################################################################################################################
+def List_large_age_difference_US34 (individualList,familyList):
+    global outputValues
+    outputValues = OutputValues("ANAMOLY", "Family", "US34", "Age difference between the spouse is large")
     outputValues.location = []
+
+    
+    for i in familyList:
+        husband_id = familyList[i].husband
+        wife_id = familyList[i].wife
+        husband_age = individualList[husband_id].age
+        wife_age =individualList[wife_id].age
+        #Checking for large age diiferns between spouses 
+        if (husband_age > (2*wife_age)):
+            outputValues.location.append(husband_id)
+            return False
+
+        if ( wife_age > (2*husband_age)):
+            outputValues.location.append(wife_id)
+            return False
+    
+######################################################################################################################################################################
+def Recent_surviors_US37 (individualList,familyList):
+    global outputValues
+    outputValues = OutputValues("ERROR", "Family", "US37", "List of spouses and decendents of dead people within last 30 days")
+    outputValues.location = []
+    spouse_descendants = []
+    died_within_last_30_days = []
+    alive_descendats = []
+    for i in individualList:
+        if individualList[i].death != 'NA':
+            death_date = individualList[i].death
+            today = date.today().strftime("%Y-%m-%d")
+            d1 = datetime.strptime(death_date, "%Y-%m-%d")
+            d2 = datetime.strptime(today, "%Y-%m-%d")                   #Find today's date
+            death_day = (d2 - d1)
+            if death_day.days < 30 and death_day.days > 0:
+                died_within_last_30_days.append(individualList[i].ID)
+                #print died_within_last_30_days
+
+    #Finding the spouse and decendents of people who died with last 30 days 
+    for died in died_within_last_30_days:
+                #print died
+        for i in familyList:
+            husband_id= familyList[i].husband
+            wife_id= familyList[i].wife
+            child_id = familyList[i].children
+                                        
+            if died in familyList[i].husband:
+                spouse_descendants.append(familyList[i].wife)
+                if familyList[i].children != None:
+                    spouse_descendants.append(familyList[i].children)
+                    #print spouse_descendants
+
+
+##            if died in familyList[i].wife:
+##                spouse_descendants.append(familyList[i].husband)
+##                if familyList[i].children != None:
+##                    spouse_descendants.append(familyList[i].children)
+                    #print spouse_descendants
+                    
+                    
+    #Checking the whether spouse and decedents are alive of the dead people  
+    for alive in spouse_descendants:
+        for i in individualList:
+            if alive == individualList[i].ID:
+                if individualList[i].death != "NA":
+                    outputValues.location.append(wife_id)
+                    outputValues.location.append(child_id)
+                    return False
 
     
 

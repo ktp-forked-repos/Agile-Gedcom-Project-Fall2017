@@ -102,6 +102,10 @@
 |   us_31_I2  |      Lingu /A/       |   M    | 1955-07-12 | 2017-10-10 |     NA     |  us_31_F1  |  62 |
 |   us_31_I3  |      Aryan /A/       |   M    | 1985-06-17 |     NA     |  us_31_F1  |     NA     |  32 |
 |   us_31_I4  |      Shreya /A/      |   F    | 1980-08-02 |     NA     |  us_31_F1  |     NA     |  37 |
+|   us_37_I1  |      Priya /A/       |   F    | 1955-10-12 |     NA     |     NA     |  us_37_F1  |  62 |
+|   us_37_I2  |      Lingu /A/       |   M    | 1955-07-12 | 2017-10-10 |     NA     |  us_37_F1  |  62 |
+|   us_37_I3  |      Aryan /A/       |   M    | 1985-06-17 |     NA     |  us_37_F1  |     NA     |  32 |
+|   us_37_I4  |      Shreya /A/      |   F    | 1980-08-02 |     NA     |  us_37_F1  |     NA     |  37 |
 +-------------+----------------------+--------+------------+------------+------------+------------+-----+
 +------------+------------+------------+------------+-------------------+------------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |     ID     |  Married   |  Divorced  | Husband ID |    Husband Name   |  Wife ID   |      Wife Name       |                                                                                                                     Children                                                                                                                     |
@@ -137,4 +141,150 @@
 |  us_21_F1  |     NA     |     NA     |  us_21_I1  |        Sam        |  us_21_I2  |         June         |                                                                                                             ['us_21_I3', 'us_21_I4']                                                                                                             |
 |  us_21_F2  |     NA     |     NA     |  us_21_I3  |        Gimi       |  us_21_I5  |        Sugar         |                                                                                                                   ['us_21_I6']                                                                                                                   |
 |  us_31_F1  |     NA     |     NA     |  us_31_I2  |     Lingu /A/     |  us_31_I1  |      Priya /A/       |                                                                                                             ['us_31_I3', 'us_31_I4']                                                                                                             |
+|  us_37_F1  |     NA     |     NA     |  us_37_I2  |     Lingu /A/     |  us_37_I1  |      Priya /A/       |                                                                                                             ['us_37_I3', 'us_37_I4']                                                                                                             |
 +------------+------------+------------+------------+-------------------+------------+----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+                                                               Error Report for Sprint1                                                               
+
++---------+------------+------------+----------------------------------------------------+------------------------------------+
+|   Tag   | Concerned  | User Story |                    Description                     |            Location/ ID            |
++---------+------------+------------+----------------------------------------------------+------------------------------------+
+|  ERROR  | INDIVIDUAL |    US11    |              Bigamy has been detected              | sprint1_F2,sprint1_F1 - sprint1_I1 |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1969-01-31 is before birthdate 1972-06-10 |             sprint1_I2             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I2             |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1977-12-18 |             sprint1_I6             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I6             |
+|  ERROR  | INDIVIDUAL |    US02    | marriage 1967-03-18 is before birthdate 1968-04-24 |             sprint1_I9             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             sprint1_I9             |
+|  ERROR  | INDIVIDUAL |    US03    |  death 1992-07-06 is before birthdate 1993-12-10   |            sprint1_I30             |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |              us_19_I9              |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             us_19_I11              |
+| ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |              us_21_I1              |
+| ANAMOLY | INDIVIDUAL |    US12    |                  Parents too old                   |             sprint1_I7             |
+|  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |             sprint1_F3             |
++---------+------------+------------+----------------------------------------------------+------------------------------------+
+
+
+                                                               Error Report for Sprint2                                                               
+
++---------+------------+------------+----------------------------------------------------+---------------------+
+|   Tag   | Concerned  | User Story |                    Description                     |     Location/ ID    |
++---------+------------+------------+----------------------------------------------------+---------------------+
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
+|  ERROR  | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
+|  ERROR  | INDIVIDUAL |    US01    |        Death day 2020-12-15 is after today         |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I2      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_01_I2      |
+|  ERROR  | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I3      |
+|  ERROR  | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I3      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_05_I3      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
+|  ERROR  | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I1-us_17_I9  |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I2      |
+|  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_17_I3      |
+|  ERROR  | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I3-us_17_I10 |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I8      |
+|  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |      us_17_I10      |
+|  ERROR  | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   |  us_18_I4-us_18_I5  |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_18_I8      |
+|  ERROR  | INDIVIDUAL |    US18    |   Siblings of a family are married to each other   | us_18_I11-us_18_I15 |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_19_I8      |
+|  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
+|  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_37_I2      |
++---------+------------+------------+----------------------------------------------------+---------------------+
+
+
+                                                               Error Report for Sprint3                                                               
+
++---------+------------+------------+-------------------------------------------------------------------+------------------------------------+
+|   Tag   | Concerned  | User Story |                            Description                            |            Location/ ID            |
++---------+------------+------------+-------------------------------------------------------------------+------------------------------------+
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             sprint1_I1             |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |             sprint1_I2             |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             sprint1_I5             |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |             sprint1_I6             |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             sprint1_I7             |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |             sprint1_I8             |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_01_I3              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_04_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_04_I3              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_05_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_07_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_13_I1              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_13_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_17_I1              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_17_I3              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_17_I4              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_17_I5              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_17_I6              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_17_I7              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_17_I9              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |             us_17_I10              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_18_I1              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_18_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_18_I3              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_18_I4              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_18_I5              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_18_I6              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_18_I7              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             us_18_I11              |
+|  ERROR  | INDIVIDUAL |    US19    |                First cousins married to each other                |        us_18_I11-us_18_I15         |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |             us_18_I15              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_19_I1              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_19_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_19_I3              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_19_I4              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_19_I5              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_19_I6              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_19_I7              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_19_I9              |
+|  ERROR  | INDIVIDUAL |    US19    |                First cousins married to each other                |         us_19_I9-us_19_I11         |
+|  ERROR  | INDIVIDUAL |    US19    |                First cousins married to each other                |         us_19_I9-us_19_I13         |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             us_19_I11              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |             us_19_I13              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_21_I1              |
+|  ERROR  | INDIVIDUAL |    US35    |                        List of recent birth                       |              us_21_I1              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_21_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_21_I3              |
+|  ERROR  | INDIVIDUAL |    US35    |                        List of recent birth                       |              us_21_I4              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_21_I5              |
+|  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_37_I1              |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I12,sprint1_I19 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I13,sprint1_I17 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I18,sprint1_I20 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I21,sprint1_I12 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I22,sprint1_I12 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I23,sprint1_I30 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I24,sprint1_I25 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I26,sprint1_I27 |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     | sprint1_F3-sprint1_I28,sprint1_I26 |
+|  ERROR  |   family   |    US05    |    marriage 2021-04-04 is after death 2020-12-15 of individual    |              us_01_I2              |
+|  ERROR  |   family   |    US04    |          marriage 1990-04-04 is after divorce 1987-04-04          |              us_04_F1              |
+|  ERROR  |   family   |    US05    |    marriage 1990-04-04 is after death 1989-09-11 of individual    |              us_05_I3              |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     |     us_13_F1-us_13_I3,us_13_I4     |
+|  ERROR  |   FAMILY   |    US13    |                      Sibling spacing violated                     |     us_13_F1-us_13_I5,us_13_I6     |
+|  ERROR  |   family   |    US04    |                       marriage not specified                      |              us_21_F1              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_21_I2              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_21_I1              |
+|  ERROR  |   family   |    US04    |                       marriage not specified                      |              us_21_F2              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_21_I5              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_21_I3              |
+|  ERROR  |   family   |    US04    |                       marriage not specified                      |              us_31_F1              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_31_I1              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_31_I2              |
+|  ERROR  |   family   |    US04    |                       marriage not specified                      |              us_37_F1              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_37_I1              |
+|  ERROR  |   family   |    US05    |                    marriage date not specified                    |              us_37_I2              |
+| ANAMOLY |   Family   |    US34    |             Age difference between the spouse is large            |             sprint1_I7             |
+|  ERROR  |   Family   |    US37    | List of spouses and decendents of dead people within last 30 days |              us_37_I1              |
+|  ERROR  |   Family   |    US37    | List of spouses and decendents of dead people within last 30 days |      ['us_37_I3', 'us_37_I4']      |
++---------+------------+------------+-------------------------------------------------------------------+------------------------------------+
