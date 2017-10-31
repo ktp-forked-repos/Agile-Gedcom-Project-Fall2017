@@ -162,6 +162,11 @@
 | ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |             us_19_I11              |
 | ANAMOLY | INDIVIDUAL |    US10    |          Marraige before 14 years of age           |              us_21_I1              |
 | ANAMOLY | INDIVIDUAL |    US12    |                  Parents too old                   |             sprint1_I7             |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I5        |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I3-sprint1_I6        |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |       sprint1_I9-sprint1_I14       |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |         us_01_I2-us_01_I1          |
+|  ERROR  |   FAMILY   |    US09    |         Death date can't be before Child's         |         us_05_I3-us_05_I1          |
 |  ERROR  |   FAMILY   |    US15    |               Fewer than 15 siblings               |             sprint1_F3             |
 +---------+------------+------------+----------------------------------------------------+------------------------------------+
 
