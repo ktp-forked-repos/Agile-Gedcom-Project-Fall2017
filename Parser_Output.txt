@@ -92,10 +92,10 @@
 |  us_19_I12  |     Josh /Wood/      |   M    | 1998-01-25 |     NA     |  us_19_F3  |     NA     |  19 |
 |  us_19_I13  |     Dylan /Cole/     |   M    | 1998-06-12 |     NA     |  us_19_F4  |  us_19_F6  |  19 |
 |  us_19_I14  |     Jenna /Cole/     |   F    | 2000-03-28 |     NA     |  us_19_F4  |     NA     |  17 |
-|   us_21_I1  |         Sam          |   F    | 2017-10-28 |     NA     |     NA     |  us_21_F1  |  0  |
+|   us_21_I1  |         Sam          |   F    | 2017-10-30 |     NA     |     NA     |  us_21_F1  |  0  |
 |   us_21_I2  |         June         |   M    | 1939-07-06 |     NA     |     NA     |  us_21_F1  |  78 |
 |   us_21_I3  |         Gimi         |   M    | 1953-05-06 |     NA     |  us_21_F1  |  us_21_F2  |  64 |
-|   us_21_I4  |         Kook         |   F    | 2017-10-27 |     NA     |  us_21_F1  |     NA     |  0  |
+|   us_21_I4  |         Kook         |   F    | 2017-10-30 |     NA     |  us_21_F1  |     NA     |  0  |
 |   us_21_I5  |        Sugar         |   F    | 1958-03-09 |     NA     |     NA     |  us_21_F2  |  59 |
 |   us_21_I6  |        Sunny         |   M    | 1990-07-18 |     NA     |  us_21_F2  |     NA     |  27 |
 |   us_31_I1  |      Priya /A/       |   F    | 1955-10-12 | 2017-10-16 |     NA     |  us_31_F1  |  62 |
@@ -172,6 +172,7 @@
 |   Tag   | Concerned  | User Story |                    Description                     |     Location/ ID    |
 +---------+------------+------------+----------------------------------------------------+---------------------+
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I3     |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |      sprint1_I4     |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |      sprint1_I9     |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |     sprint1_I30     |
 |  ERROR  | INDIVIDUAL |    US01    |        Birth day 2091-03-10 is after today         |       us_01_I1      |
@@ -185,6 +186,10 @@
 |  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
 |  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I3      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I4      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I5      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I6      |
 |  ERROR  | INDIVIDUAL |    US17    |          Parent married to its descendant          |  us_17_I1-us_17_I9  |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_17_I2      |
 |  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_17_I3      |
@@ -197,9 +202,16 @@
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_19_I8      |
 |  ERROR  |   FAMILY   |    US21    | Correct gender for role is violated for husband_id |       us_21_I1      |
 |  ERROR  |   FAMILY   |    US21    |  Correct gender for role is violated for wife_id   |       us_21_I2      |
+| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I1      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I1      |
+| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_31_I2      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_31_I2      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I3      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_31_I4      |
+| ANAMOLY | INDIVIDUAL |    US36    |                    Died recently                   |       us_37_I2      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_37_I2      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_37_I3      |
+| ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_37_I4      |
 +---------+------------+------------+----------------------------------------------------+---------------------+
 
 

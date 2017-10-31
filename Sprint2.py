@@ -86,7 +86,7 @@ def recent_deaths_us36(individual):
         #Function to find did the person die withinlast 30days 
         if death_day.days < 30 and death_day.days > 0:
             outputValues.location.append(individual.ID)
-            return True
+            return False
         
 ########################################################################################################################################################################
 def living_single_us31 (individual):
@@ -97,7 +97,7 @@ def living_single_us31 (individual):
     if ((individual.death == 'NA') and (individual.spouseFamily == 'NA')):
         if (individual.age > 30):                                               # If that person is above 30 years append his ID
             outputValues.location.append(individual.ID)
-            return True
+            return False
 
 
 #######################################################################################################################################################################
