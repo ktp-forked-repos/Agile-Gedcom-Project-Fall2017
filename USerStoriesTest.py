@@ -84,13 +84,13 @@ class TestFamily(unittest.TestCase):
 
     def test_recent_death_us36(self):
         from Individual import Individual
-        self.assertEqual (recent_deaths_us36(Individual(self,10, death = '2017-10-10')),True)
+        self.assertEqual (recent_deaths_us36(Individual(self,10, death = '2017-10-10')),False)
         self.assertFalse(recent_deaths_us36(Individual(self,10,death ='1845-10-05')))
-        self.assertTrue(recent_deaths_us36(Individual(self,10,death ='2017-10-10')), False)
+        self.assertFalse(recent_deaths_us36(Individual(self,10,death ='2017-10-10')))
 
     def test_living_single_us31(self):
         from Individual import Individual
-        self.assertEqual (living_single_us31(Individual(self, 10, birthday = '1977-12-17')), True)
+        self.assertEqual (living_single_us31(Individual(self, 10, birthday = '1977-12-17')), False)
         
 
     def test_lessThan150Years_US07(self):
