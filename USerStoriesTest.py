@@ -12,6 +12,7 @@ from Sprint2 import recent_deaths_us36, living_single_us31
 from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
 from Sprint3 import List_living_married_US30,List_recent_births_US35
 from Sprint3 import checkMarriageBeforeDivorce_us04, checkMarriageBeforeDeath_us05
+from Sprint3 import List_large_age_difference_US34, Recent_surviors_US37
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -19,6 +20,31 @@ class TestFamily(unittest.TestCase):
     def setUp(self):
         from Individual import Individual
         self=Individual(0)
+
+    def test_List_large_age_difference_US34(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'A1': Individual('A1', age='106'),
+                 'A2': Individual('A1', age='39')}
+
+        list2 = {'B1': Family('B1', husband = 'A1', wife = 'A2')}
+        
+        self.assertFalse(List_large_age_difference_US34( list1, list2))
+        
+
+    def test_Recent_surviors_US37(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'A1': Individual('A1', death='2017-10-29'),
+                 'A2': Individual('A1', birthday='1960-03-12'),
+                 'A3': Individual('A1', birthday='1993-03-12')}
+        list2 = {'B1': Family('B1', husband = 'A1', wife = 'A2')}
+        children = ['A3']
+        for child in children:
+            list2['B1'].setChildren(child)
+        self.assertFalse(Recent_surviors_US37( list1, list2))
+        
+
  
     def test_birth_Before_Marriage_us02(self):
         #from Individual import birthBeforeMarriage
