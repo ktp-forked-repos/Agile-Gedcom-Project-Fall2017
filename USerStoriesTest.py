@@ -13,6 +13,7 @@ from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
 from Sprint3 import List_living_married_US30,List_recent_births_US35
 from Sprint3 import checkMarriageBeforeDivorce_us04, checkMarriageBeforeDeath_us05
 from Sprint3 import List_large_age_difference_US34, Recent_surviors_US37
+from Sprint4 import correspondingEntries_us26, orderSiblings_us28
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -301,9 +302,40 @@ class TestFamily(unittest.TestCase):
         self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,),Individual(self,10,birthday='1915-10-05')))
         self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10)))
 
+    def test_correspondingEntries_us26(self):
+        from Family import Family
+        from Individual import Individual
+        list1 = {'A1': Individual('A1', spouseFamily = 'B2'), #husband
+                 'A2': Individual('A2', spouseFamily = 'B2'), #wife
+                 'A5': Individual('A5', childFamily = 'B2')}  #child 
+        #Family's husband does not have the same listed as his spouse Family:
+        list2 = {'B1': Family('B1', husband = 'A1', wife = 'A5')}
+        self.assertTrue(correspondingEntries_us26(list2['B1'],list1))
+        #Family's wife does not have the same listed as her spouse Family:
+        list2 = {'B1': Family('B1', husband = 'A5', wife = 'A1')}
+        self.assertTrue(correspondingEntries_us26(list2['B1'],list1))
+        #Family's child does not have the same listed as his/her child Family:
+        list2 = {'B2': Family('B1', husband = 'A1', wife = 'A2')}
+        list2['B2'].setChildren('A5')
+        self.assertTrue(correspondingEntries_us26(list2['B2'],list1))
+        #All the roles match in individual and family tables:
+        list1 = {'A1': Individual('A1', spouseFamily = 'B1'),
+                 'A2': Individual('A2', spouseFamily = 'B1'),
+                 'A5': Individual('A5', childFamily = 'B1')}
+        self.assertFalse(correspondingEntries_us26(list2['B2'],list1))
 
+    def test_orderSiblings_us28(self):
+        from Family import Family
+        from Individual import Individual
+        list1 = {'A1': Individual('A1', childFamily = 'B1', age = '48'),
+                 'A2': Individual('A2', childFamily = 'B1', age = '31'),
+                 'A3': Individual('A3', childFamily = 'B1', age = '37')}
+        list2 = {'B1': Family('B1')}
+        children = ['A1', 'A2', 'A3']
+        for child in children:
+            list2['B1'].setChildren(child)
+        self.assertEqual(orderSiblings_us28(list2['B1'], list1), 'B1 A1 A3 A2')
 
- 
 if __name__ == '__main__':
     #logging.basicConfig( stream=sys.stderr )
     #logging.getLogger( "TestFamily.test_birth_Before_Death" ).setLevel( logging.DEBUG )

@@ -1125,6 +1125,50 @@
 1 CHIL @us_21_I6@
 1 _CURRENT Y
 0 TRLR
+0 NOTE Project1 CS555
+0 @us_26_I1@ INDI
+1 NAME Matthew /Wood/
+2 GIVN Matthew
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 5 JAN 1945
+1 FAMS @us_26_F2@
+0 @us_26_I2@ INDI
+1 NAME Mary /Wood/
+2 GIVN Mary
+2 SURN Wood
+1 SEX F
+1 BIRT
+2 DATE 19 AUG 1948
+1 FAMS @us_26_F2@
+0 @us_26_I3@ INDI
+1 NAME Melissa /Jones/
+2 GIVN Melissa
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 15 FEB 1970
+1 FAMC @us_26_F1@
+0 @us_26_I4@ INDI
+1 NAME Michael /Wood/
+2 GIVN Michael
+2 SURN Wood
+1 SEX M
+1 BIRT
+2 DATE 17 AUG 1970
+1 FAMC @us_26_F2@
+0 @us_26_F1@ FAM
+1 HUSB @us_26_I1@
+1 WIFE @us_26_I2@
+1 CHIL @us_26_I3@
+1 CHIL @us_26_I4@
+0 @us_26_F2@ FAM
+1 HUSB @us_26_I1@
+1 WIFE @us_26_I2@
+1 CHIL @us_26_I4@
+1 _CURRENT Y
+0 TRLR
 0 HEAD
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
