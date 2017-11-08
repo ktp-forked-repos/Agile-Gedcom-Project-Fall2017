@@ -60,7 +60,7 @@ def correspondingEntries_us26(family, individualList):
 ######################################################################################################################################################################
 def orderSiblings_us28(family, individualList):
 	global outputValues
-	outputValues = OutputValues("ERROR", "INFORMATION", "US28", "Ordered Siblings")
+	outputValues = OutputValues("INFORMATION", "FAMILY", "US28", "Ordered Siblings")
 	outputValues.location = "No children"
 	if (family.children):
 		outputValues.location = family.ID
