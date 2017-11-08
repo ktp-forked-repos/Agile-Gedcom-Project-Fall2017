@@ -13,6 +13,9 @@ from Sprint3 import siblingSpacing_us13, firstCousinsMarried_us19
 from Sprint3 import List_living_married_US30,List_recent_births_US35
 from Sprint3 import checkMarriageBeforeDivorce_us04, checkMarriageBeforeDeath_us05
 from Sprint3 import List_large_age_difference_US34, Recent_surviors_US37
+from Sprint4 import checkDivorceBeforeDeath_us06
+from Sprint4 import checkBirthBeforeMarriageOfParents_us08
+from Sprint4 import checkBirthNotAfter9MonthsDivorce_us08
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -301,6 +304,29 @@ class TestFamily(unittest.TestCase):
         self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,),Individual(self,10,birthday='1915-10-05')))
         self.assertFalse(checkMarriageBeforeDeath_us05(Family(self,10,marriage ='1945-10-05'),Individual(self,10)))
 
+    def test_checkDivorceBeforeDeath_us06(self):
+        from Family import Family
+        from Individual import Individual
+        self.assertEqual( checkDivorceBeforeDeath_us06(Family(self, 10,marriage = '1945-10-05'),Individual(self,10,birthday='1915-10-05')), True)
+        self.assertTrue(checkDivorceBeforeDeath_us06(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1915-10-05',death= '1975-03-10')))
+        self.assertFalse(checkDivorceBeforeDeath_us06(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1915-10-05',death= '1945-11-10')))
+        self.assertTrue(checkDivorceBeforeDeath_us06(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1915-10-05',death= '1975-11-10')))
+        self.assertFalse(checkDivorceBeforeDeath_us06(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1955-10-05',death= '1935-03-10')))
+        self.assertFalse(checkDivorceBeforeDeath_us06(Family(self,10,),Individual(self,10,birthday='1915-10-05')))
+        self.assertFalse(checkDivorceBeforeDeath_us06(Family(self,10,marriage ='1945-10-05', divorce='1955-10-05'),Individual(self,10)))
+
+    def test_checkBirthBeforeMarriageOfParents_us08(self):
+        from Family import Family
+        from Individual import Individual
+        self.assertEqual( checkBirthBeforeMarriageOfParents_us08(Family(self, 10,marriage = '1945-10-05'),Individual(self,10,birthday='1915-10-05')), False)
+        self.assertTrue(checkBirthBeforeMarriageOfParents_us08(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1947-10-05',death= '1975-03-10')))
+
+    def test_checkBirthNotAfter9MonthsDivorce_us08(self):
+        from Family import Family
+        from Individual import Individual
+        self.assertEqual( checkBirthNotAfter9MonthsDivorce_us08(Family(self, 10,marriage = '1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1957-10-05')), False)
+        self.assertEqual( checkBirthNotAfter9MonthsDivorce_us08(Family(self, 10,marriage = '1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1955-11-05')), True)
+        self.assertTrue(checkBirthNotAfter9MonthsDivorce_us08(Family(self,10,marriage ='1945-10-05',divorce='1955-10-05'),Individual(self,10,birthday='1947-10-05',death= '1975-03-10')))
 
 
  

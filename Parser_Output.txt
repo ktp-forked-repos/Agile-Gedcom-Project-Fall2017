@@ -12,14 +12,14 @@
 |  sprint1_I9 |    Shane /Moore/     |   M    | 1968-04-24 | 2000-07-06 |     NA     | sprint1_F5 |  49 |
 | sprint1_I10 | Justice /Winchester/ |   F    | 1993-05-01 |     NA     | sprint1_F1 |     NA     |  24 |
 | sprint1_I11 |  Zack /Winchester/   |   M    | 1995-09-15 |     NA     | sprint1_F1 |     NA     |  22 |
-| sprint1_I12 |   Ben /Winchester/   |   M    | 1996-11-07 |     NA     | sprint1_F3 |     NA     |  20 |
+| sprint1_I12 |   Ben /Winchester/   |   M    | 1996-11-07 |     NA     | sprint1_F3 |     NA     |  21 |
 | sprint1_I13 |  Mike /Winchester/   |   M    | 1998-01-25 |     NA     | sprint1_F3 |     NA     |  19 |
 | sprint1_I14 |    Kevin /Moore/     |   M    | 2002-06-12 |     NA     | sprint1_F5 |     NA     |  15 |
 | sprint1_I15 |    Sydney /Moore/    |   F    | 2000-03-28 |     NA     | sprint1_F5 |     NA     |  17 |
 | sprint1_I16 |  Hannah /Campbell/   |   F    | 2006-11-16 |     NA     | sprint1_F4 |     NA     |  10 |
 | sprint1_I17 |  Peter /Winchester/  |   M    | 1998-01-25 |     NA     | sprint1_F3 |     NA     |  19 |
 | sprint1_I18 |  June /Winchester/   |   F    | 1995-08-11 |     NA     | sprint1_F3 |     NA     |  22 |
-| sprint1_I19 |   Ten /Winchester/   |   M    | 1996-11-07 |     NA     | sprint1_F3 |     NA     |  20 |
+| sprint1_I19 |   Ten /Winchester/   |   M    | 1996-11-07 |     NA     | sprint1_F3 |     NA     |  21 |
 | sprint1_I20 |  Priya /Winchester/  |   F    | 1995-10-05 |     NA     | sprint1_F3 |     NA     |  22 |
 | sprint1_I21 |  Shina /Winchester/  |   F    | 1997-02-15 |     NA     | sprint1_F3 |     NA     |  20 |
 | sprint1_I22 |  Joshu /Winchester/  |   F    | 1997-02-15 |     NA     | sprint1_F3 |     NA     |  20 |
@@ -40,9 +40,16 @@
 |   us_05_I1  |          NA          |   F    | 1991-03-10 |     NA     |  us_05_F1  |     NA     |  26 |
 |   us_05_I2  |     Jeff /Stone/     |   M    | 1965-04-25 |     NA     |     NA     |  us_05_F1  |  52 |
 |   us_05_I3  |   Rebecca /Stone/    |   F    | 1968-10-23 | 1989-09-11 |     NA     |  us_05_F1  |  49 |
+|   us_06_I1  |          NA          |   F    | 1991-03-10 |     NA     |  us_06_F1  |     NA     |  26 |
+|   us_06_I2  |     Jeff /Stone/     |   M    | 1835-04-25 |     NA     |     NA     |  us_06_F1  | 182 |
+|   us_06_I3  |   Rebecca /Stone/    |   F    | 1836-10-23 | 2010-09-11 |     NA     |  us_06_F1  | 181 |
 |   us_07_I1  |          NA          |   F    | 1991-03-10 |     NA     |  us_07_F1  |     NA     |  26 |
 |   us_07_I2  |     Jeff /Stone/     |   M    | 1835-04-25 |     NA     |     NA     |  us_07_F1  | 182 |
 |   us_07_I3  |   Rebecca /Stone/    |   F    | 1836-10-23 | 2010-09-11 |     NA     |  us_07_F1  | 181 |
+|   us_08_I1  |          NA          |   F    | 1989-03-10 |     NA     |  us_08_F1  |     NA     |  28 |
+|   us_08_I4  |          NA          |   F    | 2013-03-10 |     NA     |  us_08_F1  |     NA     |  4  |
+|   us_08_I2  |     Jeff /Stone/     |   M    | 1835-04-25 |     NA     |     NA     |  us_08_F1  | 182 |
+|   us_08_I3  |   Rebecca /Stone/    |   F    | 1836-10-23 | 2013-09-11 |     NA     |  us_08_F1  | 181 |
 |   us_13_I1  |    Matthew /Wood/    |   M    | 1945-01-05 |     NA     |     NA     |  us_13_F1  |  72 |
 |   us_13_I2  |     Mary /Wood/      |   F    | 1948-08-19 |     NA     |     NA     |  us_13_F1  |  69 |
 |   us_13_I3  |   Melissa /Jones/    |   F    | 1970-02-15 |     NA     |  us_13_F1  |     NA     |  47 |
@@ -59,7 +66,7 @@
 |   us_17_I8  |    Edward /Cole/     |   M    | 1968-04-24 | 2000-07-06 |     NA     |  us_17_F4  |  49 |
 |   us_17_I9  |     Sara /Jones/     |   F    | 1993-05-01 |     NA     |  us_17_F2  |  us_17_F6  |  24 |
 |  us_17_I10  |     Bill /Jones/     |   M    | 1995-09-15 |     NA     |  us_17_F2  |  us_17_F5  |  22 |
-|  us_17_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_17_F3  |     NA     |  20 |
+|  us_17_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_17_F3  |     NA     |  21 |
 |  us_17_I12  |     Josh /Wood/      |   M    | 1998-01-25 |     NA     |  us_17_F3  |     NA     |  19 |
 |  us_17_I13  |     Dylan /Cole/     |   M    | 1998-06-12 |     NA     |  us_17_F4  |     NA     |  19 |
 |  us_17_I14  |     Jenna /Cole/     |   F    | 2000-03-28 |     NA     |  us_17_F4  |     NA     |  17 |
@@ -73,7 +80,7 @@
 |   us_18_I8  |    Edward /Cole/     |   M    | 1968-04-24 | 2000-07-06 |     NA     |  us_18_F4  |  49 |
 |   us_18_I9  |     Sara /Jones/     |   F    | 1993-05-01 |     NA     |  us_18_F2  |     NA     |  24 |
 |  us_18_I10  |     Bill /Jones/     |   M    | 1995-09-15 |     NA     |  us_18_F2  |     NA     |  22 |
-|  us_18_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_18_F3  |  us_18_F6  |  20 |
+|  us_18_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_18_F3  |  us_18_F6  |  21 |
 |  us_18_I12  |     Josh /Wood/      |   M    | 1998-01-25 |     NA     |  us_18_F3  |     NA     |  19 |
 |  us_18_I13  |     Dylan /Cole/     |   M    | 1998-06-12 |     NA     |  us_18_F4  |     NA     |  19 |
 |  us_18_I14  |     Jenna /Cole/     |   F    | 2000-03-28 |     NA     |  us_18_F4  |     NA     |  17 |
@@ -88,7 +95,7 @@
 |   us_19_I8  |    Edward /Cole/     |   M    | 1968-04-24 | 2000-07-06 |     NA     |  us_19_F4  |  49 |
 |   us_19_I9  |     Sara /Jones/     |   F    | 1993-05-01 |     NA     |  us_19_F2  |  us_19_F5  |  24 |
 |  us_19_I10  |     Bill /Jones/     |   M    | 1995-09-15 |     NA     |  us_19_F2  |     NA     |  22 |
-|  us_19_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_19_F3  |  us_19_F5  |  20 |
+|  us_19_I11  |      Rob /Wood/      |   M    | 1996-11-07 |     NA     |  us_19_F3  |  us_19_F5  |  21 |
 |  us_19_I12  |     Josh /Wood/      |   M    | 1998-01-25 |     NA     |  us_19_F3  |     NA     |  19 |
 |  us_19_I13  |     Dylan /Cole/     |   M    | 1998-06-12 |     NA     |  us_19_F4  |  us_19_F6  |  19 |
 |  us_19_I14  |     Jenna /Cole/     |   F    | 2000-03-28 |     NA     |  us_19_F4  |     NA     |  17 |
@@ -118,7 +125,9 @@
 |  us_01_F1  | 2021-04-04 | 2051-06-21 |  us_01_I2  |    Jeff /Stone/   |  us_01_I3  |   Rebecca /Stone/    |                                                                                                                   ['us_01_I1']                                                                                                                   |
 |  us_04_F1  | 1990-04-04 | 1987-04-04 |  us_04_I2  |    Jeff /Stone/   |  us_04_I3  |   Rebecca /Stone/    |                                                                                                                   ['us_04_I1']                                                                                                                   |
 |  us_05_F1  | 1990-04-04 |     NA     |  us_05_I2  |    Jeff /Stone/   |  us_05_I3  |   Rebecca /Stone/    |                                                                                                                   ['us_05_I1']                                                                                                                   |
+|  us_06_F1  | 1990-04-04 | 2011-04-04 |  us_06_I2  |    Jeff /Stone/   |  us_06_I3  |   Rebecca /Stone/    |                                                                                                                   ['us_06_I1']                                                                                                                   |
 |  us_07_F1  | 1990-04-04 |     NA     |  us_07_I2  |    Jeff /Stone/   |  us_07_I3  |   Rebecca /Stone/    |                                                                                                                   ['us_07_I1']                                                                                                                   |
+|  us_08_F1  | 1990-04-04 | 2011-04-04 |  us_08_I2  |    Jeff /Stone/   |  us_08_I3  |   Rebecca /Stone/    |                                                                                                             ['us_08_I1', 'us_08_I4']                                                                                                             |
 |  us_13_F1  | 1968-05-02 |     NA     |  us_13_I1  |   Matthew /Wood/  |  us_13_I2  |     Mary /Wood/      |                                                                                                 ['us_13_I3', 'us_13_I4', 'us_13_I5', 'us_13_I6']                                                                                                 |
 |  us_17_F1  | 1968-05-02 |     NA     |  us_17_I1  |   Matthew /Wood/  |  us_17_I2  |     Mary /Wood/      |                                                                                                       ['us_17_I3', 'us_17_I4', 'us_17_I5']                                                                                                       |
 |  us_17_F2  | 1991-01-31 | 1998-12-27 |  us_17_I6  |    Ryan /Jones/   |  us_17_I3  |   Melissa /Jones/    |                                                                                                            ['us_17_I9', 'us_17_I10']                                                                                                             |
@@ -188,9 +197,15 @@
 |  ERROR  | INDIVIDUAL |    US01    |       Marriage day 2021-04-04 is after today       |       us_01_I3      |
 |  ERROR  | INDIVIDUAL |    US01    |       Divorce day 2051-06-21 is after today        |       us_01_I3      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_05_I3      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_06_I2      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_06_I3      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_06_I3      |
 |  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I2      |
 |  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_07_I3      |
 | ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_07_I3      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_08_I2      |
+|  ERROR  | INDIVIDUAL |    US07    |      Individual's age is more than 150 years       |       us_08_I3      |
+| ANAMOLY | INDIVIDUAL |    US29    |                  Deceased people                   |       us_08_I3      |
 | ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I3      |
 | ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I4      |
 | ANAMOLY | INDIVIDUAL |    US31    |           Single even after the age of 30          |       us_13_I5      |
@@ -235,7 +250,9 @@
 |  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_04_I2              |
 |  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_04_I3              |
 |  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_05_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_06_I2              |
 |  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_07_I2              |
+|  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_08_I2              |
 |  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_13_I1              |
 |  ERROR  | INDIVIDUAL |    US30    |                    List of wife Living married                    |              us_13_I2              |
 |  ERROR  | INDIVIDUAL |    US30    |                   List of husband Living married                  |              us_17_I1              |
@@ -300,3 +317,41 @@
 |  ERROR  |   Family   |    US37    | List of spouses and decendents of dead people within last 30 days |              us_37_I1              |
 |  ERROR  |   Family   |    US37    | List of spouses and decendents of dead people within last 30 days |      ['us_37_I3', 'us_37_I4']      |
 +---------+------------+------------+-------------------------------------------------------------------+------------------------------------+
+
+
+                                                               Error Report for Sprint4                                                               
+
++-------+-----------+------------+----------------------------------------------------------------------------------+--------------+
+|  Tag  | Concerned | User Story |                                   Description                                    | Location/ ID |
++-------+-----------+------------+----------------------------------------------------------------------------------+--------------+
+| ERROR |   family  |    US08    |       birth of child 1993-12-10 is before marriage 1994-08-08 of parents         | sprint1_I23  |
+| ERROR |   family  |    US08    |       birth of child 1993-12-10 is before marriage 1994-08-08 of parents         | sprint1_I30  |
+| ERROR |   family  |    US06    |           divorce 2051-06-21 is after death 2020-12-15 of individual             |   us_01_I2   |
+| ERROR |   family  |    US08    | birth of child 2091-03-10 is after nine months of divorce 2051-06-21 of parents  |   us_01_I1   |
+| ERROR |   family  |    US08    | birth of child 1991-03-10 is after nine months of divorce 1987-04-04 of parents  |   us_04_I1   |
+| ERROR |   family  |    US06    |           divorce 2011-04-04 is after death 2010-09-11 of individual             |   us_06_I3   |
+| ERROR |   family  |    US08    |       birth of child 1989-03-10 is before marriage 1990-04-04 of parents         |   us_08_I1   |
+| ERROR |   family  |    US08    | birth of child 2013-03-10 is after nine months of divorce 2011-04-04 of parents  |   us_08_I4   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_21_I2   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_21_I1   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I4   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I4   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_21_I5   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_21_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I6   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_21_I6   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_31_I1   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_31_I2   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_31_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_31_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_31_I4   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_31_I4   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_37_I1   |
+| ERROR |   family  |    US06    |                           marriage date not specified                            |   us_37_I2   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_37_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_37_I3   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_37_I4   |
+| ERROR |   family  |    US08    |                           marriage date not specified                            |   us_37_I4   |
++-------+-----------+------------+----------------------------------------------------------------------------------+--------------+

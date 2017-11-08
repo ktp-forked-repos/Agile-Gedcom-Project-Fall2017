@@ -458,6 +458,42 @@
  2 DATE 4 APR 1990
 0 TRLR
 0 NOTE Dhavala Manjunatha Project1 CS555
+0 @us_06_I1@ INDI
+ 1 NAMES Emilia /Stone/
+  2 GIVN Emilia
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 10 MAR 1991
+ 1 FAMC @us_06_F1@
+0 @us_06_I2@ INDI
+ 1 NAME Jeff /Stone/
+  2 GIVN Jeff
+  2 SURN Stone
+ 1 SEX M
+ 1 BIRT
+  2 DATE 25 APR 1835
+ 1 FAMS @us_06_F1@
+0 @us_06_I3@ INDI
+ 1 NAME Rebecca /Stone/
+  2 GIVN Rebecca
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 23 OCT 1836
+ 1 DEAT
+  2 DATE 11 SEP 2010
+ 1 FAMS @us_06_F1@
+0 @us_06_F1@ FAM
+ 1 HUSB @us_06_I2@
+ 1 WIFE @us_06_I3@
+ 1 CHIL @us_06_I1@
+ 1 MARR
+ 2 DATE 4 APR 1990
+ 1 DIV
+ 2 DATE 4 APR 2011
+0 TRLR
+0 NOTE Dhavala Manjunatha Project1 CS555
 0 @us_07_I1@ INDI
  1 NAMES Emilia /Stone/
   2 GIVN Emilia
@@ -490,6 +526,51 @@
  1 CHIL @us_07_I1@
  1 MARR
  2 DATE 4 APR 1990
+0 TRLR
+0 NOTE Dhavala Manjunatha Project1 CS555
+0 @us_08_I1@ INDI
+ 1 NAMES Emilia /Stone/
+  2 GIVN Emilia
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 10 MAR 1989
+ 1 FAMC @us_08_F1@
+0 @us_08_I4@ INDI
+ 1 NAMES Mila /Stone/
+  2 GIVN Mila
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 10 MAR 2013
+ 1 FAMC @us_08_F1@
+0 @us_08_I2@ INDI
+ 1 NAME Jeff /Stone/
+  2 GIVN Jeff
+  2 SURN Stone
+ 1 SEX M
+ 1 BIRT
+  2 DATE 25 APR 1835
+ 1 FAMS @us_08_F1@
+0 @us_08_I3@ INDI
+ 1 NAME Rebecca /Stone/
+  2 GIVN Rebecca
+  2 SURN Stone
+ 1 SEX F
+ 1 BIRT
+  2 DATE 23 OCT 1836
+ 1 DEAT
+  2 DATE 11 SEP 2013
+ 1 FAMS @us_08_F1@
+0 @us_08_F1@ FAM
+ 1 HUSB @us_08_I2@
+ 1 WIFE @us_08_I3@
+ 1 CHIL @us_08_I1@
+ 1 CHIL @us_08_I4@
+ 1 MARR
+ 2 DATE 4 APR 1990
+ 1 DIV
+ 2 DATE 4 APR 2011
 0 TRLR
 0 NOTE Project1 CS555
 0 @us_13_I1@ INDI
