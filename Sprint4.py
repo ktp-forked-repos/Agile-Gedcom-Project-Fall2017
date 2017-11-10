@@ -5,7 +5,7 @@ from Functions import writeTableToFile, checkDate, dates_within
 from OutputValues import OutputValues
 
 errorTable = PrettyTable()
-errorTable.field_names = ['Tag', 'Concerned', 'User Story', 'Description', 'Location/ ID']
+errorTable.field_names = ['Tag','Concerned', 'User Story', 'Description', 'Location/ ID']
 
 outputValues = OutputValues()
 outputFile = ""
