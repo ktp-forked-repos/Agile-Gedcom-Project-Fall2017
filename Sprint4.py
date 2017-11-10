@@ -121,3 +121,37 @@ def checkBirthNotAfter9MonthsDivorce_us08(family,individual):
     if checkDate(individual.birthday,family.divorce) is True:
         return True
     return dates_within(family.divorce, individual.birthday, 9, 'months')
+
+
+
+
+
+
+def List_recent_births_US35(individualList):
+    global outputValues
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US35","List of recent birth")
+    outputValues.location = []
+    
+    if individualList.birthday != 'NA':
+        birthdate = individualList.birthday
+        today = date.today().strftime("%Y-%m-%d")
+        #print today
+        
+        dateB = datetime.strptime(birthdate, "%Y-%m-%d")
+        dateT = datetime.strptime(today, "%Y-%m-%d")
+        #print dateT
+
+        
+
+        recent_birth = (dateB.day - dateT.day)
+        #today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+        #print recent_birth
+
+        
+        #Function to find did the person die withinlast 30days 
+        #if recent_birth.days < 30 and recent_birth.days > 0:
+        if (recent_birth <= timedelta(days=30) and recent_birth > timedelta(days=0)) or (recent_birth <=timedelta(days=365) and recent_birth > timedelta(days=335)):
+            print "false"
+            outputValues.location.append(individualList.ID)
+            return False
+
