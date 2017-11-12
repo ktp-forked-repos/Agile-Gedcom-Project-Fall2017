@@ -3,6 +3,7 @@ from datetime import date
 from prettytable import PrettyTable
 from Functions import writeTableToFile, checkDate, dates_within
 from OutputValues import OutputValues
+from datetime import timedelta
 
 errorTable = PrettyTable()
 errorTable.field_names = ['Tag','Concerned', 'User Story', 'Description', 'Location/ ID']
@@ -14,8 +15,12 @@ def sprint4(individualList, familyList):
     print "sprint4"
 
     for indi in individualList:
-    	pass
 
+           if list_multipe_births_US32(individualList,individualList[indi])is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+ 
+   
     for fam in familyList:
     	family = familyList[fam]
     	if (correspondingEntries_us26(family, individualList)):
@@ -35,7 +40,53 @@ def sprint4(individualList, familyList):
             if checkBirthNotAfter9MonthsDivorce_us08(family,individualList[child]) is not True:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,child])
 
+         # User Story 39
+        if List_upcoming_anniversries_US39(family) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+            
+
+    
+
     writeTableToFile(errorTable,"Sprint4")
+
+
+######################################################################################################################################################################
+def List_upcoming_anniversries_US39(familyList):
+    global outputValues
+    outputValues = OutputValues("INFORMATION", "INDIVIDUAL", "US39","Upcoming anniversaries in next 30 days ")
+    outputValues.location = []
+    
+    if familyList.marriage != 'NA':
+        marriagedate = familyList.marriage
+        today = date.today().strftime("%m-%d")
+        
+        dateB = datetime.strptime(marriagedate, "%Y-%m-%d")
+        dateT = datetime.strptime(today, "%m-%d")
+        
+        if (dateB.date().year>=1900):
+            marriage = datetime.strptime(dateB.strftime("%m-%d"),"%m-%d")
+            recent_marriage =  marriage - dateT
+            if(recent_marriage <= timedelta(days=30) and recent_marriage > timedelta(days=0)) or (recent_marriage <=timedelta(days=365) and recent_marriage > timedelta(days=335)):
+                outputValues.location.append(familyList.ID)
+                return False
+
+######################################################################################################################################################################
+def list_multipe_births_US32(individualList,individual):
+    global outputValues
+    outputValues = OutputValues("ERROR", "FAM/INDI", "US32", "Multiple births")
+    outputValues.location = []
+
+    for i in individualList:
+        individual_id = individual.ID
+        indi = individualList[i].ID   
+        
+        if individual_id != indi:
+            birth = individual.birthday
+            comp = individualList[i].birthday
+            if(str(birth) == str(comp)):
+                outputValues.location.append(individual_id)
+                return False 
 
 ######################################################################################################################################################################
 def correspondingEntries_us26(family, individualList):
