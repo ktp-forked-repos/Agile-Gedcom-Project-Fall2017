@@ -18,6 +18,7 @@ from Sprint4 import checkBirthBeforeMarriageOfParents_us08
 from Sprint4 import checkBirthNotAfter9MonthsDivorce_us08
 from Sprint4 import correspondingEntries_us26, orderSiblings_us28
 from Sprint4 import list_multipe_births_US32, List_upcoming_anniversries_US39
+from Sprint4 import List_upcoming_birthdsy_US38, List_orphans_US33
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -25,6 +26,31 @@ class TestFamily(unittest.TestCase):
     def setUp(self):
         from Individual import Individual
         self=Individual(0)
+
+
+    def test_List_orphans_US33(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'A1': Individual('A1', death='1960-12-10'),
+                 'A2': Individual('A1', death='1960-12-11'),
+                 'A3': Individual('A1', birthday='1993-12-09')}
+        list2 = {'B1': Family('B1', husband = 'A1', wife = 'A2')}
+        children =['A3']
+        for child in children:
+            list2['B1'].setChildren(child)
+        self.assertFalse(List_orphans_US33( list1, list2))
+        
+        
+    def test_List_upcoming_birthdsy_US38(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'A1': Individual('A1', birthday='1960-12-10'),
+                 'A2': Individual('A1', birthday='1960-12-11'),
+                 'A3': Individual('A1', birthday='1993-12-09')}
+        
+        self.assertFalse(List_upcoming_birthdsy_US38( list1['A1']))
+
+    
  
     def test_list_multipe_births_US32 (self):
         from Individual import Individual
