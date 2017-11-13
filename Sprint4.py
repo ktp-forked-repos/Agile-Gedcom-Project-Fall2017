@@ -19,6 +19,11 @@ def sprint4(individualList, familyList):
            if list_multipe_births_US32(individualList,individualList[indi])is not True:
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
+           if List_upcoming_birthdsy_US38(individualList[indi]) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
+
  
    
     for fam in familyList:
@@ -45,6 +50,9 @@ def sprint4(individualList, familyList):
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
             
+    if List_orphans_US33(individualList, familyList) is not True:
+            for location in outputValues.location:
+                errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])
 
     
 
@@ -174,35 +182,71 @@ def checkBirthNotAfter9MonthsDivorce_us08(family,individual):
     return dates_within(family.divorce, individual.birthday, 9, 'months')
 
 
-
-
-
-
-def List_recent_births_US35(individualList):
+######################################################################################################################################################################
+def List_upcoming_birthdsy_US38(individualList):
     global outputValues
-    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US35","List of recent birth")
+    outputValues = OutputValues("INFORMATION", "INDIVIDUAL", "US38","List_upcoming_birthdays")
     outputValues.location = []
     
     if individualList.birthday != 'NA':
         birthdate = individualList.birthday
-        today = date.today().strftime("%Y-%m-%d")
-        #print today
+        today = date.today().strftime("%m-%d")
         
         dateB = datetime.strptime(birthdate, "%Y-%m-%d")
-        dateT = datetime.strptime(today, "%Y-%m-%d")
-        #print dateT
-
+        dateT = datetime.strptime(today, "%m-%d")
         
+        if (dateB.date().year>=1900):
+            birth = datetime.strptime(dateB.strftime("%m-%d"),"%m-%d")
+            recent_birth =  birth - dateT
+            if(recent_birth <= timedelta(days=30) and recent_birth > timedelta(days=0)) or (recent_birth <=timedelta(days=365) and recent_birth > timedelta(days=335)):
+                outputValues.location.append(individualList.ID)
+                return False
+#########################################################################################################################################################################
 
-        recent_birth = (dateB.day - dateT.day)
-        #today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-        #print recent_birth
+def List_orphans_US33(individualList, familyList):
+    global outputValues
+    outputValues = OutputValues("INFORMATION", "INDIVIDUAL", "US33"," List of Orphans ")
+    outputValues.location = []
+    for x in familyList:
+            father_id = familyList[x].husband
+            mother_id = familyList[x].wife
+            child_type_check = familyList[x].children
+            #print child_type_check
+            father_death_date = None
+            mother_death_date = None
+            if type(child_type_check) is None:                                              
+                pass
+            elif(type(child_type_check) is list):
+                 for z in range(len(child_type_check)):
+                    current_child_id = child_type_check[z]
+                    for i in individualList:
+                        if(individualList[i].ID == father_id):
+                            father_death_date = individualList[i].death
+                        if(individualList[i].ID == mother_id):
+                            mother_death_date = individualList[i].death
+                        if(individualList[i].ID == current_child_id):
+                            
+                            child_id = individualList[i].ID
+                            child_age = individualList[i].age
+                            
+                            if child_age < 18 and child_age > 0:
+                                
+                                if(mother_death_date != 'NA') and (father_death_date!= 'NA'):
+                                    outputValues.location.append(child_id)
 
-        
-        #Function to find did the person die withinlast 30days 
-        #if recent_birth.days < 30 and recent_birth.days > 0:
-        if (recent_birth <= timedelta(days=30) and recent_birth > timedelta(days=0)) or (recent_birth <=timedelta(days=365) and recent_birth > timedelta(days=335)):
-            print "false"
-            outputValues.location.append(individualList.ID)
-            return False
-
+                                    
+            else:
+                for i in individualList:
+                    if(individualList[i].ID == father_id):                                   
+                        father_death_date = individualList[i].death
+                    if(individualList[i].ID== mother_id):
+                        mother_death_date = individualList[i].death
+                    if(individualList[i].ID == child_type_check):
+                        child_id1 = individualList[i].ID
+                        child_age1 = individualList[i].age   
+                        if child_age1 < 18 and child_age > 0:
+                            if(father_death_date != 'NA') and (mother_death_date!= 'NA'):
+                                outputValues.location.append(child_id1)                     
+                                            
+    return False                         
+            
