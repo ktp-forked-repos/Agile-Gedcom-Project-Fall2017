@@ -15,7 +15,7 @@ def sprint4(individualList, familyList):
     print "sprint4"
 
     for indi in individualList:
-
+            #User story 32
            if list_multipe_births_US32(individualList,individualList[indi])is not True:
             for location in outputValues.location:
                 errorTable.add_row([outputValues.tag,outputValues.concerned,outputValues.US,outputValues.description,location])

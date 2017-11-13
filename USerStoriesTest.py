@@ -17,6 +17,7 @@ from Sprint4 import checkDivorceBeforeDeath_us06
 from Sprint4 import checkBirthBeforeMarriageOfParents_us08
 from Sprint4 import checkBirthNotAfter9MonthsDivorce_us08
 from Sprint4 import correspondingEntries_us26, orderSiblings_us28
+from Sprint4 import list_multipe_births_US32, List_upcoming_anniversries_US39
 import logging
 
 class TestFamily(unittest.TestCase):
@@ -24,6 +25,24 @@ class TestFamily(unittest.TestCase):
     def setUp(self):
         from Individual import Individual
         self=Individual(0)
+ 
+    def test_list_multipe_births_US32 (self):
+        from Individual import Individual
+        list1 = {'A1': Individual('A1', birthday = '1960-03-12'),
+                 'A2': Individual('A2', birthday = '1960-03-12')}
+        self.assertFalse(list_multipe_births_US32( list1, list1['A1']))
+
+    def test_List_upcoming_anniversries_US39(self):
+        from Individual import Individual
+        from Family import Family
+        list1 = {'A1': Individual('A1', age='106'),
+                 'A2': Individual('A1', age='39')}
+
+        list2 = {'B1': Family('B1', husband = 'A1', wife = 'A2', marriage = '1960-12-03' , divorce = 'NA')}  
+
+        self.assertFalse(List_upcoming_anniversries_US39(list2['B1']))
+        
+        
 
     def test_List_large_age_difference_US34(self):
         from Individual import Individual
@@ -88,7 +107,7 @@ class TestFamily(unittest.TestCase):
 
     def test_recent_death_us36(self):
         from Individual import Individual
-        self.assertEqual (recent_deaths_us36(Individual(self,10, death = '2017-10-10')),False)
+        self.assertEqual (recent_deaths_us36(Individual(self,10, death = '2017-11-11')),False)
         self.assertFalse(recent_deaths_us36(Individual(self,10,death ='1845-10-05')))
         self.assertFalse(recent_deaths_us36(Individual(self,10,death ='2017-10-10')))
 
