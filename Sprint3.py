@@ -130,13 +130,13 @@ def Recent_surviors_US37 (individualList,familyList):
                     
                     
     #Checking the whether spouse and decedents are alive of the dead people  
-    for alive in spouse_descendants:
-        for i in individualList:
-            if alive == individualList[i].ID:
-                if individualList[i].death != "NA":
-                    outputValues.location.append(wife_id)
-                    outputValues.location.append(child_id)
-                    return False
+            for alive in spouse_descendants:
+                for i in individualList:
+                    if alive == individualList[i].ID:
+                        if individualList[i].death == "NA":
+                            outputValues.location.append(wife_id)
+                            outputValues.location.append(child_id)
+                            return False
 
     
 
