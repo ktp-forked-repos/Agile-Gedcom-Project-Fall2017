@@ -62,7 +62,7 @@ def sprint4(individualList, familyList):
 ######################################################################################################################################################################
 def List_upcoming_anniversries_US39(familyList):
     global outputValues
-    outputValues = OutputValues("INFORMATION", "INDIVIDUAL", "US39","Upcoming anniversaries in next 30 days ")
+    outputValues = OutputValues("INFORMATION", "FAMILY", "US39","Upcoming anniversaries in next 30 days ")
     outputValues.location = []
     
     if familyList.marriage != 'NA':
@@ -82,7 +82,7 @@ def List_upcoming_anniversries_US39(familyList):
 ######################################################################################################################################################################
 def list_multipe_births_US32(individualList,individual):
     global outputValues
-    outputValues = OutputValues("ERROR", "FAM/INDI", "US32", "Multiple births")
+    outputValues = OutputValues("ERROR", "INDIVIDUAL", "US32", "Multiple births")
     outputValues.location = []
 
     for i in individualList:
